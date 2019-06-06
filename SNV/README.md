@@ -13,8 +13,6 @@ These scripts are used to call and filter SNPs in single cell sequencing data an
    - BSgenome.Btaurus.UCSC.bosTau8
    - GenomicRanges
 
-
-## A. 
 # Readme SNPs
 SNP information is used to determine the ploidy of cells and to determine the parent-of-origin of genetic events.
 These scripts are used to call and filter SNPs in single cell sequencing data and in bulk WGS data.
