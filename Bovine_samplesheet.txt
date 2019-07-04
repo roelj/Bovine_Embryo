@@ -1,865 +1,865 @@
-Cell	Embryo	Stage	Group	Method	Run	Exclude	Position
-C1	E1	2-cell	0	Strand-seq	Run1	No	1
-C2	E1	2-cell	0	Strand-seq	Run1	No	2
-C3	E2	2-cell	0	Strand-seq	Run1	No	1
-C4	E2	2-cell	0	Strand-seq	Run1	No	2
-C5	NEG	2-cell	0	Strand-seq	Run1	NEG	NEG
-C6	NEG	2-cell	0	Strand-seq	Run1	NEG	NEG
-C7	E3	2-cell	0	Strand-seq	Run1	No	1
-C8	E3	2-cell	0	Strand-seq	Run1	No	2
-C9	E4	2-cell	0	Strand-seq	Run1	No	1
-C10	E4	2-cell	0	Strand-seq	Run1	No	2
-C11	E5	2-cell	0	Strand-seq	Run1	No	1
-C12	E5	2-cell	0	Strand-seq	Run1	No	2
-C13	E6	2-cell	0	Strand-seq	Run1	No	1
-C14	E6	2-cell	0	Strand-seq	Run1	No	2
-C15	E7	2-cell	0	Strand-seq	Run1	No	1
-C16	E7	2-cell	0	Strand-seq	Run1	No	2
-C17	E8	2-cell	0	Strand-seq	Run1	No	1
-C18	E8	2-cell	0	Strand-seq	Run1	No	2
-C19	E9	2-cell	0	Strand-seq	Run1	No	1
-C20	E9	2-cell	0	Strand-seq	Run1	No	2
-C21	E10	2-cell	0	Strand-seq	Run1	No	1
-C22	E10	2-cell	0	Strand-seq	Run1	No	2
-C23	E11	2-cell	0	Strand-seq	Run1	No	1
-C24	E11	2-cell	0	Strand-seq	Run1	No	2
-C25	E12	2-cell	0	Strand-seq	Run1	No	1
-C26	E12	2-cell	0	Strand-seq	Run1	No	2
-C27	E13	2-cell	0	Strand-seq	Run1	No	1
-C28	E13	2-cell	0	Strand-seq	Run1	No	2
-C29	E14	2-cell	0	Strand-seq	Run1	No	1
-C30	E14	2-cell	0	Strand-seq	Run1	No	2
-C31	E15	2-cell	0	Strand-seq	Run1	No	1
-C32	E15	2-cell	0	Strand-seq	Run1	No	2
-C33	E16	2-cell	0	Strand-seq	Run1	No	1
-C34	E16	2-cell	0	Strand-seq	Run1	No	2
-C35	E16	2-cell	0	Strand-seq	Run1	No	3
-C36	E17	2-cell	0	Strand-seq	Run1	No	1
-C37	E17	2-cell	0	Strand-seq	Run1	No	2
-C38	E17	2-cell	0	Strand-seq	Run1	No	3
-C39	E18	2-cell	0	Strand-seq	Run1	No	1
-C40	E18	2-cell	0	Strand-seq	Run1	No	2
-C41	E19	2-cell	0	Strand-seq	Run1	No	1
-C42	E19	2-cell	0	Strand-seq	Run1	No	2
-C43	E19	2-cell	0	Strand-seq	Run1	No	3
-C44	E20	2-cell	0	Strand-seq	Run1	No	1
-C45	E20	2-cell	0	Strand-seq	Run1	No	2
-C46	E21	2-cell	0	Strand-seq	Run1	No	1
-C47	E21	2-cell	0	Strand-seq	Run1	No	2
-C48	E21	2-cell	0	Strand-seq	Run1	No	1
-C49	E34	2-cell	2.5	Strand-seq	Run1	No	2
-C50	E34	2-cell	2.5	Strand-seq	Run1	No	1
-C51	E34	2-cell	2.5	Strand-seq	Run1	No	2
-C52	E35	2-cell	2.5	Strand-seq	Run1	No	1
-C53	E35	2-cell	2.5	Strand-seq	Run1	No	2
-C54	E36	2-cell	2.5	Strand-seq	Run1	No	1
-C55	E36	2-cell	2.5	Strand-seq	Run1	No	2
-C56	E37	2-cell	2.5	Strand-seq	Run1	No	1
-C57	E37	2-cell	2.5	Strand-seq	Run1	No	2
-C58	E38	2-cell	2.5	Strand-seq	Run1	No	1
-C59	E38	2-cell	2.5	Strand-seq	Run1	No	2
-C60	E39	2-cell	2.5	Strand-seq	Run1	No	1
-C61	E39	2-cell	2.5	Strand-seq	Run1	No	2
-C62	E40	2-cell	2.5	Strand-seq	Run1	No	1
-C63	E40	2-cell	2.5	Strand-seq	Run1	No	2
-C64	E41	2-cell	2.5	Strand-seq	Run1	No	1
-C65	E41	2-cell	2.5	Strand-seq	Run1	No	2
-C66	E42	2-cell	2.5	Strand-seq	Run1	No	1
-C67	E42	2-cell	2.5	Strand-seq	Run1	No	2
-C68	E43	2-cell	2.5	Strand-seq	Run1	No	1
-C69	E43	2-cell	2.5	Strand-seq	Run1	No	2
-C70	E44	2-cell	2.5	Strand-seq	Run1	No	1
-C71	E44	2-cell	2.5	Strand-seq	Run1	No	2
-C72	E45	2-cell	2.5	Strand-seq	Run1	No	1
-C73	E45	2-cell	2.5	Strand-seq	Run1	No	2
-C74	E46	2-cell	2.5	Strand-seq	Run1	No	1
-C75	E46	2-cell	2.5	Strand-seq	Run1	No	2
-C76	E46	2-cell	2.5	Strand-seq	Run1	No	1
-C77	E47	2-cell	2.5	Strand-seq	Run1	No	2
-C78	E47	2-cell	2.5	Strand-seq	Run1	No	1
-C79	E48	2-cell	2.5	Strand-seq	Run1	No	2
-C80	E48	2-cell	2.5	Strand-seq	Run1	No	1
-C81	E48	2-cell	2.5	Strand-seq	Run1	No	2
-C82	NEG	2-cell	2.5	Strand-seq	Run1	NEG	1
-C83	E49	2-cell	2.5	Strand-seq	Run1	No	2
-C84	E49	2-cell	2.5	Strand-seq	Run1	No	1
-C85	E50	2-cell	2.5	Strand-seq	Run1	No	2
-C86	E50	2-cell	2.5	Strand-seq	Run1	No	1
-C87	E51	2-cell	2.5	Strand-seq	Run1	No	2
-C88	E51	2-cell	2.5	Strand-seq	Run1	No	1
-C89	E51	2-cell	2.5	Strand-seq	Run1	No	2
-C90	E52	2-cell	2.5	Strand-seq	Run1	No	1
-C91	E52	2-cell	2.5	Strand-seq	Run1	No	2
-C92	E53	2-cell	2.5	Strand-seq	Run1	No	1
-C93	E53	2-cell	2.5	Strand-seq	Run1	No	2
-C94	E54	2-cell	2.5	Strand-seq	Run1	No	1
-C95	E54	2-cell	2.5	Strand-seq	Run1	No	2
-C96	E54	2-cell	2.5	Strand-seq	Run1	No	1
-C97	E22	2-cell	0	Strand-seq	Run2	No	2
-C98	E22	2-cell	0	Strand-seq	Run2	No	1
-C99	E23	2-cell	0	Strand-seq	Run2	No	2
-C100	E23	2-cell	0	Strand-seq	Run2	No	1
-C101	E24	2-cell	0	Strand-seq	Run2	No	2
-C102	E24	2-cell	0	Strand-seq	Run2	No	1
-C103	E25	2-cell	0	Strand-seq	Run2	No	2
-C104	E25	2-cell	0	Strand-seq	Run2	No	1
-C105	E26	2-cell	0	Strand-seq	Run2	No	2
-C106	E26	2-cell	0	Strand-seq	Run2	No	NEG
-C107	E27	2-cell	0	Strand-seq	Run2	No	1
-C108	E27	2-cell	0	Strand-seq	Run2	No	2
-C109	E28	2-cell	0	Strand-seq	Run2	No	1
-C110	E28	2-cell	0	Strand-seq	Run2	No	2
-C111	E29	2-cell	0	Strand-seq	Run2	No	1
-C112	E29	2-cell	0	Strand-seq	Run2	No	2
-C113	E30	2-cell	0	Strand-seq	Run2	No	1
-C114	E30	2-cell	0	Strand-seq	Run2	No	2
-C115	E31	2-cell	0	Strand-seq	Run2	No	1
-C116	E31	2-cell	0	Strand-seq	Run2	No	2
-C117	E32	2-cell	0	Strand-seq	Run2	No	1
-C118	E32	2-cell	0	Strand-seq	Run2	No	2
-C119	E33	2-cell	0	Strand-seq	Run2	No	1
-C120	E33	2-cell	0	Strand-seq	Run2	No	2
-C121	E55	2-cell	2.5	Strand-seq	Run2	No	1
-C122	E55	2-cell	2.5	Strand-seq	Run2	No	2
-C123	E56	2-cell	2.5	Strand-seq	Run2	No	1
-C124	E56	2-cell	2.5	Strand-seq	Run2	No	2
-C125	E57	2-cell	2.5	Strand-seq	Run2	No	1
-C126	E57	2-cell	2.5	Strand-seq	Run2	No	2
-C127	E58	2-cell	2.5	Strand-seq	Run2	No	1
-C128	E58	2-cell	2.5	Strand-seq	Run2	No	2
-C129	E59	2-cell	2.5	Strand-seq	Run2	No	1
-C130	E59	2-cell	2.5	Strand-seq	Run2	No	2
-C131	E60	2-cell	2.5	Strand-seq	Run2	No	1
-C132	E60	2-cell	2.5	Strand-seq	Run2	No	2
-C133	E61	2-cell	2.5	Strand-seq	Run2	No	1
-C134	E61	2-cell	2.5	Strand-seq	Run2	No	2
-C135	E62	2-cell	2.5	Strand-seq	Run2	No	1
-C136	E62	2-cell	2.5	Strand-seq	Run2	No	2
-C137	E63	2-cell	2.5	Strand-seq	Run2	No	1
-C138	E63	2-cell	2.5	Strand-seq	Run2	No	2
-C139	E64	2-cell	2.5	Strand-seq	Run2	No	1
-C140	E64	2-cell	2.5	Strand-seq	Run2	No	2
-C141	E65	2-cell	2.5	Strand-seq	Run2	No	1
-C142	E65	2-cell	2.5	Strand-seq	Run2	No	2
-C143	E66	2-cell	2.5	Strand-seq	Run2	No	1
-C144	E66	2-cell	2.5	Strand-seq	Run2	No	2
-C145	E67	2-cell	2.5	Strand-seq	Run2	No	1
-C146	E67	2-cell	2.5	Strand-seq	Run2	No	2
-C147	E68	2-cell	2.5	Strand-seq	Run2	No	1
-C148	E68	2-cell	2.5	Strand-seq	Run2	No	2
-C149	E69	2-cell	2.5	Strand-seq	Run2	No	1
-C150	E69	2-cell	2.5	Strand-seq	Run2	No	2
-C151	E70	2-cell	2.5	Strand-seq	Run2	No	1
-C152	E70	2-cell	2.5	Strand-seq	Run2	No	2
-C153	E71	2-cell	2.5	Strand-seq	Run2	No	1
-C154	E71	2-cell	2.5	Strand-seq	Run2	No	2
-C155	E72	2-cell	2.5	Strand-seq	Run2	No	1
-C156	E72	2-cell	2.5	Strand-seq	Run2	No	2
-C157	E73	2-cell	10	Strand-seq	Run2	No	1
-C158	E73	2-cell	10	Strand-seq	Run2	No	2
-C159	E74	2-cell	10	Strand-seq	Run2	No	1
-C160	E74	2-cell	10	Strand-seq	Run2	No	2
-C161	E75	2-cell	10	Strand-seq	Run2	No	1
-C162	E75	2-cell	10	Strand-seq	Run2	No	2
-C163	E76	2-cell	10	Strand-seq	Run2	No	1
-C164	E76	2-cell	10	Strand-seq	Run2	No	2
-C165	E77	2-cell	10	Strand-seq	Run2	No	1
-C166	E77	2-cell	10	Strand-seq	Run2	No	2
-C167	E78	2-cell	10	Strand-seq	Run2	No	1
-C168	E78	2-cell	10	Strand-seq	Run2	No	2
-C169	E79	2-cell	10	Strand-seq	Run2	No	1
-C170	E79	2-cell	10	Strand-seq	Run2	No	2
-C171	E80	2-cell	10	Strand-seq	Run2	No	1
-C172	E80	2-cell	10	Strand-seq	Run2	No	2
-C173	E81	2-cell	10	Strand-seq	Run2	No	1
-C174	E81	2-cell	10	Strand-seq	Run2	No	2
-C175	E82	2-cell	10	Strand-seq	Run2	No	1
-C176	E82	2-cell	10	Strand-seq	Run2	No	2
-C177	E83	2-cell	10	Strand-seq	Run2	No	1
-C178	E83	2-cell	10	Strand-seq	Run2	No	2
-C179	E84	2-cell	10	Strand-seq	Run2	No	1
-C180	E84	2-cell	10	Strand-seq	Run2	No	2
-C181	E85	2-cell	10	Strand-seq	Run2	No	1
-C182	E85	2-cell	10	Strand-seq	Run2	No	2
-C183	E86	2-cell	10	Strand-seq	Run2	No	1
-C184	E86	2-cell	10	Strand-seq	Run2	No	2
-C185	E87	2-cell	10	Strand-seq	Run2	No	1
-C186	E87	2-cell	10	Strand-seq	Run2	No	2
-C187	E88	2-cell	10	Strand-seq	Run2	No	1
-C188	E88	2-cell	10	Strand-seq	Run2	No	2
-C189	E89	2-cell	10	Strand-seq	Run2	No	1
-C190	E89	2-cell	10	Strand-seq	Run2	No	2
-C191	E90	2-cell	10	Strand-seq	Run2	No	1
-C192	E90	2-cell	10	Strand-seq	Run2	No	2
-C193	E91	8-cell	0	WGS	Run3A	No	1
-C194	E91	8-cell	0	WGS	Run3A	No	2
-C195	E91	8-cell	0	WGS	Run3A	No	3
-C196	E91	8-cell	0	WGS	Run3A	No	4
-C197	E91	8-cell	0	WGS	Run3A	No	5
-C198	E91	8-cell	0	WGS	Run3A	No	6
-C199	E91	8-cell	0	WGS	Run3A	No	7
-C200	E91	8-cell	0	WGS	Run3A	No	NEG
-C201	E92	8-cell	0	WGS	Run3A	No	1
-C202	E92	8-cell	0	WGS	Run3A	No	2
-C203	E92	8-cell	0	WGS	Run3A	No	3
-C204	E92	8-cell	0	WGS	Run3A	No	4
-C205	E92	8-cell	0	WGS	Run3A	No	5
-C206	E92	8-cell	0	WGS	Run3A	No	6
-C207	E92	8-cell	0	WGS	Run3A	No	7
-C208	E92	8-cell	0	WGS	Run3A	No	8
-C209	E93	8-cell	0	WGS	Run3A	No	1
-C210	E93	8-cell	0	WGS	Run3A	No	2
-C211	E93	8-cell	0	WGS	Run3A	No	3
-C212	E93	8-cell	0	WGS	Run3A	No	4
-C213	E93	8-cell	0	WGS	Run3A	No	5
-C214	E93	8-cell	0	WGS	Run3A	No	6
-C215	E93	8-cell	0	WGS	Run3A	No	7
-C216	E93	8-cell	0	WGS	Run3A	No	NEG
-C217	E93	8-cell	0	WGS	Run3A	No	1
-C218	E94	8-cell	0	WGS	Run3A	No	2
-C219	E94	8-cell	0	WGS	Run3A	No	3
-C220	E94	8-cell	0	WGS	Run3A	No	4
-C221	E94	8-cell	0	WGS	Run3A	No	5
-C222	E94	8-cell	0	WGS	Run3A	No	6
-C223	E94	8-cell	0	WGS	Run3A	No	7
-C224	E94	8-cell	0	WGS	Run3A	No	8
-C225	E94	8-cell	0	WGS	Run3A	No	1
-C226	E95	8-cell	0	WGS	Run3A	No	2
-C227	E95	8-cell	0	WGS	Run3A	No	3
-C228	E95	8-cell	0	WGS	Run3A	No	4
-C229	E95	8-cell	0	WGS	Run3A	No	5
-C230	E95	8-cell	0	WGS	Run3A	No	6
-C231	E95	8-cell	0	WGS	Run3A	No	7
-C232	E95	8-cell	0	WGS	Run3A	No	8
-C233	E95	8-cell	0	WGS	Run3A	No	1
-C234	E96	8-cell	0	WGS	Run3A	No	2
-C235	E96	8-cell	0	WGS	Run3A	No	3
-C236	E96	8-cell	0	WGS	Run3A	No	4
-C237	E96	8-cell	0	WGS	Run3A	No	5
-C238	E96	8-cell	0	WGS	Run3A	No	6
-C239	E96	8-cell	0	WGS	Run3A	No	7
-C240	E96	8-cell	0	WGS	Run3A	No	8
-C241	E97	8-cell	2.5	WGS	Run3A	No	1
-C242	E97	8-cell	2.5	WGS	Run3A	No	2
-C243	E97	8-cell	2.5	WGS	Run3A	No	3
-C244	E97	8-cell	2.5	WGS	Run3A	No	4
-C245	E97	8-cell	2.5	WGS	Run3A	No	5
-C246	E97	8-cell	2.5	WGS	Run3A	No	6
-C247	E97	8-cell	2.5	WGS	Run3A	No	7
-C248	E97	8-cell	2.5	WGS	Run3A	No	8
-C249	E98	8-cell	2.5	WGS	Run3A	No	1
-C250	E98	8-cell	2.5	WGS	Run3A	No	2
-C251	E98	8-cell	2.5	WGS	Run3A	No	3
-C252	E98	8-cell	2.5	WGS	Run3A	No	4
-C253	E98	8-cell	2.5	WGS	Run3A	No	5
-C254	E98	8-cell	2.5	WGS	Run3A	No	6
-C255	E98	8-cell	2.5	WGS	Run3A	No	7
-C256	E98	8-cell	2.5	WGS	Run3A	No	8
-C257	E99	8-cell	2.5	WGS	Run3A	No	1
-C258	E99	8-cell	2.5	WGS	Run3A	No	2
-C259	E99	8-cell	2.5	WGS	Run3A	No	3
-C260	E99	8-cell	2.5	WGS	Run3A	No	4
-C261	E99	8-cell	2.5	WGS	Run3A	No	5
-C262	E99	8-cell	2.5	WGS	Run3A	No	6
-C263	E99	8-cell	2.5	WGS	Run3A	No	7
-C264	E99	8-cell	2.5	WGS	Run3A	No	8
-C265	E100	8-cell	2.5	WGS	Run3A	No	1
-C266	E100	8-cell	2.5	WGS	Run3A	No	2
-C267	E100	8-cell	2.5	WGS	Run3A	No	3
-C268	E100	8-cell	2.5	WGS	Run3A	No	4
-C269	E100	8-cell	2.5	WGS	Run3A	No	5
-C270	E100	8-cell	2.5	WGS	Run3A	No	6
-C271	E100	8-cell	2.5	WGS	Run3A	No	7
-C272	E100	8-cell	2.5	WGS	Run3A	No	8
-C273	E101	8-cell	2.5	WGS	Run3A	No	1
-C274	E101	8-cell	2.5	WGS	Run3A	No	2
-C275	E101	8-cell	2.5	WGS	Run3A	No	3
-C276	E101	8-cell	2.5	WGS	Run3A	No	4
-C277	E101	8-cell	2.5	WGS	Run3A	No	5
-C278	E101	8-cell	2.5	WGS	Run3A	No	6
-C279	E101	8-cell	2.5	WGS	Run3A	No	7
-C280	E101	8-cell	2.5	WGS	Run3A	No	NEG
-C281	E102	8-cell	2.5	WGS	Run3A	No	POS
-C282	E102	8-cell	2.5	WGS	Run3A	No	POS
-C283	E102	8-cell	2.5	WGS	Run3A	No	POS
-C284	E102	8-cell	2.5	WGS	Run3A	No	POS
-C285	E102	8-cell	2.5	WGS	Run3A	No	POS
-C286	E102	8-cell	2.5	WGS	Run3A	No	POS
-C287	E102	8-cell	2.5	WGS	Run3A	No	POS
-C288	E102	8-cell	2.5	WGS	Run3A	No	POS
-C289	E103	8-cell	0	WGS	Run3B	No	1
-C290	E103	8-cell	0	WGS	Run3B	No	2
-C291	E103	8-cell	0	WGS	Run3B	No	3
-C292	E103	8-cell	0	WGS	Run3B	No	4
-C293	E103	8-cell	0	WGS	Run3B	No	5
-C294	E103	8-cell	0	WGS	Run3B	No	6
-C295	E103	8-cell	0	WGS	Run3B	No	7
-C296	E103	8-cell	0	WGS	Run3B	No	8
-C297	E104	8-cell	0	WGS	Run3B	No	1
-C298	E104	8-cell	0	WGS	Run3B	No	2
-C299	E104	8-cell	0	WGS	Run3B	No	3
-C300	E104	8-cell	0	WGS	Run3B	No	4
-C301	E104	8-cell	0	WGS	Run3B	No	5
-C302	E104	8-cell	0	WGS	Run3B	No	6
-C303	E104	8-cell	0	WGS	Run3B	No	7
-C304	E104	8-cell	0	WGS	Run3B	No	8
-C305	E104	8-cell	0	WGS	Run3B	No	1
-C306	E105	8-cell	0	WGS	Run3B	No	2
-C307	E105	8-cell	0	WGS	Run3B	No	3
-C308	E105	8-cell	0	WGS	Run3B	No	4
-C309	E105	8-cell	0	WGS	Run3B	No	5
-C310	E105	8-cell	0	WGS	Run3B	No	6
-C311	E105	8-cell	0	WGS	Run3B	No	7
-C312	E105	8-cell	0	WGS	Run3B	No	8
-C313	E105	8-cell	0	WGS	Run3B	No	3
-C314	E106	8-cell	0	WGS	Run3B	No	5
-C315	E106	8-cell	0	WGS	Run3B	No	4
-C316	E106	8-cell	0	WGS	Run3B	No	1
-C317	E106	8-cell	0	WGS	Run3B	No	2
-C318	E106	8-cell	0	WGS	Run3B	No	8
-C319	E106	8-cell	0	WGS	Run3B	No	6
-C320	E106	8-cell	0	WGS	Run3B	No	7
-C321	E107	8-cell	0	WGS	Run3B	No	7
-C322	E107	8-cell	0	WGS	Run3B	No	3
-C323	E107	8-cell	0	WGS	Run3B	No	5
-C324	E107	8-cell	0	WGS	Run3B	No	2
-C325	E107	8-cell	0	WGS	Run3B	No	1
-C326	E107	8-cell	0	WGS	Run3B	No	6
-C327	E107	8-cell	0	WGS	Run3B	No	4
-C328	E107	8-cell	0	WGS	Run3B	No	8
-C329	E108	8-cell	0	WGS	Run3B	No	1
-C330	E108	8-cell	0	WGS	Run3B	No	2
-C331	E108	8-cell	0	WGS	Run3B	No	3
-C332	E108	8-cell	0	WGS	Run3B	No	4
-C333	E108	8-cell	0	WGS	Run3B	No	5
-C334	E108	8-cell	0	WGS	Run3B	No	6
-C335	E108	8-cell	0	WGS	Run3B	No	7
-C336	E108	8-cell	0	WGS	Run3B	No	8
-C337	E109	8-cell	2.5	WGS	Run3B	No	3
-C338	E109	8-cell	2.5	WGS	Run3B	No	1
-C339	E109	8-cell	2.5	WGS	Run3B	No	6
-C340	E109	8-cell	2.5	WGS	Run3B	No	5
-C341	E109	8-cell	2.5	WGS	Run3B	No	8
-C342	E109	8-cell	2.5	WGS	Run3B	No	4
-C343	E109	8-cell	2.5	WGS	Run3B	No	2
-C344	E110	8-cell	2.5	WGS	Run3B	No	7
-C345	E110	8-cell	2.5	WGS	Run3B	No	9
-C346	E110	8-cell	2.5	WGS	Run3B	No	8
-C347	E110	8-cell	2.5	WGS	Run3B	No	2
-C348	E110	8-cell	2.5	WGS	Run3B	No	1
-C349	E110	8-cell	2.5	WGS	Run3B	No	7
-C350	E110	8-cell	2.5	WGS	Run3B	No	6
-C351	E111	8-cell	2.5	WGS	Run3B	No	4
-C352	E111	8-cell	2.5	WGS	Run3B	No	5
-C353	E111	8-cell	2.5	WGS	Run3B	No	3
-C354	E111	8-cell	2.5	WGS	Run3B	No	9
-C355	E111	8-cell	2.5	WGS	Run3B	No	7
-C356	E111	8-cell	2.5	WGS	Run3B	No	1
-C357	E111	8-cell	2.5	WGS	Run3B	No	6
-C358	E111	8-cell	2.5	WGS	Run3B	No	4
-C359	E111	8-cell	2.5	WGS	Run3B	No	5
-C360	E112	8-cell	2.5	WGS	Run3B	No	3
-C361	E112	8-cell	2.5	WGS	Run3B	No	2
-C362	E112	8-cell	2.5	WGS	Run3B	No	8
-C363	E112	8-cell	2.5	WGS	Run3B	No	6
-C364	E112	8-cell	2.5	WGS	Run3B	No	2
-C365	E112	8-cell	2.5	WGS	Run3B	No	4
-C366	E112	8-cell	2.5	WGS	Run3B	No	8
-C367	E112	8-cell	2.5	WGS	Run3B	No	3
-C368	E113	8-cell	2.5	WGS	Run3B	No	5
-C369	E113	8-cell	2.5	WGS	Run3B	No	1
-C370	E113	8-cell	2.5	WGS	Run3B	No	7
-C371	E113	8-cell	2.5	WGS	Run3B	No	9
-C372	E113	8-cell	2.5	WGS	Run3B	No	4
-C373	E113	8-cell	2.5	WGS	Run3B	No	6
-C374	E113	8-cell	2.5	WGS	Run3B	No	3
-C375	E113	8-cell	2.5	WGS	Run3B	No	1
-C376	E113	8-cell	2.5	WGS	Run3B	No	2
-C377	E113	8-cell	2.5	WGS	Run3B	No	5
-C378	E114	8-cell	2.5	WGS	Run3B	No	7
-C379	E114	8-cell	2.5	WGS	Run3B	No	1
-C380	E114	8-cell	2.5	WGS	Run3B	No	4
-C381	E114	8-cell	2.5	WGS	Run3B	No	5
-C382	E114	8-cell	2.5	WGS	Run3B	No	3
-C383	E114	8-cell	2.5	WGS	Run3B	No	2
-C384	E114	8-cell	2.5	WGS	Run3B	No	6
-C385	E115	8-cell	0	WGS	Run4A	No	1
-C386	E115	8-cell	0	WGS	Run4A	No	3
-C387	E115	8-cell	0	WGS	Run4A	No	4
-C388	E115	8-cell	0	WGS	Run4A	No	2
-C389	E115	8-cell	0	WGS	Run4A	No	5
-C390	E115	8-cell	0	WGS	Run4A	No	6
-C391	E115	8-cell	0	WGS	Run4A	No	7
-C392	E115	8-cell	0	WGS	Run4A	No	8
-C393	E116	8-cell	0	WGS	Run4A	No	4
-C394	E116	8-cell	0	WGS	Run4A	No	7
-C395	E116	8-cell	0	WGS	Run4A	No	8
-C396	E116	8-cell	0	WGS	Run4A	No	2
-C397	E116	8-cell	0	WGS	Run4A	No	6
-C398	E116	8-cell	0	WGS	Run4A	No	5
-C399	E116	8-cell	0	WGS	Run4A	No	3
-C400	E116	8-cell	0	WGS	Run4A	No	1
-C401	E117	8-cell	0	WGS	Run4A	No	1
-C402	E117	8-cell	0	WGS	Run4A	No	6
-C403	E117	8-cell	0	WGS	Run4A	No	2
-C404	E117	8-cell	0	WGS	Run4A	No	5
-C405	E117	8-cell	0	WGS	Run4A	No	7
-C406	E117	8-cell	0	WGS	Run4A	No	8
-C407	E117	8-cell	0	WGS	Run4A	No	3
-C408	E117	8-cell	0	WGS	Run4A	No	9
-C409	E118	8-cell	0	WGS	Run4A	No	4
-C410	E118	8-cell	0	WGS	Run4A	No	4
-C411	E118	8-cell	0	WGS	Run4A	No	5
-C412	E118	8-cell	0	WGS	Run4A	No	7
-C413	E118	8-cell	0	WGS	Run4A	No	3
-C414	E118	8-cell	0	WGS	Run4A	No	2
-C415	E118	8-cell	0	WGS	Run4A	No	6
-C416	E119	8-cell	0	WGS	Run4A	No	1
-C417	E119	8-cell	0	WGS	Run4A	No	8
-C418	E119	8-cell	0	WGS	Run4A	No	4
-C419	E119	8-cell	0	WGS	Run4A	No	7
-C420	E119	8-cell	0	WGS	Run4A	No	8
-C421	E119	8-cell	0	WGS	Run4A	No	3
-C422	E119	8-cell	0	WGS	Run4A	No	6
-C423	E119	8-cell	0	WGS	Run4A	No	5
-C424	E120	8-cell	0	WGS	Run4A	No	1
-C425	E120	8-cell	0	WGS	Run4A	No	2
-C426	E120	8-cell	0	WGS	Run4A	No	1
-C427	E120	8-cell	0	WGS	Run4A	No	6
-C428	E120	8-cell	0	WGS	Run4A	No	7
-C429	E120	8-cell	0	WGS	Run4A	No	5
-C430	E120	8-cell	0	WGS	Run4A	No	2
-C431	E120	8-cell	0	WGS	Run4A	No	3
-C432	E120	8-cell	0	WGS	Run4A	No	4
-C433	E121	8-cell	10	WGS	Run4A	No	6
-C434	E121	8-cell	10	WGS	Run4A	No	5
-C435	E121	8-cell	10	WGS	Run4A	No	1
-C436	E121	8-cell	10	WGS	Run4A	No	7
-C437	E121	8-cell	10	WGS	Run4A	No	2
-C438	E121	8-cell	10	WGS	Run4A	No	4
-C439	E121	8-cell	10	WGS	Run4A	No	3
-C440	E121	8-cell	10	WGS	Run4A	No	8
-C441	E121	8-cell	10	WGS	Run4A	No	1
-C442	E122	8-cell	10	WGS	Run4A	No	3
-C443	E122	8-cell	10	WGS	Run4A	No	6
-C444	E122	8-cell	10	WGS	Run4A	No	2
-C445	E122	8-cell	10	WGS	Run4A	No	9
-C446	E122	8-cell	10	WGS	Run4A	No	4
-C447	E122	8-cell	10	WGS	Run4A	No	5
-C448	E122	8-cell	10	WGS	Run4A	No	7
-C449	E123	8-cell	10	WGS	Run4A	No	8
-C450	E123	8-cell	10	WGS	Run4A	No	4
-C451	E123	8-cell	10	WGS	Run4A	No	8
-C452	E123	8-cell	10	WGS	Run4A	No	2
-C453	E123	8-cell	10	WGS	Run4A	No	6
-C454	E123	8-cell	10	WGS	Run4A	No	7
-C455	E123	8-cell	10	WGS	Run4A	No	3
-C456	E123	8-cell	10	WGS	Run4A	No	5
-C457	E123	8-cell	10	WGS	Run4A	No	1
-C458	E124	8-cell	10	WGS	Run4A	No	3
-C459	E124	8-cell	10	WGS	Run4A	No	6
-C460	E124	8-cell	10	WGS	Run4A	No	4
-C461	E124	8-cell	10	WGS	Run4A	No	5
-C462	E124	8-cell	10	WGS	Run4A	No	1
-C463	E124	8-cell	10	WGS	Run4A	No	7
-C464	E124	8-cell	10	WGS	Run4A	No	8
-C465	E124	8-cell	10	WGS	Run4A	No	2
-C466	E125	8-cell	10	WGS	Run4A	No	2
-C467	E125	8-cell	10	WGS	Run4A	No	4
-C468	E125	8-cell	10	WGS	Run4A	No	6
-C469	E125	8-cell	10	WGS	Run4A	No	7
-C470	E125	8-cell	10	WGS	Run4A	No	1
-C471	E125	8-cell	10	WGS	Run4A	No	3
-C472	E125	8-cell	10	WGS	Run4A	No	5
-C473	E125	8-cell	10	WGS	Run4A	No	8
-C474	E126	8-cell	10	WGS	Run4A	No	1
-C475	E126	8-cell	10	WGS	Run4A	No	6
-C476	E126	8-cell	10	WGS	Run4A	No	2
-C477	E126	8-cell	10	WGS	Run4A	No	3
-C478	E126	8-cell	10	WGS	Run4A	No	4
-C479	E126	8-cell	10	WGS	Run4A	No	5
-C480	E126	8-cell	10	WGS	Run4A	No	7
-C481	E127	8-cell	0	WGS	Run4B	No	1
-C482	E127	8-cell	0	WGS	Run4B	No	2
-C483	E127	8-cell	0	WGS	Run4B	No	3
-C484	E127	8-cell	0	WGS	Run4B	No	4
-C485	E127	8-cell	0	WGS	Run4B	No	5
-C486	E127	8-cell	0	WGS	Run4B	No	6
-C487	E127	8-cell	0	WGS	Run4B	No	7
-C488	E127	8-cell	0	WGS	Run4B	No	8
-C489	E128	8-cell	0	WGS	Run4B	No	1
-C490	E128	8-cell	0	WGS	Run4B	No	2
-C491	E128	8-cell	0	WGS	Run4B	No	3
-C492	E128	8-cell	0	WGS	Run4B	No	4
-C493	E128	8-cell	0	WGS	Run4B	No	5
-C494	E128	8-cell	0	WGS	Run4B	No	6
-C495	E128	8-cell	0	WGS	Run4B	No	7
-C496	E128	8-cell	0	WGS	Run4B	No	8
-C497	E129	8-cell	0	WGS	Run4B	No	1
-C498	E129	8-cell	0	WGS	Run4B	No	3
-C499	E129	8-cell	0	WGS	Run4B	No	4
-C500	E129	8-cell	0	WGS	Run4B	No	5
-C501	E129	8-cell	0	WGS	Run4B	No	6
-C502	E129	8-cell	0	WGS	Run4B	No	2
-C503	E129	8-cell	0	WGS	Run4B	No	7
-C504	E129	8-cell	0	WGS	Run4B	No	8
-C505	E130	8-cell	0	WGS	Run4B	No	1
-C506	E130	8-cell	0	WGS	Run4B	No	2
-C507	E130	8-cell	0	WGS	Run4B	No	3
-C508	E130	8-cell	0	WGS	Run4B	No	4
-C509	E130	8-cell	0	WGS	Run4B	No	5
-C510	E130	8-cell	0	WGS	Run4B	No	6
-C511	E130	8-cell	0	WGS	Run4B	No	7
-C512	E130	8-cell	0	WGS	Run4B	No	2
-C513	E131	8-cell	0	WGS	Run4B	No	3
-C514	E131	8-cell	0	WGS	Run4B	No	4
-C515	E131	8-cell	0	WGS	Run4B	No	5
-C516	E131	8-cell	0	WGS	Run4B	No	1
-C517	E131	8-cell	0	WGS	Run4B	No	6
-C518	E131	8-cell	0	WGS	Run4B	No	8
-C519	E131	8-cell	0	WGS	Run4B	No	7
-C520	E131	8-cell	0	WGS	Run4B	No	3
-C521	E132	8-cell	0	WGS	Run4B	No	1
-C522	E132	8-cell	0	WGS	Run4B	No	2
-C523	E132	8-cell	0	WGS	Run4B	No	3
-C524	E132	8-cell	0	WGS	Run4B	No	5
-C525	E132	8-cell	0	WGS	Run4B	No	6
-C526	E132	8-cell	0	WGS	Run4B	No	8
-C527	E132	8-cell	0	WGS	Run4B	No	7
-C528	E132	8-cell	0	WGS	Run4B	No	9
-C529	E133	8-cell	10	WGS	Run4B	No	4
-C530	E133	8-cell	10	WGS	Run4B	No	8
-C531	E133	8-cell	10	WGS	Run4B	No	1
-C532	E133	8-cell	10	WGS	Run4B	No	5
-C533	E133	8-cell	10	WGS	Run4B	No	7
-C534	E133	8-cell	10	WGS	Run4B	No	6
-C535	E133	8-cell	10	WGS	Run4B	No	2
-C536	E133	8-cell	10	WGS	Run4B	No	3
-C537	E134	8-cell	10	WGS	Run4B	No	3
-C538	E134	8-cell	10	WGS	Run4B	No	4
-C539	E134	8-cell	10	WGS	Run4B	No	1
-C540	E134	8-cell	10	WGS	Run4B	No	5
-C541	E134	8-cell	10	WGS	Run4B	No	2
-C542	E134	8-cell	10	WGS	Run4B	No	6
-C543	E134	8-cell	10	WGS	Run4B	No	7
-C544	E134	8-cell	10	WGS	Run4B	No	8
-C545	E135	8-cell	10	WGS	Run4B	No	3
-C546	E135	8-cell	10	WGS	Run4B	No	1
-C547	E135	8-cell	10	WGS	Run4B	No	4
-C548	E135	8-cell	10	WGS	Run4B	No	5
-C549	E135	8-cell	10	WGS	Run4B	No	6
-C550	E135	8-cell	10	WGS	Run4B	No	2
-C551	E135	8-cell	10	WGS	Run4B	No	7
-C552	E135	8-cell	10	WGS	Run4B	No	8
-C553	E136	8-cell	10	WGS	Run4B	No	2
-C554	E136	8-cell	10	WGS	Run4B	No	3
-C555	E136	8-cell	10	WGS	Run4B	No	4
-C556	E136	8-cell	10	WGS	Run4B	No	1
-C557	E136	8-cell	10	WGS	Run4B	No	5
-C558	E136	8-cell	10	WGS	Run4B	No	6
-C559	E136	8-cell	10	WGS	Run4B	No	7
-C560	E136	8-cell	10	WGS	Run4B	No	8
-C561	E137	8-cell	10	WGS	Run4B	No	3
-C562	E137	8-cell	10	WGS	Run4B	No	4
-C563	E137	8-cell	10	WGS	Run4B	No	3
-C564	E137	8-cell	10	WGS	Run4B	No	4
-C565	E137	8-cell	10	WGS	Run4B	No	1
-C566	E137	8-cell	10	WGS	Run4B	No	2
-C567	E137	8-cell	10	WGS	Run4B	No	7
-C568	E137	8-cell	10	WGS	Run4B	No	8
-C569	E138	8-cell	10	WGS	Run4B	No	1
-C570	E138	8-cell	10	WGS	Run4B	No	2
-C571	E138	8-cell	10	WGS	Run4B	No	3
-C572	E138	8-cell	10	WGS	Run4B	No	4
-C573	E138	8-cell	10	WGS	Run4B	No	5
-C574	E138	8-cell	10	WGS	Run4B	No	6
-C575	E138	8-cell	10	WGS	Run4B	No	7
-C576	E138	8-cell	10	WGS	Run4B	No	8
-C577	E139	8-cell	0	Strand-seq	Run5	No	3
-C578	E139	8-cell	0	Strand-seq	Run5	No	1
-C579	E139	8-cell	0	Strand-seq	Run5	No	2
-C580	E139	8-cell	0	Strand-seq	Run5	No	4
-C581	E139	8-cell	0	Strand-seq	Run5	No	8
-C582	E139	8-cell	0	Strand-seq	Run5	No	5
-C583	E139	8-cell	0	Strand-seq	Run5	No	6
-C584	NEG	8-cell	0	Strand-seq	Run5	NEG	7
-C585	E140	8-cell	0	Strand-seq	Run5	No	9
-C586	E140	8-cell	0	Strand-seq	Run5	No	5
-C587	E140	8-cell	0	Strand-seq	Run5	No	2
-C588	E140	8-cell	0	Strand-seq	Run5	No	1
-C589	E140	8-cell	0	Strand-seq	Run5	No	3
-C590	E140	8-cell	0	Strand-seq	Run5	No	6
-C591	E140	8-cell	0	Strand-seq	Run5	No	7
-C592	E140	8-cell	0	Strand-seq	Run5	No	4
-C593	E141	8-cell	0	Strand-seq	Run5	No	8
-C594	E141	8-cell	0	Strand-seq	Run5	No	1
-C595	E141	8-cell	0	Strand-seq	Run5	No	7
-C596	E141	8-cell	0	Strand-seq	Run5	No	6
-C597	E141	8-cell	0	Strand-seq	Run5	No	5
-C598	E141	8-cell	0	Strand-seq	Run5	No	4
-C599	E141	8-cell	0	Strand-seq	Run5	No	3
-C600	NEG	8-cell	0	Strand-seq	Run5	NEG	8
-C601	E142	8-cell	0	Strand-seq	Run5	No	2
-C602	E142	8-cell	0	Strand-seq	Run5	No	4
-C603	E142	8-cell	0	Strand-seq	Run5	No	3
-C604	E142	8-cell	0	Strand-seq	Run5	No	8
-C605	E142	8-cell	0	Strand-seq	Run5	No	7
-C606	E142	8-cell	0	Strand-seq	Run5	No	5
-C607	E142	8-cell	0	Strand-seq	Run5	No	1
-C608	E142	8-cell	0	Strand-seq	Run5	No	2
-C609	E143	8-cell	0	Strand-seq	Run5	No	6
-C610	E143	8-cell	0	Strand-seq	Run5	No	3
-C611	E143	8-cell	0	Strand-seq	Run5	No	4
-C612	E143	8-cell	0	Strand-seq	Run5	No	6
-C613	E143	8-cell	0	Strand-seq	Run5	No	1
-C614	E143	8-cell	0	Strand-seq	Run5	No	2
-C615	E143	8-cell	0	Strand-seq	Run5	No	5
-C616	E143	8-cell	0	Strand-seq	Run5	No	7
-C617	E144	8-cell	0	Strand-seq	Run5	No	8
-C618	E144	8-cell	0	Strand-seq	Run5	No	1
-C619	E144	8-cell	0	Strand-seq	Run5	No	2
-C620	E144	8-cell	0	Strand-seq	Run5	No	4
-C621	E144	8-cell	0	Strand-seq	Run5	No	6
-C622	E144	8-cell	0	Strand-seq	Run5	No	5
-C623	E144	8-cell	0	Strand-seq	Run5	No	7
-C624	E144	8-cell	0	Strand-seq	Run5	No	3
-C625	E145	8-cell	0	Strand-seq	Run5	No	8
-C626	E145	8-cell	0	Strand-seq	Run5	No	4
-C627	E145	8-cell	0	Strand-seq	Run5	No	2
-C628	E145	8-cell	0	Strand-seq	Run5	No	1
-C629	E145	8-cell	0	Strand-seq	Run5	No	6
-C630	E145	8-cell	0	Strand-seq	Run5	No	7
-C631	E145	8-cell	0	Strand-seq	Run5	No	5
-C632	E145	8-cell	0	Strand-seq	Run5	No	3
-C633	E146	8-cell	0	Strand-seq	Run5	No	8
-C634	E146	8-cell	0	Strand-seq	Run5	No	3
-C635	E146	8-cell	0	Strand-seq	Run5	No	7
-C636	E146	8-cell	0	Strand-seq	Run5	No	4
-C637	E146	8-cell	0	Strand-seq	Run5	No	1
-C638	E146	8-cell	0	Strand-seq	Run5	No	8
-C639	E146	8-cell	0	Strand-seq	Run5	No	2
-C640	E146	8-cell	0	Strand-seq	Run5	No	6
-C641	E147	8-cell	0	Strand-seq	Run5	No	5
-C642	E147	8-cell	0	Strand-seq	Run5	No	3
-C643	E147	8-cell	0	Strand-seq	Run5	No	4
-C644	E147	8-cell	0	Strand-seq	Run5	No	2
-C645	E147	8-cell	0	Strand-seq	Run5	No	6
-C646	E147	8-cell	0	Strand-seq	Run5	No	1
-C647	E147	8-cell	0	Strand-seq	Run5	No	5
-C648	E147	8-cell	0	Strand-seq	Run5	No	7
-C649	E148	8-cell	0	Strand-seq	Run5	No	5
-C650	E148	8-cell	0	Strand-seq	Run5	No	7
-C651	E148	8-cell	0	Strand-seq	Run5	No	2
-C652	E148	8-cell	0	Strand-seq	Run5	No	6
-C653	E148	8-cell	0	Strand-seq	Run5	No	8
-C654	E148	8-cell	0	Strand-seq	Run5	No	3
-C655	E148	8-cell	0	Strand-seq	Run5	No	4
-C656	E148	8-cell	0	Strand-seq	Run5	No	1
-C657	E149	8-cell	0	Strand-seq	Run5	No	2
-C658	E149	8-cell	0	Strand-seq	Run5	No	3
-C659	E149	8-cell	0	Strand-seq	Run5	No	5
-C660	E149	8-cell	0	Strand-seq	Run5	No	4
-C661	E149	8-cell	0	Strand-seq	Run5	No	6
-C662	E149	8-cell	0	Strand-seq	Run5	No	8
-C663	E149	8-cell	0	Strand-seq	Run5	No	1
-C664	NEG	8-cell	0	Strand-seq	Run5	NEG	7
-C665	POS	8-cell	0	Strand-seq	Run5	POS	4
-C666	POS	8-cell	0	Strand-seq	Run5	POS	1
-C667	POS	8-cell	0	Strand-seq	Run5	POS	3
-C668	POS	8-cell	0	Strand-seq	Run5	POS	7
-C669	POS	8-cell	0	Strand-seq	Run5	POS	5
-C670	POS	8-cell	0	Strand-seq	Run5	POS	8
-C671	POS	8-cell	0	Strand-seq	Run5	POS	2
-C672	POS	8-cell	0	Strand-seq	Run5	POS	6
-C673	E151	8-cell	0	Strand-seq	Run6	No	8
-C674	E151	8-cell	0	Strand-seq	Run6	No	4
-C675	E151	8-cell	0	Strand-seq	Run6	No	5
-C676	E151	8-cell	0	Strand-seq	Run6	No	2
-C677	E151	8-cell	0	Strand-seq	Run6	No	3
-C678	E151	8-cell	0	Strand-seq	Run6	No	6
-C679	E151	8-cell	0	Strand-seq	Run6	No	7
-C680	E151	8-cell	0	Strand-seq	Run6	No	1
-C681	E152	8-cell	0	Strand-seq	Run6	No	1
-C682	E152	8-cell	0	Strand-seq	Run6	No	3
-C683	E152	8-cell	0	Strand-seq	Run6	No	4
-C684	E152	8-cell	0	Strand-seq	Run6	No	5
-C685	E152	8-cell	0	Strand-seq	Run6	No	8
-C686	E152	8-cell	0	Strand-seq	Run6	No	6
-C687	E152	8-cell	0	Strand-seq	Run6	No	7
-C688	E152	8-cell	0	Strand-seq	Run6	No	2
-C689	E153	8-cell	0	Strand-seq	Run6	No	1
-C690	E153	8-cell	0	Strand-seq	Run6	No	5
-C691	E153	8-cell	0	Strand-seq	Run6	No	4
-C692	E153	8-cell	0	Strand-seq	Run6	No	3
-C693	E153	8-cell	0	Strand-seq	Run6	No	2
-C694	E153	8-cell	0	Strand-seq	Run6	No	6
-C695	E153	8-cell	0	Strand-seq	Run6	No	7
-C696	E153	8-cell	0	Strand-seq	Run6	No	8
-C697	E154	8-cell	0	Strand-seq	Run6	No	8
-C698	E154	8-cell	0	Strand-seq	Run6	No	7
-C699	E154	8-cell	0	Strand-seq	Run6	No	6
-C700	E154	8-cell	0	Strand-seq	Run6	No	5
-C701	E154	8-cell	0	Strand-seq	Run6	No	4
-C702	E154	8-cell	0	Strand-seq	Run6	No	3
-C703	E154	8-cell	0	Strand-seq	Run6	No	2
-C704	E154	8-cell	0	Strand-seq	Run6	No	1
-C705	E155	8-cell	0	Strand-seq	Run6	No	8
-C706	E155	8-cell	0	Strand-seq	Run6	No	4
-C707	E155	8-cell	0	Strand-seq	Run6	No	7
-C708	E155	8-cell	0	Strand-seq	Run6	No	3
-C709	E155	8-cell	0	Strand-seq	Run6	No	2
-C710	E155	8-cell	0	Strand-seq	Run6	No	6
-C711	E155	8-cell	0	Strand-seq	Run6	No	1
-C712	E155	8-cell	0	Strand-seq	Run6	No	5
-C713	E156	8-cell	0	Strand-seq	Run6	No	3
-C714	E156	8-cell	0	Strand-seq	Run6	No	1
-C715	E156	8-cell	0	Strand-seq	Run6	No	5
-C716	E156	8-cell	0	Strand-seq	Run6	No	8
-C717	E156	8-cell	0	Strand-seq	Run6	No	4
-C718	E156	8-cell	0	Strand-seq	Run6	No	7
-C719	E156	8-cell	0	Strand-seq	Run6	No	6
-C720	E156	8-cell	0	Strand-seq	Run6	No	2
-C721	E157	8-cell	0	Strand-seq	Run6	No	1
-C722	E157	8-cell	0	Strand-seq	Run6	No	5
-C723	E157	8-cell	0	Strand-seq	Run6	No	6
-C724	E157	8-cell	0	Strand-seq	Run6	No	3
-C725	E157	8-cell	0	Strand-seq	Run6	No	7
-C726	E157	8-cell	0	Strand-seq	Run6	No	4
-C727	E157	8-cell	0	Strand-seq	Run6	No	2
-C728	E157	8-cell	0	Strand-seq	Run6	No	2
-C729	E157	8-cell	0	Strand-seq	Run6	No	5
-C730	E158	8-cell	0	Strand-seq	Run6	No	3
-C731	E158	8-cell	0	Strand-seq	Run6	No	1
-C732	E158	8-cell	0	Strand-seq	Run6	No	6
-C733	E158	8-cell	0	Strand-seq	Run6	No	4
-C734	E158	8-cell	0	Strand-seq	Run6	No	7
-C735	E158	8-cell	0	Strand-seq	Run6	No	1
-C736	E158	8-cell	0	Strand-seq	Run6	No	6
-C737	E158	8-cell	0	Strand-seq	Run6	No	2
-C738	E158	8-cell	0	Strand-seq	Run6	No	7
-C739	E159	8-cell	0	Strand-seq	Run6	No	3
-C740	E159	8-cell	0	Strand-seq	Run6	No	9
-C741	E159	8-cell	0	Strand-seq	Run6	No	5
-C742	E159	8-cell	0	Strand-seq	Run6	No	4
-C743	E159	8-cell	0	Strand-seq	Run6	No	8
-C744	E159	8-cell	0	Strand-seq	Run6	No	1
-C745	E159	8-cell	0	Strand-seq	Run6	No	2
-C746	E159	8-cell	0	Strand-seq	Run6	No	5
-C747	E160	8-cell	0	Strand-seq	Run6	No	9
-C748	E160	8-cell	0	Strand-seq	Run6	No	6
-C749	E160	8-cell	0	Strand-seq	Run6	No	8
-C750	E160	8-cell	0	Strand-seq	Run6	No	1
-C751	E160	8-cell	0	Strand-seq	Run6	No	4
-C752	E160	8-cell	0	Strand-seq	Run6	No	7
-C753	E160	8-cell	0	Strand-seq	Run6	No	3
-C754	E160	8-cell	0	Strand-seq	Run6	No	7
-C755	E160	8-cell	0	Strand-seq	Run6	No	4
-C756	E161	8-cell	0	Strand-seq	Run6	No	9
-C757	E161	8-cell	0	Strand-seq	Run6	No	2
-C758	E161	8-cell	0	Strand-seq	Run6	No	1
-C759	E161	8-cell	0	Strand-seq	Run6	No	8
-C760	E161	8-cell	0	Strand-seq	Run6	No	5
-C761	E161	8-cell	0	Strand-seq	Run6	No	6
-C762	E161	8-cell	0	Strand-seq	Run6	No	4
-C763	E162	8-cell	0	Strand-seq	Run6	No	7
-C764	E162	8-cell	0	Strand-seq	Run6	No	6
-C765	E162	8-cell	0	Strand-seq	Run6	No	1
-C766	E162	8-cell	0	Strand-seq	Run6	No	2
-C767	E162	8-cell	0	Strand-seq	Run6	No	3
-C768	E162	8-cell	0	Strand-seq	Run6	No	5
-C769	E163	8-cell	2.5	Strand-seq	Run7	No	5
-C770	E163	8-cell	2.5	Strand-seq	Run7	No	6
-C771	E163	8-cell	2.5	Strand-seq	Run7	No	4
-C772	E163	8-cell	2.5	Strand-seq	Run7	No	3
-C773	E163	8-cell	2.5	Strand-seq	Run7	No	8
-C774	E163	8-cell	2.5	Strand-seq	Run7	No	7
-C775	E163	8-cell	2.5	Strand-seq	Run7	No	9
-C776	E163	8-cell	2.5	Strand-seq	Run7	No	2
-C777	E163	8-cell	2.5	Strand-seq	Run7	No	1
-C778	E164	8-cell	2.5	Strand-seq	Run7	No	7
-C779	E164	8-cell	2.5	Strand-seq	Run7	No	5
-C780	E164	8-cell	2.5	Strand-seq	Run7	No	3
-C781	E164	8-cell	2.5	Strand-seq	Run7	No	1
-C782	E164	8-cell	2.5	Strand-seq	Run7	No	6
-C783	E164	8-cell	2.5	Strand-seq	Run7	No	2
-C784	E164	8-cell	2.5	Strand-seq	Run7	No	4
-C785	E164	8-cell	2.5	Strand-seq	Run7	No	4
-C786	E165	8-cell	2.5	Strand-seq	Run7	No	9
-C787	E165	8-cell	2.5	Strand-seq	Run7	No	1
-C788	E165	8-cell	2.5	Strand-seq	Run7	No	5
-C789	E165	8-cell	2.5	Strand-seq	Run7	No	2
-C790	E165	8-cell	2.5	Strand-seq	Run7	No	3
-C791	E165	8-cell	2.5	Strand-seq	Run7	No	8
-C792	E165	8-cell	2.5	Strand-seq	Run7	No	6
-C793	E165	8-cell	2.5	Strand-seq	Run7	No	7
-C794	E166	8-cell	2.5	Strand-seq	Run7	No	1
-C795	E166	8-cell	2.5	Strand-seq	Run7	No	4
-C796	E166	8-cell	2.5	Strand-seq	Run7	No	2
-C797	E166	8-cell	2.5	Strand-seq	Run7	No	3
-C798	E166	8-cell	2.5	Strand-seq	Run7	No	6
-C799	E166	8-cell	2.5	Strand-seq	Run7	No	7
-C800	E166	8-cell	2.5	Strand-seq	Run7	No	8
-C801	E166	8-cell	2.5	Strand-seq	Run7	No	5
-C802	E167	8-cell	2.5	Strand-seq	Run7	No	4
-C803	E167	8-cell	2.5	Strand-seq	Run7	No	7
-C804	E167	8-cell	2.5	Strand-seq	Run7	No	8
-C805	E167	8-cell	2.5	Strand-seq	Run7	No	1
-C806	E167	8-cell	2.5	Strand-seq	Run7	No	2
-C807	E167	8-cell	2.5	Strand-seq	Run7	No	3
-C808	E167	8-cell	2.5	Strand-seq	Run7	No	5
-C809	E168	8-cell	2.5	Strand-seq	Run7	No	6
-C810	E168	8-cell	2.5	Strand-seq	Run7	No	1
-C811	E168	8-cell	2.5	Strand-seq	Run7	No	7
-C812	E168	8-cell	2.5	Strand-seq	Run7	No	6
-C813	E168	8-cell	2.5	Strand-seq	Run7	No	2
-C814	E168	8-cell	2.5	Strand-seq	Run7	No	3
-C815	E168	8-cell	2.5	Strand-seq	Run7	No	4
-C816	E168	8-cell	2.5	Strand-seq	Run7	No	5
-C817	E169	8-cell	2.5	Strand-seq	Run7	No	1
-C818	E169	8-cell	2.5	Strand-seq	Run7	No	2
-C819	E169	8-cell	2.5	Strand-seq	Run7	No	4
-C820	E169	8-cell	2.5	Strand-seq	Run7	No	6
-C821	E169	8-cell	2.5	Strand-seq	Run7	No	3
-C822	E169	8-cell	2.5	Strand-seq	Run7	No	7
-C823	E169	8-cell	2.5	Strand-seq	Run7	No	8
-C824	E169	8-cell	2.5	Strand-seq	Run7	No	5
-C825	E169	8-cell	2.5	Strand-seq	Run7	No	3
-C826	E170	8-cell	2.5	Strand-seq	Run7	No	2
-C827	E170	8-cell	2.5	Strand-seq	Run7	No	4
-C828	E170	8-cell	2.5	Strand-seq	Run7	No	6
-C829	E170	8-cell	2.5	Strand-seq	Run7	No	1
-C830	E170	8-cell	2.5	Strand-seq	Run7	No	5
-C831	E170	8-cell	2.5	Strand-seq	Run7	No	8
-C832	E170	8-cell	2.5	Strand-seq	Run7	No	7
-C833	E170	8-cell	2.5	Strand-seq	Run7	No	5
-C834	E171	8-cell	2.5	Strand-seq	Run7	No	4
-C835	E171	8-cell	2.5	Strand-seq	Run7	No	7
-C836	E171	8-cell	2.5	Strand-seq	Run7	No	6
-C837	E171	8-cell	2.5	Strand-seq	Run7	No	1
-C838	E171	8-cell	2.5	Strand-seq	Run7	No	8
-C839	E171	8-cell	2.5	Strand-seq	Run7	No	3
-C840	E171	8-cell	2.5	Strand-seq	Run7	No	2
-C841	E172	8-cell	2.5	Strand-seq	Run7	No	2
-C842	E172	8-cell	2.5	Strand-seq	Run7	No	1
-C843	E172	8-cell	2.5	Strand-seq	Run7	No	7
-C844	E172	8-cell	2.5	Strand-seq	Run7	No	6
-C845	E172	8-cell	2.5	Strand-seq	Run7	No	5
-C846	E172	8-cell	2.5	Strand-seq	Run7	No	3
-C847	E172	8-cell	2.5	Strand-seq	Run7	No	4
-C848	E172	8-cell	2.5	Strand-seq	Run7	No	8
-C849	E173	8-cell	2.5	Strand-seq	Run7	No	5
-C850	E173	8-cell	2.5	Strand-seq	Run7	No	6
-C851	E173	8-cell	2.5	Strand-seq	Run7	No	1
-C852	E173	8-cell	2.5	Strand-seq	Run7	No	2
-C853	E173	8-cell	2.5	Strand-seq	Run7	No	3
-C854	E173	8-cell	2.5	Strand-seq	Run7	No	7
-C855	E173	8-cell	2.5	Strand-seq	Run7	No	4
-C856	E173	8-cell	2.5	Strand-seq	Run7	No	8
-C857	E174	8-cell	2.5	Strand-seq	Run7	No	1
-C858	E174	8-cell	2.5	Strand-seq	Run7	No	6
-C859	E174	8-cell	2.5	Strand-seq	Run7	No	2
-C860	E174	8-cell	2.5	Strand-seq	Run7	No	4
-C861	E174	8-cell	2.5	Strand-seq	Run7	No	5
-C862	E174	8-cell	2.5	Strand-seq	Run7	No	7
-C863	E174	8-cell	2.5	Strand-seq	Run7	No	3
-C864	E174	8-cell	2.5	Strand-seq	Run7	No	8
+Cell	Embryo	Stage	Group	Method	Run	Exclude	Position	Library
+C1	E1	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_001
+C2	E1	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_002
+C3	E2	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_003
+C4	E2	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_004
+C5	NEG	2-cell	0	Strand-seq	Run1	NEG	NEG	EWK161215_I_005
+C6	NEG	2-cell	0	Strand-seq	Run1	NEG	NEG	EWK161215_I_006
+C7	E3	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_007
+C8	E3	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_008
+C9	E4	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_009
+C10	E4	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_010
+C11	E5	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_011
+C12	E5	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_012
+C13	E6	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_013
+C14	E6	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_014
+C15	E7	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_015
+C16	E7	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_016
+C17	E8	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_017
+C18	E8	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_018
+C19	E9	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_019
+C20	E9	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_020
+C21	E10	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_021
+C22	E10	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_022
+C23	E11	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_023
+C24	E11	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_024
+C25	E12	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_025
+C26	E12	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_026
+C27	E13	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_027
+C28	E13	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_028
+C29	E14	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_029
+C30	E14	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_030
+C31	E15	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_031
+C32	E15	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_032
+C33	E16	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_033
+C34	E16	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_034
+C35	E16	2-cell	0	Strand-seq	Run1	No	3	EWK161215_I_035
+C36	E17	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_036
+C37	E17	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_037
+C38	E17	2-cell	0	Strand-seq	Run1	No	3	EWK161215_I_038
+C39	E18	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_039
+C40	E18	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_040
+C41	E19	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_041
+C42	E19	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_042
+C43	E19	2-cell	0	Strand-seq	Run1	No	3	EWK161215_I_043
+C44	E20	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_044
+C45	E20	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_045
+C46	E21	2-cell	0	Strand-seq	Run1	No	1	EWK161215_I_046
+C47	E21	2-cell	0	Strand-seq	Run1	No	2	EWK161215_I_047
+C48	E21	2-cell	0	Strand-seq	Run1	No	3	EWK161215_I_048
+C49	E34	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_049
+C50	E34	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_050
+C51	E34	2-cell	2.5	Strand-seq	Run1	No	3	EWK161215_I_051
+C52	E35	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_052
+C53	E35	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_053
+C54	E36	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_054
+C55	E36	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_055
+C56	E37	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_056
+C57	E37	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_057
+C58	E38	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_058
+C59	E38	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_059
+C60	E39	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_060
+C61	E39	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_061
+C62	E40	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_062
+C63	E40	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_063
+C64	E41	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_064
+C65	E41	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_065
+C66	E42	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_066
+C67	E42	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_067
+C68	E43	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_068
+C69	E43	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_069
+C70	E44	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_070
+C71	E44	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_071
+C72	E45	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_072
+C73	E45	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_073
+C74	E46	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_074
+C75	E46	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_075
+C76	E46	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_076
+C77	E47	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_077
+C78	E47	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_078
+C79	E48	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_079
+C80	E48	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_080
+C81	E48	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_081
+C82	NEG	2-cell	2.5	Strand-seq	Run1	NEG	NEG	EWK161215_I_082
+C83	E49	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_083
+C84	E49	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_084
+C85	E50	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_085
+C86	E50	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_086
+C87	E51	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_087
+C88	E51	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_088
+C89	E51	2-cell	2.5	Strand-seq	Run1	No	3	EWK161215_I_089
+C90	E52	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_090
+C91	E52	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_091
+C92	E53	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_092
+C93	E53	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_093
+C94	E54	2-cell	2.5	Strand-seq	Run1	No	1	EWK161215_I_094
+C95	E54	2-cell	2.5	Strand-seq	Run1	No	2	EWK161215_I_095
+C96	E54	2-cell	2.5	Strand-seq	Run1	No	3	EWK161215_I_096
+C97	E22	2-cell	0	Strand-seq	Run2	No	1	EWK180118_A_001
+C98	E22	2-cell	0	Strand-seq	Run2	No	2	EWK180118_A_002
+C99	E23	2-cell	0	Strand-seq	Run2	No	1	EWK180118_A_003
+C100	E23	2-cell	0	Strand-seq	Run2	No	2	EWK180118_A_004
+C101	E24	2-cell	0	Strand-seq	Run2	No	1	EWK180118_A_005
+C102	E24	2-cell	0	Strand-seq	Run2	No	2	EWK180118_A_006
+C103	E25	2-cell	0	Strand-seq	Run2	No	1	EWK180118_A_007
+C104	E25	2-cell	0	Strand-seq	Run2	No	2	EWK180118_A_008
+C105	E26	2-cell	0	Strand-seq	Run2	No	1	EWK180118_A_009
+C106	E26	2-cell	0	Strand-seq	Run2	No	2	EWK180118_A_010
+C107	E27	2-cell	0	Strand-seq	Run2	No	1	EWK180118_A_011
+C108	E27	2-cell	0	Strand-seq	Run2	No	2	EWK180118_A_012
+C109	E28	2-cell	0	Strand-seq	Run2	No	1	EWK180118_A_013
+C110	E28	2-cell	0	Strand-seq	Run2	No	2	EWK180118_A_014
+C111	E29	2-cell	0	Strand-seq	Run2	No	1	EWK180118_A_015
+C112	E29	2-cell	0	Strand-seq	Run2	No	2	EWK180118_A_016
+C113	E30	2-cell	0	Strand-seq	Run2	No	1	EWK180118_A_017
+C114	E30	2-cell	0	Strand-seq	Run2	No	2	EWK180118_A_018
+C115	E31	2-cell	0	Strand-seq	Run2	No	1	EWK180118_A_019
+C116	E31	2-cell	0	Strand-seq	Run2	No	2	EWK180118_A_020
+C117	E32	2-cell	0	Strand-seq	Run2	No	1	EWK180118_A_021
+C118	E32	2-cell	0	Strand-seq	Run2	No	2	EWK180118_A_022
+C119	E33	2-cell	0	Strand-seq	Run2	No	1	EWK180118_A_023
+C120	E33	2-cell	0	Strand-seq	Run2	No	2	EWK180118_A_024
+C121	E55	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_025
+C122	E55	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_026
+C123	E56	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_027
+C124	E56	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_028
+C125	E57	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_029
+C126	E57	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_030
+C127	E58	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_031
+C128	E58	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_032
+C129	E59	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_033
+C130	E59	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_034
+C131	E60	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_035
+C132	E60	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_036
+C133	E61	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_037
+C134	E61	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_038
+C135	E62	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_039
+C136	E62	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_040
+C137	E63	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_041
+C138	E63	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_042
+C139	E64	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_043
+C140	E64	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_044
+C141	E65	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_045
+C142	E65	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_046
+C143	E66	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_047
+C144	E66	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_048
+C145	E67	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_049
+C146	E67	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_050
+C147	E68	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_051
+C148	E68	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_052
+C149	E69	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_053
+C150	E69	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_054
+C151	E70	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_055
+C152	E70	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_056
+C153	E71	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_057
+C154	E71	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_058
+C155	E72	2-cell	2.5	Strand-seq	Run2	No	1	EWK180118_A_059
+C156	E72	2-cell	2.5	Strand-seq	Run2	No	2	EWK180118_A_060
+C157	E73	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_061
+C158	E73	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_062
+C159	E74	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_063
+C160	E74	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_064
+C161	E75	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_065
+C162	E75	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_066
+C163	E76	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_067
+C164	E76	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_068
+C165	E77	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_069
+C166	E77	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_070
+C167	E78	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_071
+C168	E78	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_072
+C169	E79	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_073
+C170	E79	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_074
+C171	E80	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_075
+C172	E80	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_076
+C173	E81	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_077
+C174	E81	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_078
+C175	E82	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_079
+C176	E82	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_080
+C177	E83	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_081
+C178	E83	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_082
+C179	E84	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_083
+C180	E84	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_084
+C181	E85	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_085
+C182	E85	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_086
+C183	E86	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_087
+C184	E86	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_088
+C185	E87	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_089
+C186	E87	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_090
+C187	E88	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_091
+C188	E88	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_092
+C189	E89	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_093
+C190	E89	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_094
+C191	E90	2-cell	10	Strand-seq	Run2	No	1	EWK180118_A_095
+C192	E90	2-cell	10	Strand-seq	Run2	No	2	EWK180118_A_096
+C193	E91	8-cell	0	WGS	Run3A	No	1	EK171124_A_001
+C194	E91	8-cell	0	WGS	Run3A	No	3	EK171124_A_002
+C195	E91	8-cell	0	WGS	Run3A	No	4	EK171124_A_003
+C196	E91	8-cell	0	WGS	Run3A	No	2	EK171124_A_004
+C197	E91	8-cell	0	WGS	Run3A	No	5	EK171124_A_005
+C198	E91	8-cell	0	WGS	Run3A	No	6	EK171124_A_006
+C199	E91	8-cell	0	WGS	Run3A	No	7	EK171124_A_007
+C200	E91	8-cell	0	WGS	Run3A	No	8	EK171124_A_008
+C201	E92	8-cell	0	WGS	Run3A	No	4	EK171124_A_009
+C202	E92	8-cell	0	WGS	Run3A	No	7	EK171124_A_010
+C203	E92	8-cell	0	WGS	Run3A	No	8	EK171124_A_011
+C204	E92	8-cell	0	WGS	Run3A	No	2	EK171124_A_012
+C205	E92	8-cell	0	WGS	Run3A	No	6	EK171124_A_013
+C206	E92	8-cell	0	WGS	Run3A	No	5	EK171124_A_014
+C207	E92	8-cell	0	WGS	Run3A	No	3	EK171124_A_015
+C208	E92	8-cell	0	WGS	Run3A	No	1	EK171124_A_016
+C209	E93	8-cell	0	WGS	Run3A	No	1	EK171124_A_017
+C210	E93	8-cell	0	WGS	Run3A	No	6	EK171124_A_018
+C211	E93	8-cell	0	WGS	Run3A	No	2	EK171124_A_019
+C212	E93	8-cell	0	WGS	Run3A	No	5	EK171124_A_020
+C213	E93	8-cell	0	WGS	Run3A	No	7	EK171124_A_021
+C214	E93	8-cell	0	WGS	Run3A	No	8	EK171124_A_022
+C215	E93	8-cell	0	WGS	Run3A	No	3	EK171124_A_023
+C216	E93	8-cell	0	WGS	Run3A	No	9	EK171124_A_024
+C217	E93	8-cell	0	WGS	Run3A	No	4	EK171124_A_025
+C218	E94	8-cell	0	WGS	Run3A	No	4	EK171124_A_026
+C219	E94	8-cell	0	WGS	Run3A	No	5	EK171124_A_027
+C220	E94	8-cell	0	WGS	Run3A	No	7	EK171124_A_028
+C221	E94	8-cell	0	WGS	Run3A	No	3	EK171124_A_029
+C222	E94	8-cell	0	WGS	Run3A	No	2	EK171124_A_030
+C223	E94	8-cell	0	WGS	Run3A	No	6	EK171124_A_031
+C224	E94	8-cell	0	WGS	Run3A	No	1	EK171124_A_032
+C225	E94	8-cell	0	WGS	Run3A	No	8	EK171124_A_033
+C226	E95	8-cell	0	WGS	Run3A	No	4	EK171124_A_034
+C227	E95	8-cell	0	WGS	Run3A	No	7	EK171124_A_035
+C228	E95	8-cell	0	WGS	Run3A	No	8	EK171124_A_036
+C229	E95	8-cell	0	WGS	Run3A	No	3	EK171124_A_037
+C230	E95	8-cell	0	WGS	Run3A	No	6	EK171124_A_038
+C231	E95	8-cell	0	WGS	Run3A	No	5	EK171124_A_039
+C232	E95	8-cell	0	WGS	Run3A	No	1	EK171124_A_040
+C233	E95	8-cell	0	WGS	Run3A	No	2	EK171124_A_041
+C234	E96	8-cell	0	WGS	Run3A	No	1	EK171124_A_042
+C235	E96	8-cell	0	WGS	Run3A	No	6	EK171124_A_043
+C236	E96	8-cell	0	WGS	Run3A	No	7	EK171124_A_044
+C237	E96	8-cell	0	WGS	Run3A	No	5	EK171124_A_045
+C238	E96	8-cell	0	WGS	Run3A	No	2	EK171124_A_046
+C239	E96	8-cell	0	WGS	Run3A	No	3	EK171124_A_047
+C240	E96	8-cell	0	WGS	Run3A	No	4	EK171124_A_048
+C241	E97	8-cell	2.5	WGS	Run3A	No	8	EK171124_A_049
+C242	E97	8-cell	2.5	WGS	Run3A	No	4	EK171124_A_050
+C243	E97	8-cell	2.5	WGS	Run3A	No	5	EK171124_A_051
+C244	E97	8-cell	2.5	WGS	Run3A	No	2	EK171124_A_052
+C245	E97	8-cell	2.5	WGS	Run3A	No	3	EK171124_A_053
+C246	E97	8-cell	2.5	WGS	Run3A	No	6	EK171124_A_054
+C247	E97	8-cell	2.5	WGS	Run3A	No	7	EK171124_A_055
+C248	E97	8-cell	2.5	WGS	Run3A	No	1	EK171124_A_056
+C249	E98	8-cell	2.5	WGS	Run3A	No	1	EK171124_A_057
+C250	E98	8-cell	2.5	WGS	Run3A	No	3	EK171124_A_058
+C251	E98	8-cell	2.5	WGS	Run3A	No	4	EK171124_A_059
+C252	E98	8-cell	2.5	WGS	Run3A	No	5	EK171124_A_060
+C253	E98	8-cell	2.5	WGS	Run3A	No	8	EK171124_A_061
+C254	E98	8-cell	2.5	WGS	Run3A	No	6	EK171124_A_062
+C255	E98	8-cell	2.5	WGS	Run3A	No	7	EK171124_A_063
+C256	E98	8-cell	2.5	WGS	Run3A	No	2	EK171124_A_064
+C257	E99	8-cell	2.5	WGS	Run3A	No	1	EK171124_A_065
+C258	E99	8-cell	2.5	WGS	Run3A	No	5	EK171124_A_066
+C259	E99	8-cell	2.5	WGS	Run3A	No	4	EK171124_A_067
+C260	E99	8-cell	2.5	WGS	Run3A	No	3	EK171124_A_068
+C261	E99	8-cell	2.5	WGS	Run3A	No	2	EK171124_A_069
+C262	E99	8-cell	2.5	WGS	Run3A	No	6	EK171124_A_070
+C263	E99	8-cell	2.5	WGS	Run3A	No	7	EK171124_A_071
+C264	E99	8-cell	2.5	WGS	Run3A	No	8	EK171124_A_072
+C265	E100	8-cell	2.5	WGS	Run3A	No	8	EK171124_A_073
+C266	E100	8-cell	2.5	WGS	Run3A	No	7	EK171124_A_074
+C267	E100	8-cell	2.5	WGS	Run3A	No	6	EK171124_A_075
+C268	E100	8-cell	2.5	WGS	Run3A	No	5	EK171124_A_076
+C269	E100	8-cell	2.5	WGS	Run3A	No	4	EK171124_A_077
+C270	E100	8-cell	2.5	WGS	Run3A	No	3	EK171124_A_078
+C271	E100	8-cell	2.5	WGS	Run3A	No	2	EK171124_A_079
+C272	E100	8-cell	2.5	WGS	Run3A	No	1	EK171124_A_080
+C273	E101	8-cell	2.5	WGS	Run3A	No	8	EK171124_A_081
+C274	E101	8-cell	2.5	WGS	Run3A	No	4	EK171124_A_082
+C275	E101	8-cell	2.5	WGS	Run3A	No	7	EK171124_A_083
+C276	E101	8-cell	2.5	WGS	Run3A	No	3	EK171124_A_084
+C277	E101	8-cell	2.5	WGS	Run3A	No	2	EK171124_A_085
+C278	E101	8-cell	2.5	WGS	Run3A	No	6	EK171124_A_086
+C279	E101	8-cell	2.5	WGS	Run3A	No	1	EK171124_A_087
+C280	E101	8-cell	2.5	WGS	Run3A	No	5	EK171124_A_088
+C281	E102	8-cell	2.5	WGS	Run3A	No	3	EK171124_A_089
+C282	E102	8-cell	2.5	WGS	Run3A	No	1	EK171124_A_090
+C283	E102	8-cell	2.5	WGS	Run3A	No	5	EK171124_A_091
+C284	E102	8-cell	2.5	WGS	Run3A	No	8	EK171124_A_092
+C285	E102	8-cell	2.5	WGS	Run3A	No	4	EK171124_A_093
+C286	E102	8-cell	2.5	WGS	Run3A	No	7	EK171124_A_094
+C287	E102	8-cell	2.5	WGS	Run3A	No	6	EK171124_A_095
+C288	E102	8-cell	2.5	WGS	Run3A	No	2	EK171124_A_096
+C289	E103	8-cell	0	WGS	Run3B	No	6	EK171124_B_001
+C290	E103	8-cell	0	WGS	Run3B	No	5	EK171124_B_002
+C291	E103	8-cell	0	WGS	Run3B	No	1	EK171124_B_003
+C292	E103	8-cell	0	WGS	Run3B	No	7	EK171124_B_004
+C293	E103	8-cell	0	WGS	Run3B	No	2	EK171124_B_005
+C294	E103	8-cell	0	WGS	Run3B	No	4	EK171124_B_006
+C295	E103	8-cell	0	WGS	Run3B	No	3	EK171124_B_007
+C296	E103	8-cell	0	WGS	Run3B	No	8	EK171124_B_008
+C297	E104	8-cell	0	WGS	Run3B	No	1	EK171124_B_009
+C298	E104	8-cell	0	WGS	Run3B	No	3	EK171124_B_010
+C299	E104	8-cell	0	WGS	Run3B	No	6	EK171124_B_011
+C300	E104	8-cell	0	WGS	Run3B	No	2	EK171124_B_012
+C301	E104	8-cell	0	WGS	Run3B	No	9	EK171124_B_013
+C302	E104	8-cell	0	WGS	Run3B	No	4	EK171124_B_014
+C303	E104	8-cell	0	WGS	Run3B	No	5	EK171124_B_015
+C304	E104	8-cell	0	WGS	Run3B	No	7	EK171124_B_016
+C305	E104	8-cell	0	WGS	Run3B	No	8	EK171124_B_017
+C306	E105	8-cell	0	WGS	Run3B	No	4	EK171124_B_018
+C307	E105	8-cell	0	WGS	Run3B	No	8	EK171124_B_019
+C308	E105	8-cell	0	WGS	Run3B	No	2	EK171124_B_020
+C309	E105	8-cell	0	WGS	Run3B	No	6	EK171124_B_021
+C310	E105	8-cell	0	WGS	Run3B	No	7	EK171124_B_022
+C311	E105	8-cell	0	WGS	Run3B	No	3	EK171124_B_023
+C312	E105	8-cell	0	WGS	Run3B	No	5	EK171124_B_024
+C313	E105	8-cell	0	WGS	Run3B	No	1	EK171124_B_025
+C314	E106	8-cell	0	WGS	Run3B	No	3	EK171124_B_026
+C315	E106	8-cell	0	WGS	Run3B	No	6	EK171124_B_027
+C316	E106	8-cell	0	WGS	Run3B	No	4	EK171124_B_028
+C317	E106	8-cell	0	WGS	Run3B	No	5	EK171124_B_029
+C318	E106	8-cell	0	WGS	Run3B	No	1	EK171124_B_030
+C319	E106	8-cell	0	WGS	Run3B	No	7	EK171124_B_031
+C320	E106	8-cell	0	WGS	Run3B	No	8	EK171124_B_032
+C321	E107	8-cell	0	WGS	Run3B	No	2	EK171124_B_033
+C322	E107	8-cell	0	WGS	Run3B	No	2	EK171124_B_034
+C323	E107	8-cell	0	WGS	Run3B	No	4	EK171124_B_035
+C324	E107	8-cell	0	WGS	Run3B	No	6	EK171124_B_036
+C325	E107	8-cell	0	WGS	Run3B	No	7	EK171124_B_037
+C326	E107	8-cell	0	WGS	Run3B	No	1	EK171124_B_038
+C327	E107	8-cell	0	WGS	Run3B	No	3	EK171124_B_039
+C328	E107	8-cell	0	WGS	Run3B	No	5	EK171124_B_040
+C329	E108	8-cell	0	WGS	Run3B	No	8	EK171124_B_041
+C330	E108	8-cell	0	WGS	Run3B	No	1	EK171124_B_042
+C331	E108	8-cell	0	WGS	Run3B	No	6	EK171124_B_043
+C332	E108	8-cell	0	WGS	Run3B	No	2	EK171124_B_044
+C333	E108	8-cell	0	WGS	Run3B	No	3	EK171124_B_045
+C334	E108	8-cell	0	WGS	Run3B	No	4	EK171124_B_046
+C335	E108	8-cell	0	WGS	Run3B	No	5	EK171124_B_047
+C336	E108	8-cell	0	WGS	Run3B	No	7	EK171124_B_048
+C337	E109	8-cell	2.5	WGS	Run3B	No	1	EK171124_B_049
+C338	E109	8-cell	2.5	WGS	Run3B	No	5	EK171124_B_050
+C339	E109	8-cell	2.5	WGS	Run3B	No	6	EK171124_B_051
+C340	E109	8-cell	2.5	WGS	Run3B	No	3	EK171124_B_052
+C341	E109	8-cell	2.5	WGS	Run3B	No	7	EK171124_B_053
+C342	E109	8-cell	2.5	WGS	Run3B	No	4	EK171124_B_054
+C343	E109	8-cell	2.5	WGS	Run3B	No	2	EK171124_B_055
+C344	E110	8-cell	2.5	WGS	Run3B	No	2	EK171124_B_056
+C345	E110	8-cell	2.5	WGS	Run3B	No	5	EK171124_B_057
+C346	E110	8-cell	2.5	WGS	Run3B	No	3	EK171124_B_058
+C347	E110	8-cell	2.5	WGS	Run3B	No	1	EK171124_B_059
+C348	E110	8-cell	2.5	WGS	Run3B	No	6	EK171124_B_060
+C349	E110	8-cell	2.5	WGS	Run3B	No	4	EK171124_B_061
+C350	E110	8-cell	2.5	WGS	Run3B	No	7	EK171124_B_062
+C351	E111	8-cell	2.5	WGS	Run3B	No	1	EK171124_B_063
+C352	E111	8-cell	2.5	WGS	Run3B	No	6	EK171124_B_064
+C353	E111	8-cell	2.5	WGS	Run3B	No	2	EK171124_B_065
+C354	E111	8-cell	2.5	WGS	Run3B	No	7	EK171124_B_066
+C355	E111	8-cell	2.5	WGS	Run3B	No	3	EK171124_B_067
+C356	E111	8-cell	2.5	WGS	Run3B	No	9	EK171124_B_068
+C357	E111	8-cell	2.5	WGS	Run3B	No	5	EK171124_B_069
+C358	E111	8-cell	2.5	WGS	Run3B	No	4	EK171124_B_070
+C359	E111	8-cell	2.5	WGS	Run3B	No	8	EK171124_B_071
+C360	E112	8-cell	2.5	WGS	Run3B	No	1	EK171124_B_072
+C361	E112	8-cell	2.5	WGS	Run3B	No	2	EK171124_B_073
+C362	E112	8-cell	2.5	WGS	Run3B	No	5	EK171124_B_074
+C363	E112	8-cell	2.5	WGS	Run3B	No	9	EK171124_B_075
+C364	E112	8-cell	2.5	WGS	Run3B	No	6	EK171124_B_076
+C365	E112	8-cell	2.5	WGS	Run3B	No	8	EK171124_B_077
+C366	E112	8-cell	2.5	WGS	Run3B	No	1	EK171124_B_078
+C367	E112	8-cell	2.5	WGS	Run3B	No	4	EK171124_B_079
+C368	E113	8-cell	2.5	WGS	Run3B	No	7	EK171124_B_080
+C369	E113	8-cell	2.5	WGS	Run3B	No	3	EK171124_B_081
+C370	E113	8-cell	2.5	WGS	Run3B	No	7	EK171124_B_082
+C371	E113	8-cell	2.5	WGS	Run3B	No	4	EK171124_B_083
+C372	E113	8-cell	2.5	WGS	Run3B	No	9	EK171124_B_084
+C373	E113	8-cell	2.5	WGS	Run3B	No	2	EK171124_B_085
+C374	E113	8-cell	2.5	WGS	Run3B	No	1	EK171124_B_086
+C375	E113	8-cell	2.5	WGS	Run3B	No	8	EK171124_B_087
+C376	E113	8-cell	2.5	WGS	Run3B	No	5	EK171124_B_088
+C377	E113	8-cell	2.5	WGS	Run3B	No	6	EK171124_B_089
+C378	E114	8-cell	2.5	WGS	Run3B	No	4	EK171124_B_090
+C379	E114	8-cell	2.5	WGS	Run3B	No	7	EK171124_B_091
+C380	E114	8-cell	2.5	WGS	Run3B	No	6	EK171124_B_092
+C381	E114	8-cell	2.5	WGS	Run3B	No	1	EK171124_B_093
+C382	E114	8-cell	2.5	WGS	Run3B	No	2	EK171124_B_094
+C383	E114	8-cell	2.5	WGS	Run3B	No	3	EK171124_B_095
+C384	E114	8-cell	2.5	WGS	Run3B	No	5	EK171124_B_096
+C385	E115	8-cell	0	WGS	Run4A	No	1	EWK180601_A_001
+C386	E115	8-cell	0	WGS	Run4A	No	2	EWK180601_A_002
+C387	E115	8-cell	0	WGS	Run4A	No	3	EWK180601_A_003
+C388	E115	8-cell	0	WGS	Run4A	No	4	EWK180601_A_004
+C389	E115	8-cell	0	WGS	Run4A	No	5	EWK180601_A_005
+C390	E115	8-cell	0	WGS	Run4A	No	6	EWK180601_A_006
+C391	E115	8-cell	0	WGS	Run4A	No	7	EWK180601_A_007
+C392	E115	8-cell	0	WGS	Run4A	No	8	EWK180601_A_008
+C393	E116	8-cell	0	WGS	Run4A	No	1	EWK180601_A_009
+C394	E116	8-cell	0	WGS	Run4A	No	2	EWK180601_A_010
+C395	E116	8-cell	0	WGS	Run4A	No	3	EWK180601_A_011
+C396	E116	8-cell	0	WGS	Run4A	No	4	EWK180601_A_012
+C397	E116	8-cell	0	WGS	Run4A	No	5	EWK180601_A_013
+C398	E116	8-cell	0	WGS	Run4A	No	6	EWK180601_A_014
+C399	E116	8-cell	0	WGS	Run4A	No	7	EWK180601_A_015
+C400	E116	8-cell	0	WGS	Run4A	No	8	EWK180601_A_016
+C401	E117	8-cell	0	WGS	Run4A	No	1	EWK180601_A_017
+C402	E117	8-cell	0	WGS	Run4A	No	3	EWK180601_A_018
+C403	E117	8-cell	0	WGS	Run4A	No	4	EWK180601_A_019
+C404	E117	8-cell	0	WGS	Run4A	No	5	EWK180601_A_020
+C405	E117	8-cell	0	WGS	Run4A	No	6	EWK180601_A_021
+C406	E117	8-cell	0	WGS	Run4A	No	2	EWK180601_A_022
+C407	E117	8-cell	0	WGS	Run4A	No	7	EWK180601_A_023
+C408	E117	8-cell	0	WGS	Run4A	No	8	EWK180601_A_024
+C409	E118	8-cell	0	WGS	Run4A	No	1	EWK180601_A_025
+C410	E118	8-cell	0	WGS	Run4A	No	2	EWK180601_A_026
+C411	E118	8-cell	0	WGS	Run4A	No	3	EWK180601_A_027
+C412	E118	8-cell	0	WGS	Run4A	No	4	EWK180601_A_028
+C413	E118	8-cell	0	WGS	Run4A	No	5	EWK180601_A_029
+C414	E118	8-cell	0	WGS	Run4A	No	6	EWK180601_A_030
+C415	E118	8-cell	0	WGS	Run4A	No	7	EWK180601_A_031
+C416	E119	8-cell	0	WGS	Run4A	No	2	EWK180601_A_032
+C417	E119	8-cell	0	WGS	Run4A	No	3	EWK180601_A_033
+C418	E119	8-cell	0	WGS	Run4A	No	4	EWK180601_A_034
+C419	E119	8-cell	0	WGS	Run4A	No	5	EWK180601_A_035
+C420	E119	8-cell	0	WGS	Run4A	No	1	EWK180601_A_036
+C421	E119	8-cell	0	WGS	Run4A	No	6	EWK180601_A_037
+C422	E119	8-cell	0	WGS	Run4A	No	8	EWK180601_A_038
+C423	E119	8-cell	0	WGS	Run4A	No	7	EWK180601_A_039
+C424	E120	8-cell	0	WGS	Run4A	No	3	EWK180601_A_040
+C425	E120	8-cell	0	WGS	Run4A	No	1	EWK180601_A_041
+C426	E120	8-cell	0	WGS	Run4A	No	2	EWK180601_A_042
+C427	E120	8-cell	0	WGS	Run4A	No	3	EWK180601_A_043
+C428	E120	8-cell	0	WGS	Run4A	No	5	EWK180601_A_044
+C429	E120	8-cell	0	WGS	Run4A	No	6	EWK180601_A_045
+C430	E120	8-cell	0	WGS	Run4A	No	8	EWK180601_A_046
+C431	E120	8-cell	0	WGS	Run4A	No	7	EWK180601_A_047
+C432	E120	8-cell	0	WGS	Run4A	No	9	EWK180601_A_048
+C433	E121	8-cell	10	WGS	Run4A	No	5	EWK180601_A_049
+C434	E121	8-cell	10	WGS	Run4A	No	6	EWK180601_A_050
+C435	E121	8-cell	10	WGS	Run4A	No	4	EWK180601_A_051
+C436	E121	8-cell	10	WGS	Run4A	No	3	EWK180601_A_052
+C437	E121	8-cell	10	WGS	Run4A	No	8	EWK180601_A_053
+C438	E121	8-cell	10	WGS	Run4A	No	7	EWK180601_A_054
+C439	E121	8-cell	10	WGS	Run4A	No	9	EWK180601_A_055
+C440	E121	8-cell	10	WGS	Run4A	No	2	EWK180601_A_056
+C441	E121	8-cell	10	WGS	Run4A	No	1	EWK180601_A_057
+C442	E122	8-cell	10	WGS	Run4A	No	7	EWK180601_A_058
+C443	E122	8-cell	10	WGS	Run4A	No	5	EWK180601_A_059
+C444	E122	8-cell	10	WGS	Run4A	No	3	EWK180601_A_060
+C445	E122	8-cell	10	WGS	Run4A	No	1	EWK180601_A_061
+C446	E122	8-cell	10	WGS	Run4A	No	6	EWK180601_A_062
+C447	E122	8-cell	10	WGS	Run4A	No	2	EWK180601_A_063
+C448	E122	8-cell	10	WGS	Run4A	No	4	EWK180601_A_064
+C449	E123	8-cell	10	WGS	Run4A	No	4	EWK180601_A_065
+C450	E123	8-cell	10	WGS	Run4A	No	9	EWK180601_A_066
+C451	E123	8-cell	10	WGS	Run4A	No	1	EWK180601_A_067
+C452	E123	8-cell	10	WGS	Run4A	No	5	EWK180601_A_068
+C453	E123	8-cell	10	WGS	Run4A	No	2	EWK180601_A_069
+C454	E123	8-cell	10	WGS	Run4A	No	3	EWK180601_A_070
+C455	E123	8-cell	10	WGS	Run4A	No	8	EWK180601_A_071
+C456	E123	8-cell	10	WGS	Run4A	No	6	EWK180601_A_072
+C457	E123	8-cell	10	WGS	Run4A	No	7	EWK180601_A_073
+C458	E124	8-cell	10	WGS	Run4A	No	1	EWK180601_A_074
+C459	E124	8-cell	10	WGS	Run4A	No	4	EWK180601_A_075
+C460	E124	8-cell	10	WGS	Run4A	No	2	EWK180601_A_076
+C461	E124	8-cell	10	WGS	Run4A	No	3	EWK180601_A_077
+C462	E124	8-cell	10	WGS	Run4A	No	6	EWK180601_A_078
+C463	E124	8-cell	10	WGS	Run4A	No	7	EWK180601_A_079
+C464	E124	8-cell	10	WGS	Run4A	No	8	EWK180601_A_080
+C465	E124	8-cell	10	WGS	Run4A	No	5	EWK180601_A_081
+C466	E125	8-cell	10	WGS	Run4A	No	4	EWK180601_A_082
+C467	E125	8-cell	10	WGS	Run4A	No	7	EWK180601_A_083
+C468	E125	8-cell	10	WGS	Run4A	No	8	EWK180601_A_084
+C469	E125	8-cell	10	WGS	Run4A	No	1	EWK180601_A_085
+C470	E125	8-cell	10	WGS	Run4A	No	2	EWK180601_A_086
+C471	E125	8-cell	10	WGS	Run4A	No	3	EWK180601_A_087
+C472	E125	8-cell	10	WGS	Run4A	No	5	EWK180601_A_088
+C473	E125	8-cell	10	WGS	Run4A	No	6	EWK180601_A_089
+C474	E126	8-cell	10	WGS	Run4A	No	1	EWK180601_A_090
+C475	E126	8-cell	10	WGS	Run4A	No	7	EWK180601_A_091
+C476	E126	8-cell	10	WGS	Run4A	No	6	EWK180601_A_092
+C477	E126	8-cell	10	WGS	Run4A	No	2	EWK180601_A_093
+C478	E126	8-cell	10	WGS	Run4A	No	3	EWK180601_A_094
+C479	E126	8-cell	10	WGS	Run4A	No	4	EWK180601_A_095
+C480	E126	8-cell	10	WGS	Run4A	No	5	EWK180601_A_096
+C481	E127	8-cell	0	WGS	Run4B	No	4	EWK180601_B_001
+C482	E127	8-cell	0	WGS	Run4B	No	8	EWK180601_B_002
+C483	E127	8-cell	0	WGS	Run4B	No	1	EWK180601_B_003
+C484	E127	8-cell	0	WGS	Run4B	No	5	EWK180601_B_004
+C485	E127	8-cell	0	WGS	Run4B	No	7	EWK180601_B_005
+C486	E127	8-cell	0	WGS	Run4B	No	6	EWK180601_B_006
+C487	E127	8-cell	0	WGS	Run4B	No	2	EWK180601_B_007
+C488	E127	8-cell	0	WGS	Run4B	No	3	EWK180601_B_008
+C489	E128	8-cell	0	WGS	Run4B	No	3	EWK180601_B_009
+C490	E128	8-cell	0	WGS	Run4B	No	4	EWK180601_B_010
+C491	E128	8-cell	0	WGS	Run4B	No	1	EWK180601_B_011
+C492	E128	8-cell	0	WGS	Run4B	No	5	EWK180601_B_012
+C493	E128	8-cell	0	WGS	Run4B	No	2	EWK180601_B_013
+C494	E128	8-cell	0	WGS	Run4B	No	6	EWK180601_B_014
+C495	E128	8-cell	0	WGS	Run4B	No	7	EWK180601_B_015
+C496	E128	8-cell	0	WGS	Run4B	No	8	EWK180601_B_016
+C497	E129	8-cell	0	WGS	Run4B	No	3	EWK180601_B_017
+C498	E129	8-cell	0	WGS	Run4B	No	1	EWK180601_B_018
+C499	E129	8-cell	0	WGS	Run4B	No	4	EWK180601_B_019
+C500	E129	8-cell	0	WGS	Run4B	No	5	EWK180601_B_020
+C501	E129	8-cell	0	WGS	Run4B	No	6	EWK180601_B_021
+C502	E129	8-cell	0	WGS	Run4B	No	2	EWK180601_B_022
+C503	E129	8-cell	0	WGS	Run4B	No	7	EWK180601_B_023
+C504	E129	8-cell	0	WGS	Run4B	No	8	EWK180601_B_024
+C505	E130	8-cell	0	WGS	Run4B	No	2	EWK180601_B_025
+C506	E130	8-cell	0	WGS	Run4B	No	3	EWK180601_B_026
+C507	E130	8-cell	0	WGS	Run4B	No	4	EWK180601_B_027
+C508	E130	8-cell	0	WGS	Run4B	No	1	EWK180601_B_028
+C509	E130	8-cell	0	WGS	Run4B	No	5	EWK180601_B_029
+C510	E130	8-cell	0	WGS	Run4B	No	6	EWK180601_B_030
+C511	E130	8-cell	0	WGS	Run4B	No	7	EWK180601_B_031
+C512	E130	8-cell	0	WGS	Run4B	No	8	EWK180601_B_032
+C513	E131	8-cell	0	WGS	Run4B	No	3	EWK180601_B_033
+C514	E131	8-cell	0	WGS	Run4B	No	4	EWK180601_B_034
+C515	E131	8-cell	0	WGS	Run4B	No	3	EWK180601_B_035
+C516	E131	8-cell	0	WGS	Run4B	No	4	EWK180601_B_036
+C517	E131	8-cell	0	WGS	Run4B	No	1	EWK180601_B_037
+C518	E131	8-cell	0	WGS	Run4B	No	2	EWK180601_B_038
+C519	E131	8-cell	0	WGS	Run4B	No	7	EWK180601_B_039
+C520	E131	8-cell	0	WGS	Run4B	No	8	EWK180601_B_040
+C521	E132	8-cell	0	WGS	Run4B	No	1	EWK180601_B_041
+C522	E132	8-cell	0	WGS	Run4B	No	2	EWK180601_B_042
+C523	E132	8-cell	0	WGS	Run4B	No	3	EWK180601_B_043
+C524	E132	8-cell	0	WGS	Run4B	No	4	EWK180601_B_044
+C525	E132	8-cell	0	WGS	Run4B	No	5	EWK180601_B_045
+C526	E132	8-cell	0	WGS	Run4B	No	6	EWK180601_B_046
+C527	E132	8-cell	0	WGS	Run4B	No	7	EWK180601_B_047
+C528	E132	8-cell	0	WGS	Run4B	No	8	EWK180601_B_048
+C529	E133	8-cell	10	WGS	Run4B	No	1	EWK180601_B_049
+C530	E133	8-cell	10	WGS	Run4B	No	2	EWK180601_B_050
+C531	E133	8-cell	10	WGS	Run4B	No	4	EWK180601_B_051
+C532	E133	8-cell	10	WGS	Run4B	No	6	EWK180601_B_052
+C533	E133	8-cell	10	WGS	Run4B	No	3	EWK180601_B_053
+C534	E133	8-cell	10	WGS	Run4B	No	7	EWK180601_B_054
+C535	E133	8-cell	10	WGS	Run4B	No	8	EWK180601_B_055
+C536	E133	8-cell	10	WGS	Run4B	No	5	EWK180601_B_056
+C537	E134	8-cell	10	WGS	Run4B	No	3	EWK180601_B_057
+C538	E134	8-cell	10	WGS	Run4B	No	2	EWK180601_B_058
+C539	E134	8-cell	10	WGS	Run4B	No	4	EWK180601_B_059
+C540	E134	8-cell	10	WGS	Run4B	No	6	EWK180601_B_060
+C541	E134	8-cell	10	WGS	Run4B	No	1	EWK180601_B_061
+C542	E134	8-cell	10	WGS	Run4B	No	5	EWK180601_B_062
+C543	E134	8-cell	10	WGS	Run4B	No	8	EWK180601_B_063
+C544	E134	8-cell	10	WGS	Run4B	No	7	EWK180601_B_064
+C545	E135	8-cell	10	WGS	Run4B	No	5	EWK180601_B_065
+C546	E135	8-cell	10	WGS	Run4B	No	4	EWK180601_B_066
+C547	E135	8-cell	10	WGS	Run4B	No	7	EWK180601_B_067
+C548	E135	8-cell	10	WGS	Run4B	No	6	EWK180601_B_068
+C549	E135	8-cell	10	WGS	Run4B	No	1	EWK180601_B_069
+C550	E135	8-cell	10	WGS	Run4B	No	8	EWK180601_B_070
+C551	E135	8-cell	10	WGS	Run4B	No	3	EWK180601_B_071
+C552	E135	8-cell	10	WGS	Run4B	No	2	EWK180601_B_072
+C553	E136	8-cell	10	WGS	Run4B	No	2	EWK180601_B_073
+C554	E136	8-cell	10	WGS	Run4B	No	1	EWK180601_B_074
+C555	E136	8-cell	10	WGS	Run4B	No	7	EWK180601_B_075
+C556	E136	8-cell	10	WGS	Run4B	No	6	EWK180601_B_076
+C557	E136	8-cell	10	WGS	Run4B	No	5	EWK180601_B_077
+C558	E136	8-cell	10	WGS	Run4B	No	3	EWK180601_B_078
+C559	E136	8-cell	10	WGS	Run4B	No	4	EWK180601_B_079
+C560	E136	8-cell	10	WGS	Run4B	No	8	EWK180601_B_080
+C561	E137	8-cell	10	WGS	Run4B	No	5	EWK180601_B_081
+C562	E137	8-cell	10	WGS	Run4B	No	6	EWK180601_B_082
+C563	E137	8-cell	10	WGS	Run4B	No	1	EWK180601_B_083
+C564	E137	8-cell	10	WGS	Run4B	No	2	EWK180601_B_084
+C565	E137	8-cell	10	WGS	Run4B	No	3	EWK180601_B_085
+C566	E137	8-cell	10	WGS	Run4B	No	7	EWK180601_B_086
+C567	E137	8-cell	10	WGS	Run4B	No	4	EWK180601_B_087
+C568	E137	8-cell	10	WGS	Run4B	No	8	EWK180601_B_088
+C569	E138	8-cell	10	WGS	Run4B	No	1	EWK180601_B_089
+C570	E138	8-cell	10	WGS	Run4B	No	6	EWK180601_B_090
+C571	E138	8-cell	10	WGS	Run4B	No	2	EWK180601_B_091
+C572	E138	8-cell	10	WGS	Run4B	No	4	EWK180601_B_092
+C573	E138	8-cell	10	WGS	Run4B	No	5	EWK180601_B_093
+C574	E138	8-cell	10	WGS	Run4B	No	7	EWK180601_B_094
+C575	E138	8-cell	10	WGS	Run4B	No	3	EWK180601_B_095
+C576	E138	8-cell	10	WGS	Run4B	No	8	EWK180601_B_096
+C577	E139	8-cell	0	Strand-seq	Run5	No	1	EWK160108_001
+C578	E139	8-cell	0	Strand-seq	Run5	No	2	EWK160108_013
+C579	E139	8-cell	0	Strand-seq	Run5	No	3	EWK160108_025
+C580	E139	8-cell	0	Strand-seq	Run5	No	4	EWK160108_037
+C581	E139	8-cell	0	Strand-seq	Run5	No	5	EWK160108_049
+C582	E139	8-cell	0	Strand-seq	Run5	No	6	EWK160108_061
+C583	E139	8-cell	0	Strand-seq	Run5	No	7	EWK160108_073
+C584	NEG	8-cell	0	Strand-seq	Run5	NEG	NEG	EWK160108_085
+C585	E140	8-cell	0	Strand-seq	Run5	No	1	EWK160108_002
+C586	E140	8-cell	0	Strand-seq	Run5	No	2	EWK160108_014
+C587	E140	8-cell	0	Strand-seq	Run5	No	3	EWK160108_026
+C588	E140	8-cell	0	Strand-seq	Run5	No	4	EWK160108_038
+C589	E140	8-cell	0	Strand-seq	Run5	No	5	EWK160108_050
+C590	E140	8-cell	0	Strand-seq	Run5	No	6	EWK160108_062
+C591	E140	8-cell	0	Strand-seq	Run5	No	7	EWK160108_074
+C592	E140	8-cell	0	Strand-seq	Run5	No	8	EWK160108_086
+C593	E141	8-cell	0	Strand-seq	Run5	No	1	EWK160108_003
+C594	E141	8-cell	0	Strand-seq	Run5	No	2	EWK160108_015
+C595	E141	8-cell	0	Strand-seq	Run5	No	3	EWK160108_027
+C596	E141	8-cell	0	Strand-seq	Run5	No	4	EWK160108_039
+C597	E141	8-cell	0	Strand-seq	Run5	No	5	EWK160108_051
+C598	E141	8-cell	0	Strand-seq	Run5	No	6	EWK160108_063
+C599	E141	8-cell	0	Strand-seq	Run5	No	7	EWK160108_075
+C600	NEG	8-cell	0	Strand-seq	Run5	NEG	NEG	EWK160108_087
+C601	E142	8-cell	0	Strand-seq	Run5	No	1	EWK160108_004
+C602	E142	8-cell	0	Strand-seq	Run5	No	2	EWK160108_016
+C603	E142	8-cell	0	Strand-seq	Run5	No	3	EWK160108_028
+C604	E142	8-cell	0	Strand-seq	Run5	No	4	EWK160108_040
+C605	E142	8-cell	0	Strand-seq	Run5	No	5	EWK160108_052
+C606	E142	8-cell	0	Strand-seq	Run5	No	6	EWK160108_064
+C607	E142	8-cell	0	Strand-seq	Run5	No	7	EWK160108_076
+C608	E142	8-cell	0	Strand-seq	Run5	No	8	EWK160108_088
+C609	E143	8-cell	0	Strand-seq	Run5	No	1	EWK160108_005
+C610	E143	8-cell	0	Strand-seq	Run5	No	2	EWK160108_017
+C611	E143	8-cell	0	Strand-seq	Run5	No	3	EWK160108_029
+C612	E143	8-cell	0	Strand-seq	Run5	No	4	EWK160108_041
+C613	E143	8-cell	0	Strand-seq	Run5	No	5	EWK160108_053
+C614	E143	8-cell	0	Strand-seq	Run5	No	6	EWK160108_065
+C615	E143	8-cell	0	Strand-seq	Run5	No	7	EWK160108_077
+C616	E143	8-cell	0	Strand-seq	Run5	No	8	EWK160108_089
+C617	E144	8-cell	0	Strand-seq	Run5	No	1	EWK160108_006
+C618	E144	8-cell	0	Strand-seq	Run5	No	2	EWK160108_018
+C619	E144	8-cell	0	Strand-seq	Run5	No	3	EWK160108_030
+C620	E144	8-cell	0	Strand-seq	Run5	No	4	EWK160108_042
+C621	E144	8-cell	0	Strand-seq	Run5	No	5	EWK160108_054
+C622	E144	8-cell	0	Strand-seq	Run5	No	6	EWK160108_066
+C623	E144	8-cell	0	Strand-seq	Run5	No	7	EWK160108_078
+C624	E144	8-cell	0	Strand-seq	Run5	No	8	EWK160108_090
+C625	E145	8-cell	0	Strand-seq	Run5	No	1	EWK160108_007
+C626	E145	8-cell	0	Strand-seq	Run5	No	2	EWK160108_019
+C627	E145	8-cell	0	Strand-seq	Run5	No	3	EWK160108_031
+C628	E145	8-cell	0	Strand-seq	Run5	No	4	EWK160108_043
+C629	E145	8-cell	0	Strand-seq	Run5	No	5	EWK160108_055
+C630	E145	8-cell	0	Strand-seq	Run5	No	6	EWK160108_067
+C631	E145	8-cell	0	Strand-seq	Run5	No	7	EWK160108_079
+C632	E145	8-cell	0	Strand-seq	Run5	No	8	EWK160108_091
+C633	E146	8-cell	0	Strand-seq	Run5	No	1	EWK160108_008
+C634	E146	8-cell	0	Strand-seq	Run5	No	2	EWK160108_020
+C635	E146	8-cell	0	Strand-seq	Run5	No	3	EWK160108_032
+C636	E146	8-cell	0	Strand-seq	Run5	No	4	EWK160108_044
+C637	E146	8-cell	0	Strand-seq	Run5	No	5	EWK160108_056
+C638	E146	8-cell	0	Strand-seq	Run5	No	6	EWK160108_068
+C639	E146	8-cell	0	Strand-seq	Run5	No	7	EWK160108_080
+C640	E146	8-cell	0	Strand-seq	Run5	No	8	EWK160108_092
+C641	E147	8-cell	0	Strand-seq	Run5	No	1	EWK160108_009
+C642	E147	8-cell	0	Strand-seq	Run5	No	2	EWK160108_021
+C643	E147	8-cell	0	Strand-seq	Run5	No	3	EWK160108_033
+C644	E147	8-cell	0	Strand-seq	Run5	No	4	EWK160108_045
+C645	E147	8-cell	0	Strand-seq	Run5	No	5	EWK160108_057
+C646	E147	8-cell	0	Strand-seq	Run5	No	6	EWK160108_069
+C647	E147	8-cell	0	Strand-seq	Run5	No	7	EWK160108_081
+C648	E147	8-cell	0	Strand-seq	Run5	No	8	EWK160108_093
+C649	E148	8-cell	0	Strand-seq	Run5	No	1	EWK160108_010
+C650	E148	8-cell	0	Strand-seq	Run5	No	2	EWK160108_022
+C651	E148	8-cell	0	Strand-seq	Run5	No	3	EWK160108_034
+C652	E148	8-cell	0	Strand-seq	Run5	No	4	EWK160108_046
+C653	E148	8-cell	0	Strand-seq	Run5	No	5	EWK160108_058
+C654	E148	8-cell	0	Strand-seq	Run5	No	6	EWK160108_070
+C655	E148	8-cell	0	Strand-seq	Run5	No	7	EWK160108_082
+C656	E148	8-cell	0	Strand-seq	Run5	No	8	EWK160108_094
+C657	E149	8-cell	0	Strand-seq	Run5	No	1	EWK160108_011
+C658	E149	8-cell	0	Strand-seq	Run5	No	2	EWK160108_023
+C659	E149	8-cell	0	Strand-seq	Run5	No	3	EWK160108_035
+C660	E149	8-cell	0	Strand-seq	Run5	No	4	EWK160108_047
+C661	E149	8-cell	0	Strand-seq	Run5	No	5	EWK160108_059
+C662	E149	8-cell	0	Strand-seq	Run5	No	6	EWK160108_071
+C663	E149	8-cell	0	Strand-seq	Run5	No	7	EWK160108_083
+C664	NEG	8-cell	0	Strand-seq	Run5	NEG	NEG	EWK160108_095
+C665	POS	8-cell	0	Strand-seq	Run5	POS	POS	EWK160108_012
+C666	POS	8-cell	0	Strand-seq	Run5	POS	POS	EWK160108_024
+C667	POS	8-cell	0	Strand-seq	Run5	POS	POS	EWK160108_036
+C668	POS	8-cell	0	Strand-seq	Run5	POS	POS	EWK160108_048
+C669	POS	8-cell	0	Strand-seq	Run5	POS	POS	EWK160108_060
+C670	POS	8-cell	0	Strand-seq	Run5	POS	POS	EWK160108_072
+C671	POS	8-cell	0	Strand-seq	Run5	POS	POS	EWK160108_084
+C672	POS	8-cell	0	Strand-seq	Run5	POS	POS	EWK160108_096
+C673	E151	8-cell	0	Strand-seq	Run6	No	1	EWK160603_1-4_001
+C674	E151	8-cell	0	Strand-seq	Run6	No	2	EWK160603_1-4_002
+C675	E151	8-cell	0	Strand-seq	Run6	No	3	EWK160603_1-4_003
+C676	E151	8-cell	0	Strand-seq	Run6	No	4	EWK160603_1-4_004
+C677	E151	8-cell	0	Strand-seq	Run6	No	5	EWK160603_1-4_005
+C678	E151	8-cell	0	Strand-seq	Run6	No	6	EWK160603_1-4_006
+C679	E151	8-cell	0	Strand-seq	Run6	No	7	EWK160603_1-4_007
+C680	E151	8-cell	0	Strand-seq	Run6	No	8	EWK160603_1-4_008
+C681	E152	8-cell	0	Strand-seq	Run6	No	1	EWK160603_1-4_009
+C682	E152	8-cell	0	Strand-seq	Run6	No	2	EWK160603_1-4_010
+C683	E152	8-cell	0	Strand-seq	Run6	No	3	EWK160603_1-4_011
+C684	E152	8-cell	0	Strand-seq	Run6	No	4	EWK160603_1-4_012
+C685	E152	8-cell	0	Strand-seq	Run6	No	5	EWK160603_1-4_013
+C686	E152	8-cell	0	Strand-seq	Run6	No	6	EWK160603_1-4_014
+C687	E152	8-cell	0	Strand-seq	Run6	No	7	EWK160603_1-4_015
+C688	E152	8-cell	0	Strand-seq	Run6	No	8	EWK160603_1-4_016
+C689	E153	8-cell	0	Strand-seq	Run6	No	1	EWK160603_1-4_017
+C690	E153	8-cell	0	Strand-seq	Run6	No	2	EWK160603_1-4_018
+C691	E153	8-cell	0	Strand-seq	Run6	No	3	EWK160603_1-4_019
+C692	E153	8-cell	0	Strand-seq	Run6	No	4	EWK160603_1-4_020
+C693	E153	8-cell	0	Strand-seq	Run6	No	5	EWK160603_1-4_021
+C694	E153	8-cell	0	Strand-seq	Run6	No	6	EWK160603_1-4_022
+C695	E153	8-cell	0	Strand-seq	Run6	No	7	EWK160603_1-4_023
+C696	E153	8-cell	0	Strand-seq	Run6	No	8	EWK160603_1-4_024
+C697	E154	8-cell	0	Strand-seq	Run6	No	3	EWK160603_1-4_025
+C698	E154	8-cell	0	Strand-seq	Run6	No	5	EWK160603_1-4_026
+C699	E154	8-cell	0	Strand-seq	Run6	No	4	EWK160603_1-4_027
+C700	E154	8-cell	0	Strand-seq	Run6	No	1	EWK160603_1-4_028
+C701	E154	8-cell	0	Strand-seq	Run6	No	2	EWK160603_1-4_029
+C702	E154	8-cell	0	Strand-seq	Run6	No	8	EWK160603_1-4_030
+C703	E154	8-cell	0	Strand-seq	Run6	No	6	EWK160603_1-4_031
+C704	E154	8-cell	0	Strand-seq	Run6	No	7	EWK160603_1-4_032
+C705	E155	8-cell	0	Strand-seq	Run6	No	7	EWK160603_1-4_033
+C706	E155	8-cell	0	Strand-seq	Run6	No	3	EWK160603_1-4_034
+C707	E155	8-cell	0	Strand-seq	Run6	No	5	EWK160603_1-4_035
+C708	E155	8-cell	0	Strand-seq	Run6	No	2	EWK160603_1-4_036
+C709	E155	8-cell	0	Strand-seq	Run6	No	1	EWK160603_1-4_037
+C710	E155	8-cell	0	Strand-seq	Run6	No	6	EWK160603_1-4_038
+C711	E155	8-cell	0	Strand-seq	Run6	No	4	EWK160603_1-4_039
+C712	E155	8-cell	0	Strand-seq	Run6	No	8	EWK160603_1-4_040
+C713	E156	8-cell	0	Strand-seq	Run6	No	1	EWK160603_1-4_041
+C714	E156	8-cell	0	Strand-seq	Run6	No	2	EWK160603_1-4_042
+C715	E156	8-cell	0	Strand-seq	Run6	No	3	EWK160603_1-4_043
+C716	E156	8-cell	0	Strand-seq	Run6	No	4	EWK160603_1-4_044
+C717	E156	8-cell	0	Strand-seq	Run6	No	5	EWK160603_1-4_045
+C718	E156	8-cell	0	Strand-seq	Run6	No	6	EWK160603_1-4_046
+C719	E156	8-cell	0	Strand-seq	Run6	No	7	EWK160603_1-4_047
+C720	E156	8-cell	0	Strand-seq	Run6	No	8	EWK160603_1-4_048
+C721	E157	8-cell	0	Strand-seq	Run6	No	3	EWK160603_1-4_049
+C722	E157	8-cell	0	Strand-seq	Run6	No	1	EWK160603_1-4_050
+C723	E157	8-cell	0	Strand-seq	Run6	No	6	EWK160603_1-4_051
+C724	E157	8-cell	0	Strand-seq	Run6	No	5	EWK160603_1-4_052
+C725	E157	8-cell	0	Strand-seq	Run6	No	8	EWK160603_1-4_053
+C726	E157	8-cell	0	Strand-seq	Run6	No	4	EWK160603_1-4_054
+C727	E157	8-cell	0	Strand-seq	Run6	No	2	EWK160603_1-4_055
+C728	E157	8-cell	0	Strand-seq	Run6	No	7	EWK160603_1-4_056
+C729	E157	8-cell	0	Strand-seq	Run6	No	9	EWK160603_1-4_057
+C730	E158	8-cell	0	Strand-seq	Run6	No	8	EWK160603_1-4_058
+C731	E158	8-cell	0	Strand-seq	Run6	No	2	EWK160603_1-4_059
+C732	E158	8-cell	0	Strand-seq	Run6	No	1	EWK160603_1-4_060
+C733	E158	8-cell	0	Strand-seq	Run6	No	7	EWK160603_1-4_061
+C734	E158	8-cell	0	Strand-seq	Run6	No	6	EWK160603_1-4_062
+C735	E158	8-cell	0	Strand-seq	Run6	No	4	EWK160603_1-4_063
+C736	E158	8-cell	0	Strand-seq	Run6	No	5	EWK160603_1-4_064
+C737	E158	8-cell	0	Strand-seq	Run6	No	3	EWK160603_1-4_065
+C738	E158	8-cell	0	Strand-seq	Run6	No	9	EWK160603_1-4_066
+C739	E159	8-cell	0	Strand-seq	Run6	No	7	EWK160603_1-4_067
+C740	E159	8-cell	0	Strand-seq	Run6	No	1	EWK160603_1-4_068
+C741	E159	8-cell	0	Strand-seq	Run6	No	6	EWK160603_1-4_069
+C742	E159	8-cell	0	Strand-seq	Run6	No	4	EWK160603_1-4_070
+C743	E159	8-cell	0	Strand-seq	Run6	No	5	EWK160603_1-4_071
+C744	E159	8-cell	0	Strand-seq	Run6	No	3	EWK160603_1-4_072
+C745	E159	8-cell	0	Strand-seq	Run6	No	2	EWK160603_1-4_073
+C746	E159	8-cell	0	Strand-seq	Run6	No	8	EWK160603_1-4_074
+C747	E160	8-cell	0	Strand-seq	Run6	No	6	EWK160603_1-4_075
+C748	E160	8-cell	0	Strand-seq	Run6	No	2	EWK160603_1-4_076
+C749	E160	8-cell	0	Strand-seq	Run6	No	4	EWK160603_1-4_077
+C750	E160	8-cell	0	Strand-seq	Run6	No	8	EWK160603_1-4_078
+C751	E160	8-cell	0	Strand-seq	Run6	No	3	EWK160603_1-4_079
+C752	E160	8-cell	0	Strand-seq	Run6	No	5	EWK160603_1-4_080
+C753	E160	8-cell	0	Strand-seq	Run6	No	1	EWK160603_1-4_081
+C754	E160	8-cell	0	Strand-seq	Run6	No	7	EWK160603_1-4_082
+C755	E160	8-cell	0	Strand-seq	Run6	No	9	EWK160603_1-4_083
+C756	E161	8-cell	0	Strand-seq	Run6	No	4	EWK160603_1-4_084
+C757	E161	8-cell	0	Strand-seq	Run6	No	6	EWK160603_1-4_085
+C758	E161	8-cell	0	Strand-seq	Run6	No	3	EWK160603_1-4_086
+C759	E161	8-cell	0	Strand-seq	Run6	No	1	EWK160603_1-4_087
+C760	E161	8-cell	0	Strand-seq	Run6	No	2	EWK160603_1-4_088
+C761	E161	8-cell	0	Strand-seq	Run6	No	5	EWK160603_1-4_089
+C762	E161	8-cell	0	Strand-seq	Run6	No	7	EWK160603_1-4_090
+C763	E162	8-cell	0	Strand-seq	Run6	No	1	EWK160603_1-4_091
+C764	E162	8-cell	0	Strand-seq	Run6	No	4	EWK160603_1-4_092
+C765	E162	8-cell	0	Strand-seq	Run6	No	5	EWK160603_1-4_093
+C766	E162	8-cell	0	Strand-seq	Run6	No	3	EWK160603_1-4_094
+C767	E162	8-cell	0	Strand-seq	Run6	No	2	EWK160603_1-4_095
+C768	E162	8-cell	0	Strand-seq	Run6	No	6	EWK160603_1-4_096
+C769	E163	8-cell	2.5	Strand-seq	Run7	No	3	EWK170120_I_001
+C770	E163	8-cell	2.5	Strand-seq	Run7	No	1	EWK170120_I_002
+C771	E163	8-cell	2.5	Strand-seq	Run7	No	2	EWK170120_I_003
+C772	E163	8-cell	2.5	Strand-seq	Run7	No	4	EWK170120_I_004
+C773	E163	8-cell	2.5	Strand-seq	Run7	No	8	EWK170120_I_005
+C774	E163	8-cell	2.5	Strand-seq	Run7	No	5	EWK170120_I_006
+C775	E163	8-cell	2.5	Strand-seq	Run7	No	6	EWK170120_I_007
+C776	E163	8-cell	2.5	Strand-seq	Run7	No	7	EWK170120_I_008
+C777	E163	8-cell	2.5	Strand-seq	Run7	No	9	EWK170120_I_009
+C778	E164	8-cell	2.5	Strand-seq	Run7	No	5	EWK170120_I_010
+C779	E164	8-cell	2.5	Strand-seq	Run7	No	2	EWK170120_I_011
+C780	E164	8-cell	2.5	Strand-seq	Run7	No	1	EWK170120_I_012
+C781	E164	8-cell	2.5	Strand-seq	Run7	No	3	EWK170120_I_013
+C782	E164	8-cell	2.5	Strand-seq	Run7	No	6	EWK170120_I_014
+C783	E164	8-cell	2.5	Strand-seq	Run7	No	7	EWK170120_I_015
+C784	E164	8-cell	2.5	Strand-seq	Run7	No	4	EWK170120_I_016
+C785	E164	8-cell	2.5	Strand-seq	Run7	No	8	EWK170120_I_017
+C786	E165	8-cell	2.5	Strand-seq	Run7	No	1	EWK170120_I_018
+C787	E165	8-cell	2.5	Strand-seq	Run7	No	7	EWK170120_I_019
+C788	E165	8-cell	2.5	Strand-seq	Run7	No	6	EWK170120_I_020
+C789	E165	8-cell	2.5	Strand-seq	Run7	No	5	EWK170120_I_021
+C790	E165	8-cell	2.5	Strand-seq	Run7	No	4	EWK170120_I_022
+C791	E165	8-cell	2.5	Strand-seq	Run7	No	3	EWK170120_I_023
+C792	E165	8-cell	2.5	Strand-seq	Run7	No	8	EWK170120_I_024
+C793	E165	8-cell	2.5	Strand-seq	Run7	No	2	EWK170120_I_025
+C794	E166	8-cell	2.5	Strand-seq	Run7	No	4	EWK170120_I_026
+C795	E166	8-cell	2.5	Strand-seq	Run7	No	3	EWK170120_I_027
+C796	E166	8-cell	2.5	Strand-seq	Run7	No	8	EWK170120_I_028
+C797	E166	8-cell	2.5	Strand-seq	Run7	No	7	EWK170120_I_029
+C798	E166	8-cell	2.5	Strand-seq	Run7	No	5	EWK170120_I_030
+C799	E166	8-cell	2.5	Strand-seq	Run7	No	1	EWK170120_I_031
+C800	E166	8-cell	2.5	Strand-seq	Run7	No	2	EWK170120_I_032
+C801	E166	8-cell	2.5	Strand-seq	Run7	No	6	EWK170120_I_033
+C802	E167	8-cell	2.5	Strand-seq	Run7	No	3	EWK170120_I_034
+C803	E167	8-cell	2.5	Strand-seq	Run7	No	4	EWK170120_I_035
+C804	E167	8-cell	2.5	Strand-seq	Run7	No	6	EWK170120_I_036
+C805	E167	8-cell	2.5	Strand-seq	Run7	No	1	EWK170120_I_037
+C806	E167	8-cell	2.5	Strand-seq	Run7	No	2	EWK170120_I_038
+C807	E167	8-cell	2.5	Strand-seq	Run7	No	5	EWK170120_I_039
+C808	E167	8-cell	2.5	Strand-seq	Run7	No	7	EWK170120_I_040
+C809	E167	8-cell	2.5	Strand-seq	Run7	No	8	EWK170120_I_041
+C810	E168	8-cell	2.5	Strand-seq	Run7	No	1	EWK170120_I_042
+C811	E168	8-cell	2.5	Strand-seq	Run7	No	2	EWK170120_I_043
+C812	E168	8-cell	2.5	Strand-seq	Run7	No	4	EWK170120_I_044
+C813	E168	8-cell	2.5	Strand-seq	Run7	No	6	EWK170120_I_045
+C814	E168	8-cell	2.5	Strand-seq	Run7	No	5	EWK170120_I_046
+C815	E168	8-cell	2.5	Strand-seq	Run7	No	7	EWK170120_I_047
+C816	E168	8-cell	2.5	Strand-seq	Run7	No	3	EWK170120_I_048
+C817	E168	8-cell	2.5	Strand-seq	Run7	No	8	EWK170120_I_049
+C818	E169	8-cell	2.5	Strand-seq	Run7	No	4	EWK170120_I_050
+C819	E169	8-cell	2.5	Strand-seq	Run7	No	2	EWK170120_I_051
+C820	E169	8-cell	2.5	Strand-seq	Run7	No	1	EWK170120_I_052
+C821	E169	8-cell	2.5	Strand-seq	Run7	No	6	EWK170120_I_053
+C822	E169	8-cell	2.5	Strand-seq	Run7	No	7	EWK170120_I_054
+C823	E169	8-cell	2.5	Strand-seq	Run7	No	5	EWK170120_I_055
+C824	E169	8-cell	2.5	Strand-seq	Run7	No	3	EWK170120_I_056
+C825	E169	8-cell	2.5	Strand-seq	Run7	No	8	EWK170120_I_057
+C826	E170	8-cell	2.5	Strand-seq	Run7	No	3	EWK170120_I_058
+C827	E170	8-cell	2.5	Strand-seq	Run7	No	7	EWK170120_I_059
+C828	E170	8-cell	2.5	Strand-seq	Run7	No	4	EWK170120_I_060
+C829	E170	8-cell	2.5	Strand-seq	Run7	No	1	EWK170120_I_061
+C830	E170	8-cell	2.5	Strand-seq	Run7	No	8	EWK170120_I_062
+C831	E170	8-cell	2.5	Strand-seq	Run7	No	2	EWK170120_I_063
+C832	E170	8-cell	2.5	Strand-seq	Run7	No	6	EWK170120_I_064
+C833	E170	8-cell	2.5	Strand-seq	Run7	No	5	EWK170120_I_065
+C834	E171	8-cell	2.5	Strand-seq	Run7	No	3	EWK170120_I_066
+C835	E171	8-cell	2.5	Strand-seq	Run7	No	4	EWK170120_I_067
+C836	E171	8-cell	2.5	Strand-seq	Run7	No	2	EWK170120_I_068
+C837	E171	8-cell	2.5	Strand-seq	Run7	No	6	EWK170120_I_069
+C838	E171	8-cell	2.5	Strand-seq	Run7	No	1	EWK170120_I_070
+C839	E171	8-cell	2.5	Strand-seq	Run7	No	5	EWK170120_I_071
+C840	E171	8-cell	2.5	Strand-seq	Run7	No	7	EWK170120_I_072
+C841	E172	8-cell	2.5	Strand-seq	Run7	No	5	EWK170120_I_073
+C842	E172	8-cell	2.5	Strand-seq	Run7	No	7	EWK170120_I_074
+C843	E172	8-cell	2.5	Strand-seq	Run7	No	2	EWK170120_I_075
+C844	E172	8-cell	2.5	Strand-seq	Run7	No	6	EWK170120_I_076
+C845	E172	8-cell	2.5	Strand-seq	Run7	No	8	EWK170120_I_077
+C846	E172	8-cell	2.5	Strand-seq	Run7	No	3	EWK170120_I_078
+C847	E172	8-cell	2.5	Strand-seq	Run7	No	4	EWK170120_I_079
+C848	E172	8-cell	2.5	Strand-seq	Run7	No	1	EWK170120_I_080
+C849	E173	8-cell	2.5	Strand-seq	Run7	No	2	EWK170120_I_081
+C850	E173	8-cell	2.5	Strand-seq	Run7	No	3	EWK170120_I_082
+C851	E173	8-cell	2.5	Strand-seq	Run7	No	5	EWK170120_I_083
+C852	E173	8-cell	2.5	Strand-seq	Run7	No	4	EWK170120_I_084
+C853	E173	8-cell	2.5	Strand-seq	Run7	No	6	EWK170120_I_085
+C854	E173	8-cell	2.5	Strand-seq	Run7	No	8	EWK170120_I_086
+C855	E173	8-cell	2.5	Strand-seq	Run7	No	1	EWK170120_I_087
+C856	E173	8-cell	2.5	Strand-seq	Run7	No	7	EWK170120_I_088
+C857	E174	8-cell	2.5	Strand-seq	Run7	No	4	EWK170120_I_089
+C858	E174	8-cell	2.5	Strand-seq	Run7	No	1	EWK170120_I_090
+C859	E174	8-cell	2.5	Strand-seq	Run7	No	3	EWK170120_I_091
+C860	E174	8-cell	2.5	Strand-seq	Run7	No	7	EWK170120_I_092
+C861	E174	8-cell	2.5	Strand-seq	Run7	No	5	EWK170120_I_093
+C862	E174	8-cell	2.5	Strand-seq	Run7	No	8	EWK170120_I_094
+C863	E174	8-cell	2.5	Strand-seq	Run7	No	2	EWK170120_I_095
+C864	E174	8-cell	2.5	Strand-seq	Run7	No	6	EWK170120_I_096

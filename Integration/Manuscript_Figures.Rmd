@@ -1,0 +1,1259 @@
+---
+title: "Sperm DNA damage causes genomic instability in early embryonic development"
+output: pdf_document
+---
+
+
+```{r setup, echo = F}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.width=2.5, fig.height=2.5) 
+def.chunk.hook  <- knitr::knit_hooks$get("chunk")
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  ifelse(options$size != "normalsize", 
+         paste0("\\", options$size,"\n\n", x, "\n\n \\normalsize"), x)
+})
+
+options(scipen =  999)
+library(ggplot2)
+library(reshape2)
+library(GenomicRanges)
+
+
+## Add the project folder path here:
+project_folder <- "~/hpc/cog_bioinf/cuppen/project_data/Ewart_Single_Cell/Bovine/"
+
+output_folder <- paste(project_folder, "Results/Figures_raw/", sep = "")
+if(dir.exists(output_folder) == FALSE){
+  dir.create(output_folder, recursive = T)
+}
+export_figures <- FALSE
+
+resolution <- 1000000
+
+```
+
+# Data import
+```{r, warning = F, echo=F}
+
+cnv_counts_folder <- paste(project_folder, "/Data/CNV_Counts/", resolution, "/", sep = "")
+
+CNV_overview <- data.frame(stringsAsFactors = F)
+for(CNV_count_file in list.files(cnv_counts_folder, full.names = T)){
+  #print(CNV_count_file)
+  CNV_counts_embryo <- read.delim(CNV_count_file, stringsAsFactors = F)
+  if(ncol(CNV_counts_embryo) > 0){
+    if(ncol(CNV_overview) == 0){
+      CNV_overview <- CNV_counts_embryo
+    } else {
+      CNV_overview <- cbind(CNV_overview, CNV_counts_embryo[,-c(1,2), drop = F])
+    }
+  }
+
+}
+
+
+```
+
+First we determined the effects of sperm radiation on the formation of blastocysts. 40 embryos fertilized with sperm radiated with 7 different doses were cultured and for each group the amount of blastomeres was counted.
+
+```{r, warning = F, echo=F}
+
+blastomere_rates <- read.delim(paste(project_folder, "Data/Manual/Blastocyst_Rates_Radiation.txt", sep = ""), check.names = F, stringsAsFactors = F)
+
+blastomere_rate_plot <- ggplot(blastomere_rates, aes(x = `Ionizing radiation dose (Gy)`, y = `Blastocyst rate (%)` )) + 
+  geom_point(size = 1.5, shape = 21, fill = "#E41A1C") + 
+  #scale_y_continuous(expand = c(0,0)) + scale_x_continuous(expand = c(0,01)) +
+  theme_bw(base_size = 8) +
+  theme(panel.grid.major =  element_line(size = 0.3), 
+        panel.grid.minor = element_blank(),
+        strip.background = element_rect(fill="gray"),
+        axis.title = element_text(size = 7),
+        legend.position = "none")
+
+blastomere_rate_plot
+if(export_figures == TRUE){
+  ggsave(filename = paste(output_folder, "S1A_Blastomere_rates.pdf", sep = ""), height= 45, width= 45, units = "mm", useDingbats=FALSE)
+}
+
+```
+
+Next we performed strand-seq for 2-cell stage embryos and single cell WGS for 8-cell stage embryos. First we want to know how many libraries were successfully sequenced.
+
+These are the requirements for high quality libraries
+- more than 100000 reads
+- strand-seq signal (uneven watson/crick distribution)
+- 10 or less filtered CNVs
+
+Libraries with at least 10k reads are considered low quality libraries
+
+```{r, warning = F, echo=F}
+
+Overview_cells <- read.delim(paste(project_folder, "/Data/QC/Overview_cells_",resolution,".txt", sep = ""), stringsAsFactors = F)
+
+Overview_cells <- Overview_cells[which(Overview_cells$Method == "WGS" | Overview_cells$Stage == "2-cell"),]
+# Remove the three-cell stage embryos
+Overview_cells <- Overview_cells[which(Overview_cells$Stage != "3-cell"),] 
+# select all libraries with more than 10000 reads:
+Overview_cells <- Overview_cells[which(Overview_cells$total.read.count > 10000),]
+Overview_cells$Stage[Overview_cells$Stage == "8-cell"] <- "~8-cell"
+Overview_cells$Stage <- factor(Overview_cells$Stage, levels = c("2-cell", "~8-cell"))
+#Overview_cells$Filter[is.na(Overview_cells$Filter)] <- 0
+Overview_cells$Quality <- ifelse(Overview_cells$Exclude == "No", "High", "Low")
+Overview_cells$Group <- factor(Overview_cells$Group)
+Overview_cells$Quality <- factor(Overview_cells$Quality, levels = c("Low", "High"))
+
+quality_libraries_plot <- ggplot(Overview_cells, aes(x = Group, fill = Quality)) + geom_bar(stat = "count", col = "black", lwd = 0.3) + 
+  facet_grid( ~Stage,  switch = "y") +
+    scale_y_continuous(expand = c(0,0), limits = c(0,180)) +
+  scale_fill_brewer(palette = "Set1") +
+    theme_bw(base_size = 8) +
+    theme(panel.grid.major.x = element_blank(),
+           panel.grid.major.y = element_line(size = 0.3),
+          panel.grid.minor.y = element_blank(),
+           strip.text = element_text(face = "bold", size = 8), 
+          panel.border = element_rect(colour = "black"),
+           legend.key.size = unit(0.6,"line"),
+          legend.title = element_text(size = 7),
+          legend.margin =  margin(0,0,0,0),
+          axis.title = element_text(size = 7),
+        text=element_text(family="Arial")) +
+  labs(y = "Single-cell Libaries (#)", x = "Treatment (Gy)")
+quality_libraries_plot
+if(export_figures == TRUE){
+  ggsave(filename = paste(output_folder, "S1B_Library_Quality.pdf", sep = ""), height= 45, width= 60, units = "mm", device = cairo_pdf)
+}
+
+print("Number of libraries at 2-cell stage per treatment group:")
+table(Overview_cells$Quality[Overview_cells$Stage == "2-cell"], Overview_cells$Group[Overview_cells$Stage == "2-cell"])
+print("Number of libraries at 8-cell stage per treatment group:")
+table(Overview_cells$Quality[Overview_cells$Stage == "~8-cell"], Overview_cells$Group[Overview_cells$Stage == "~8-cell"])
+
+print("Median read count per library:")
+# total.read.count is obtained from aneufinder and only contains filtered reads (>MQ >10, not overlapping with blacklist)
+# Raw_reads is obtained from samtools idxstats (only reads on chr1 to chr29 and X/Y, so slightly different from samtools flagstat)
+summary(Overview_cells$Raw_reads) 
+
+
+```
+
+Determine the number of high-quality libraries per embryo
+
+```{r, warning = F, echo=F}
+
+high_quality_libraries <- Overview_cells[which(Overview_cells$Quality == "High"),]
+cells_per_embryo <- data.frame(Embryo = names(table(high_quality_libraries$Embryo)),  Cells = as.numeric(table(high_quality_libraries$Embryo)))
+cells_per_embryo <- merge(cells_per_embryo, Overview_cells[!duplicated(Overview_cells$Embryo),c("Embryo",  "Group", "Method", "Stage", "Run")])
+cells_per_embryo <- cells_per_embryo[which(cells_per_embryo$Method == "WGS" | cells_per_embryo$Stage == "2-cell"),]
+cells_per_embryo$Stage[cells_per_embryo$Stage == "8-cell"] <- "~8-cell"
+cells_per_embryo$Stage <- factor(cells_per_embryo$Stage, levels = c("2-cell", "~8-cell"))
+cells_per_embryo$Group <- factor(cells_per_embryo$Group)
+cells_per_embryo$Relative <- ifelse(cells_per_embryo$Stage == "2-cell", cells_per_embryo$Cells/2, cells_per_embryo$Cells/8)
+cells_per_embryo$Cells <- factor(cells_per_embryo$Cells)
+
+# absolute high quality libraries per embryo
+ggplot(cells_per_embryo, aes(x = Group, fill = Cells)) + geom_bar(stat = "count", col = "black", lwd = 0.3) + facet_grid(~Stage) +
+      scale_y_continuous(expand = c(0,0), limits = c(0,30)) +
+  scale_fill_brewer(palette = "Set2") +
+    theme_bw(base_size = 8) +
+    theme(panel.grid.major.x = element_blank(),
+           panel.grid.major.y = element_line(size = 0.3),
+          panel.grid.minor.y = element_blank(),
+           strip.text = element_text(face = "bold", size = 8), 
+          panel.border = element_rect(colour = "black"),
+           legend.key.size = unit(0.6,"line"),          legend.title = element_text(size = 7),
+          legend.margin =  margin(0,0,0,0),
+          axis.title = element_text(size = 7),
+        text=element_text(family="Arial")) +
+  labs(y = "Embryos (#)", x = "Treatment (Gy)", fill = "High Quality\nLibraries")
+
+# Relative number of high quality libraries per embro
+cells_per_embryo$Relative <- paste(round(cells_per_embryo$Relative *100, 1), "%",sep= "")
+cells_per_embryo$Relative <- factor(cells_per_embryo$Relative, levels = c("25%", "37.5%", "50%", "62.5%", "75%", "87.5%", "100%","150%"))
+hq_libraries_embryos <- ggplot(cells_per_embryo, aes(x = Group, fill = Relative)) + geom_bar(stat = "count", col = "black", lwd = 0.3) + facet_grid(~Stage) +
+  scale_y_continuous(expand = c(0,0), limits = c(0,31)) +
+  scale_fill_brewer(palette = "YlGnBu") +
+    theme_bw(base_size = 8) +
+    theme(panel.grid.major.x = element_blank(),
+           panel.grid.major.y = element_line(size = 0.3),
+          panel.grid.minor.y = element_blank(),
+           strip.text = element_text(face = "bold", size = 7), 
+          panel.border = element_rect(colour = "black"),
+           legend.key.size = unit(0.6,"line"),
+          legend.title = element_text(size = 6),
+          legend.margin =  margin(0,0,0,0),
+          axis.title = element_text(size = 7),
+        text=element_text(family="Arial")) +
+  labs(y = "Embryos (#)", x = "Treatment (Gy)", fill = "High Quality\nLibraries\nper Embryo")
+
+hq_libraries_embryos
+if(export_figures == TRUE){
+  ggsave(filename = paste(output_folder, "S1C_HQ_libraries_embryos.pdf", sep = ""), height= 45, width= 60, units = "mm", device = cairo_pdf)
+}
+
+print("Number of embryos:")
+table(cells_per_embryo$Stage, cells_per_embryo$Group)
+
+
+
+```
+
+# Generate output table (Table S1)
+```{r, warning = F, echo=F}
+Overview_cells <- read.delim(paste(project_folder, "/Data/QC/Overview_cells_", resolution,".txt", sep = ""), stringsAsFactors = F)
+head(Overview_cells)
+
+Overview_cells$ID <- as.numeric(gsub(Overview_cells$Cell, pattern = "C", replacement = ""))
+Overview_cells <- Overview_cells[order(Overview_cells$ID),]
+
+Table_S1 <- Overview_cells[,c("Cell","Embryo","Stage","Group","Method","Run","Exclude","total.read.count","Raw_reads","num.segments", "base_cn_state","nullosomies","Aneuploidies","CNVs","Filtered_CNVs","Sex","Parent","Ploidy","Conclusion","Embryo_classification")]
+
+write.table(Table_S1, file = paste(output_folder, "Table_S1.txt"), sep = "\t", quote = F, row.names = F, col.names = T)
+
+```
+
+
+# Number of mitotic CNVs per cell
+In this figure we only want to show the mitotic events, but the CNV_counts files contain both meiotic and mitotic events. Therefore we first have to count the mitotic events.
+
+```{r, warning = F, echo=F}
+cnv_folder <- paste(project_folder, "/Data/CNV/", resolution, "/", sep = "")
+
+# Plot the number of events per embryo
+Mitotic_overview <- data.frame(stringsAsFactors = F)
+
+Embryo_overview <- read.delim(paste(project_folder, "Data/QC/Overview_embryos_",resolution,".txt", sep =""), header = T, stringsAsFactors = F)
+Embryo_overview <- Embryo_overview[which(Embryo_overview$Run %in% c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+# Remove embryos with 3 cells at 2-cell stage
+Embryo_overview <- Embryo_overview[which(Embryo_overview$Stage != "3-cell"),]
+
+Overview_cells <- read.delim(paste(project_folder, "/Data/QC/Overview_cells_", resolution,".txt", sep = ""), stringsAsFactors = F)
+Overview_cells <- Overview_cells[which(Overview_cells$Run %in% c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+Overview_cells <- Overview_cells[which(Overview_cells$Stage %in% c("2-cell", "8-cell")),]
+Overview_cells <- Overview_cells[which(Overview_cells$Exclude == "No"),]
+
+for(Embryo in Embryo_overview$Embryo){
+  CNV_file <- list.files(cnv_folder, full.names = T)[grep(pattern = paste(Embryo, ".txt", sep = ""), x = list.files(cnv_folder, full.names = T))]
+  print(CNV_file)
+  if(length(CNV_file) > 0){
+      if(file.exists(CNV_file) == TRUE ){
+        CNVs_Embryo <- read.delim(CNV_file, stringsAsFactors = F)
+        CNVs_Embryo <- CNVs_Embryo[!duplicated(CNVs_Embryo$CNV_ID),]
+        CNVs_Embryo <- CNVs_Embryo[which(CNVs_Embryo$seqnames != "X"),]
+        CNVs_Embryo <- CNVs_Embryo[which(CNVs_Embryo$width > 10e6),]
+        
+        # Remove meiotic events
+        if(length(which(CNVs_Embryo$Embryo_freq > 0.8 & CNVs_Embryo$Gains == 0)) > 0){
+                  CNVs_Embryo <- CNVs_Embryo[-which(CNVs_Embryo$Embryo_freq > 0.8 & CNVs_Embryo$Gains == 0),]
+        }
+        if(length(which(CNVs_Embryo$Embryo_freq > 0.8 & CNVs_Embryo$Losses == 0)) > 0){
+                  CNVs_Embryo <- CNVs_Embryo[-which(CNVs_Embryo$Embryo_freq > 0.8 & CNVs_Embryo$Losses == 0),]
+        }
+        
+        Good_cells_embryo <- Overview_cells$Cell[which(Overview_cells$Embryo == Embryo & Overview_cells$Exclude == "No")]
+        for(cell in Good_cells_embryo){
+          print(cell)
+          if(cell %in% names(CNVs_Embryo) & nrow(CNVs_Embryo) > 0){
+            CNVs_Cell <- CNVs_Embryo[,c("CNV_ID","seqnames","start","end","width","chr_size", "SV_size", "Embryo_counts", "Embryo_freq", "Reciprocal",
+                                      names(CNVs_Embryo)[names(CNVs_Embryo) == cell])]
+            CNVs_Cell <- CNVs_Cell[CNVs_Cell[,cell] != 0,]
+           
+             cell_counts <- data.frame(Cell = cell,
+                                       Group = Overview_cells$Group[Overview_cells$Cell == cell],
+                                       Stage = Overview_cells$Stage[Overview_cells$Cell == cell],
+                                       Type = c("CNV", "CNV", 
+                                               "CNV","CNV","CNV", 
+                                               "Aneuploidy", "Aneuploidy",
+                                               "Aneuploidy", "Aneuploidy", "Aneuploidy"), 
+                                       Ploidy = c("Loss", "Gain", 
+                                                 "Recurrent", "Reciprocal", "Non-reciprocal",
+                                                 "Loss", "Gain",
+                                                 "Recurrent", "Reciprocal", "Non-reciprocal"), 
+                                      Counts = c(nrow(CNVs_Cell[which(CNVs_Cell$SV_size < 0.95 & CNVs_Cell$width > 10e6 & CNVs_Cell[,cell] < 0),]),
+                                                 nrow(CNVs_Cell[which(CNVs_Cell$SV_size < 0.95 & CNVs_Cell$width > 10e6 & CNVs_Cell[,cell] > 0),]), 
+                                                 
+                                                 nrow(CNVs_Cell[which(CNVs_Cell$SV_size < 0.95 & CNVs_Cell$width > 10e6 & 
+                                                                        cell_counts$Embryo_counts > 1 & CNVs_Cell$Reciprocal != "Reciprocal"),]),
+                                                 nrow(CNVs_Cell[which(CNVs_Cell$SV_size < 0.95 & CNVs_Cell$width > 10e6  & 
+                                                                        cell_counts$Embryo_counts > 1 & CNVs_Cell$Reciprocal == "Reciprocal"),]),
+                                                 nrow(CNVs_Cell[which(CNVs_Cell$SV_size < 0.95 & CNVs_Cell$width > 10e6  & 
+                                                                        cell_counts$Embryo_counts == 1),]),
+                                                 
+                                                 nrow(CNVs_Cell[which(CNVs_Cell$SV_size > 0.95 & CNVs_Cell$seqnames != "X" & CNVs_Cell[,cell] < 0),]), 
+                                                 nrow(CNVs_Cell[which(CNVs_Cell$SV_size > 0.95 & CNVs_Cell$seqnames != "X" & CNVs_Cell[,cell] > 0),]),
+                                                 
+                                                 nrow(CNVs_Cell[which(CNVs_Cell$SV_size > 0.95 & CNVs_Cell$seqnames != "X" & 
+                                                                        cell_counts$Embryo_counts > 1 & cell_counts$Reciprocal != "Reciprocal"),]),
+                                                 nrow(CNVs_Cell[which(CNVs_Cell$SV_size > 0.95 & CNVs_Cell$seqnames != "X" & CNVs_Cell$Embryo_counts > 1 &
+                                                                        CNVs_Cell$Reciprocal == "Reciprocal"),]),
+                                                 nrow(CNVs_Cell[which(CNVs_Cell$SV_size > 0.95 & CNVs_Cell$seqnames != "X" & CNVs_Cell$Embryo_counts == 1),])),
+                                      stringsAsFactors = F)
+          } else { 
+             cell_counts <- data.frame(Cell = cell,
+                                      Group = Embryo_overview$Group[Embryo_overview$Embryo == Embryo],
+                                      Stage = Embryo_overview$Stage[Embryo_overview$Embryo == Embryo],
+                                      Type = c("CNV", "CNV", 
+                                               "CNV","CNV","CNV", 
+                                               "Aneuploidy", "Aneuploidy",
+                                               "Aneuploidy", "Aneuploidy", "Aneuploidy"), 
+                                      Ploidy = c("Loss", "Gain", 
+                                                 "Recurrent", "Reciprocal", "Non-reciprocal",
+                                                 "Loss", "Gain",
+                                                 "Recurrent", "Reciprocal", "Non-reciprocal"), 
+                                      Counts = c(0,0,0,0,0,0,0,0,0,0),
+                                      stringsAsFactors = F)
+          }
+          Mitotic_overview <- rbind(Mitotic_overview, cell_counts)
+        }
+        
+      }
+  }
+}
+
+Mitotic_overview2 <- Mitotic_overview[which(Mitotic_overview$Type %in% c("Aneuploidy", "CNV") & Mitotic_overview$Ploidy %in% c("Gain", "Loss")),]
+
+
+# ggplot(events, aes(x = factor(Group), y = Counts, fill = Ploidy)) + geom_boxplot() + facet_grid(Type ~Stage,  scales = "free_y")
+# ggplot(events, aes(x = factor(Group), y = Counts)) + geom_boxplot() + facet_grid( ~Stage)
+
+Mitotic_overview2$Type[Mitotic_overview2$Type == "Aneuploidy"] <- "Chromosomal"
+Mitotic_overview2$Type[Mitotic_overview2$Type == "CNV"] <- "Segmental"
+
+Mitotic_overview2$Stage[Mitotic_overview2$Stage == "8-cell"] <- "~8-cell"
+Mitotic_overview2$Stage <- factor(Mitotic_overview2$Stage, levels = c("2-cell", "~8-cell"))
+plot_abnormalities_2cell <- ggplot(Mitotic_overview2, aes(x = factor(Group), y = Counts, fill = Ploidy)) + 
+  stat_boxplot(geom = "errorbar", lwd = 0.25, width = 0.4,  position = position_dodge(width = 0.8)) +
+  geom_boxplot(outlier.size = 0.15, position = position_dodge(width = 0.8), lwd = 0.25) + 
+  facet_grid(Type ~ Stage,  scales = "free", switch = "y") +
+  scale_fill_manual(values = c("Gain" = "#377EB8", "Loss" = "#E41A1C")) +
+  labs(x = "Treatment (Gy)", y = "Mitotic abnormalities per cell (#)") +
+  #coord_cartesian(ylim = c(0,13)) +
+  theme_bw(base_size = 8) + 
+  theme(panel.grid.major.x = element_blank(), 
+        panel.grid.major.y = element_line(colour = "lightgray"), 
+        panel.grid.minor.y = element_blank(),
+        axis.title = element_text(size = 7),
+        panel.border = element_rect(fill = NA, colour = "black", size = 0.5),
+        legend.key.size = unit(0.5, "line"),
+        legend.margin = margin(0,0,0,0),
+        legend.title = element_text(size = 7),
+        legend.text = element_text(size = 6),
+        strip.text = element_text(size = 7, face = "bold", margin = margin(0,0,0,0, "cm")), strip.placement = "outside",
+        text=element_text(family="Arial"))
+plot_abnormalities_2cell
+if(export_figures == TRUE){
+  ggsave(filename = paste(output_folder, "1B_Abnormalities_per_cell.pdf", sep = ""), height= 55, width=55, units = "mm", device = cairo_pdf)
+  ggsave(filename = paste(output_folder, "1B_Abnormalities_per_cell.png", sep = ""), height= 55, width=55, units = "mm", device = cairo_pdf)
+}
+
+```
+
+# Cell classifications
+
+```{r, warning = F, echo=F}
+
+# Relative number of events per cell
+Overview_cells <- read.delim(paste(project_folder, "/Data/QC/Overview_cells_", resolution,".txt", sep = ""), stringsAsFactors = F)
+Overview_cells <- Overview_cells[which(Overview_cells$Run %in%  c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+Overview_cells <- Overview_cells[which(Overview_cells$Exclude == "No"),]
+Overview_cells <- Overview_cells[-which(Overview_cells$Stage == "3-cell"),]
+
+Overview_cells$Group <- factor(Overview_cells$Group, levels = c(0,2.5,10))
+Overview_cells$Conclusion[Overview_cells$Conclusion %in% c("CNV", "Aneuploid")] <- "Simple"
+Overview_cells$Conclusion[Overview_cells$Conclusion %in% c("Haploid", "Uniparental")] <- "Haploid/Uniparental"
+Overview_cells$Conclusion[Overview_cells$Conclusion %in% c("Haploid (Complex)", "Uniparental (Complex)", "Haploid/Uniparental (Complex)")] <- "Haploid/Uniparental\n(Complex)"
+
+cols <- c("Complex" =  "#FF7F00", "Simple" =  "#F0E442" ,"Multiploid" = "#984EA3", "Haploid/Uniparental" = "#FF2400", "Haploid/Uniparental\n(Complex)" ="#B22222", 
+          "Euploid" = "#4DAF4A", "ND" = "gray", "Fragmented" = "#F781BF")
+
+number_cells <- data.frame(melt(table(Overview_cells$Group[Overview_cells$Conclusion != "ND"], Overview_cells$Stage[Overview_cells$Conclusion != "ND"])), stringsAsFactors = F)
+number_cells$Var1 <- factor(number_cells$Var1)
+names(number_cells)[names(number_cells) == "Var2"] <- "Stage"
+number_cells$Stage <- as.character(number_cells$Stage)
+number_cells$Stage[number_cells$Stage == "8-cell"] <- "~8-cell"
+number_cells$Stage <- factor(number_cells$Stage, levels = c("2-cell", "~8-cell"))
+
+relative_events_per_cell <- data.frame()
+
+# Count the frequencies of each cell category:
+for(cellstage in unique(Overview_cells$Stage)){
+  print(cellstage)
+  cells_per_category <- table(Overview_cells$Group[Overview_cells$Conclusion != "ND" & Overview_cells$Stage == cellstage], 
+                              Overview_cells$Conclusion[Overview_cells$Conclusion != "ND"& Overview_cells$Stage == cellstage])
+  cells_per_category <- cells_per_category/rowSums(cells_per_category)*100
+  
+  cells_per_category_m <- melt(cells_per_category)
+  cells_per_category_m$Var2 <- factor(cells_per_category_m$Var2, levels = c(  "Haploid/Uniparental\n(Complex)","Haploid/Uniparental", "Multiploid","Fragmented", "Complex", "Simple", "Euploid"))
+  cells_per_category_m$Var1 <- factor(cells_per_category_m$Var1)
+  cells_per_category_m$Stage <- cellstage
+  relative_events_per_cell <- rbind(relative_events_per_cell, cells_per_category_m)
+}
+
+
+relative_events_per_cell$Stage[relative_events_per_cell$Stage == "8-cell"] <- "~8-cell"
+relative_events_per_cell$Stage <- factor(relative_events_per_cell$Stage, levels = c("2-cell", "~8-cell"))
+relative_events_per_cell$Label <- ifelse(relative_events_per_cell$value > 5, relative_events_per_cell$value, "")
+relative_events_per_cell$Label <- round(as.numeric(relative_events_per_cell$Label),0)
+relative_events_per_cell$Label <- ifelse(is.na(relative_events_per_cell$Label) == TRUE, "", paste(relative_events_per_cell$Label, "%", sep = ""))
+
+p <- ggplot(relative_events_per_cell, aes(x = Var1, y = value, fill = Var2)) + 
+  geom_bar(stat = "identity", col = "black", lwd = 0.25, width = 0.85) + 
+  geom_text(data = relative_events_per_cell, aes(label = Label), position = position_stack(vjust=0.5), size = 1.8, family="Arial") +
+  facet_grid(.~Stage) + 
+  scale_y_continuous(expand = c(0,0),  labels = function(x) paste0(x, "%")) + coord_cartesian(ylim = c(0,108) ) +
+  theme_bw(base_size = 8) + 
+  scale_fill_manual(values = cols)  + 
+  labs(x = "Treatment (Gy)", y = "Cells (% of total)", fill = "Cell Classification") + 
+  geom_text(data = number_cells, aes(x = Var1, y = 104, label = value, fill = NULL), size = 1.8, fontface = "italic", family="Arial") +
+  theme(strip.text.x = element_text(size = 7, face = "bold", margin = margin(0,0,0,0, "cm")), 
+        panel.border = element_rect(colour = "black"),
+        legend.key.size = unit(0.6, "line"),
+        legend.margin = margin(0,0,0,0),
+        legend.title = element_text(size = 7),
+        legend.text = element_text(size = 6),
+        axis.text = element_text(size = 6),
+        axis.title =  element_text(size = 7),
+        panel.grid.major.x = element_blank(),
+        text=element_text(family="Arial"))
+
+p
+if(export_figures == TRUE){
+  ggsave(filename =  paste(output_folder, "1C_Cell_classifications.pdf", sep = ""), width = 70, height = 55, units = "mm", dpi = 300, device = cairo_pdf)
+}
+
+#ggsave(filename = "~/hpc/cog_bioinf/cuppen/project_data/Ewart_Single_Cell/Bovine/Results/Figures_raw/Cell_classifications.png", width = 100, height = 75, units = "mm", dpi = 300)
+
+```
+
+# Plot embryo classifications
+
+```{r, warning = F, echo=F}
+
+Embryo_overview <- read.delim(paste(project_folder, "Data/QC/Overview_embryos_",resolution,".txt", sep =""), header = T, stringsAsFactors = F)
+Embryo_overview <- Embryo_overview[which(Embryo_overview$Run %in%  c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+Embryo_overview <- Embryo_overview[which(Embryo_overview$Stage != "3-cell"),]
+# Remove embryos with 3 cells at 2-cell stage
+#Embryo_overview <- Embryo_overview[-which(Embryo_overview$Stage == "2-cell" & Embryo_overview$Cells > 2),]
+Embryos_2cell <- table(Embryo_overview$Group[Embryo_overview$Stage == "2-cell"], Embryo_overview$Conclusion[Embryo_overview$Stage == "2-cell"])
+Embryos_2cell_f <- data.frame(Embryos_2cell/as.numeric(rowSums(Embryos_2cell))*100)
+Embryos_2cell_f$Stage <- "2-cell"
+Embryos_8cell <- table(Embryo_overview$Group[Embryo_overview$Stage == "8-cell"], Embryo_overview$Conclusion[Embryo_overview$Stage == "8-cell"])
+Embryos_8cell_f <- data.frame(Embryos_8cell/as.numeric(rowSums(Embryos_8cell))*100)
+Embryos_8cell_f$Stage <- "~8-cell"
+
+Embryo_classifications <- rbind(Embryos_2cell_f, Embryos_8cell_f)
+names(Embryo_classifications) <- c("Group", "Classification", "Freq", "Stage")
+Embryo_classifications$Stage <- factor(Embryo_classifications$Stage, levels = c("2-cell", "~8-cell"))
+Embryo_classifications$Classification <- factor(Embryo_classifications$Classification, levels = c("Chaotic mosaic", "Mosaic", "Aneuploid/CNV", "Euploid"))
+Embryo_classifications$Label <- paste(round(Embryo_classifications$Freq, 0), "%", sep = "")
+Embryo_classifications$Label[Embryo_classifications$Freq < 0.08] <- ""
+#Embryo_Colors <- c("Chaotic mosaic" = "#984EA3", "Mosaic" = "#F781BF", "Aneuploid/CNV" = "#CD9600", "Euploid" = "#4DAF4A")
+Embryo_Colors <- c("Chaotic mosaic" = "#0072B2", "Mosaic" = "#56B4E9", "Aneuploid/CNV" = "#984EA3", "Euploid" = "#4DAF4A")
+#2431A8
+Number_embryos <- data.frame(table(Embryo_overview$Group, Embryo_overview$Stage))
+names(Number_embryos) <- c("Group", "Stage", "Counts")
+Number_embryos$Stage <- as.character(Number_embryos$Stage)
+Number_embryos$Stage[Number_embryos$Stage == "8-cell"] <- "~8-cell"
+Number_embryos$Stage <- factor(Number_embryos$Stage, levels = c("2-cell", "~8-cell"))
+
+ggplot(Embryo_classifications, aes(x = Group, y = Freq, fill = Classification)) + geom_bar(stat = "identity", col = "black", lwd = 0.25, width = 0.85) + facet_grid(~Stage) +
+  geom_text(data = Number_embryos, aes(x = Group, y = 104, 
+                                       label = Counts, fill = NULL), size = 1.8, fontface = "italic", family="Arial") +
+    geom_text(data = Embryo_classifications, aes(label = Label), position = position_stack(vjust=0.5), size = 1.7, family="Arial") +
+  scale_fill_manual(values = Embryo_Colors) + 
+  labs(y = "Embryos (%)", x = "Treatment (Gy)", fill = "Embryo\nClassification") +
+    theme_bw(base_size = 8) + 
+    scale_y_continuous(expand = c(0,0),  labels = function(x) paste0(x, "%")) +
+  coord_cartesian(ylim = c(0,108)) +
+  theme(strip.text.x = element_text(size = 7, face = "bold", margin = margin(0.05,0.05,0.05,0.05, "cm")), 
+        panel.border = element_rect(colour = "black"),
+        legend.key.size = unit(0.6, "line"),
+        legend.margin = margin(0,0,0,0),
+        legend.title = element_text(size = 7),
+        legend.text = element_text(size = 6),
+        axis.text = element_text(size = 6),
+        axis.title =  element_text(size = 7),
+        panel.grid.major.x = element_blank(),
+        text=element_text(family="Arial"))
+if(export_figures == TRUE){
+  ggsave(filename =  paste(output_folder, "1D_Embryo_classifications.pdf", sep = ""), width = 67, height = 55, units = "mm", dpi = 300, device = cairo_pdf)
+}
+
+```
+# Meiotic errors and mitotic errors per embryo
+
+```{r, warning = F, echo=F}
+
+# % Embryos with meiotic errors
+# Parental origin meiotic errors
+
+# Read CNVs per embryo
+
+cnv_folder <- paste(project_folder, "/Data/CNV/", resolution, "/", sep = "")
+
+# Plot the number of events per embryo
+Meiotic_overview <- data.frame(stringsAsFactors = F)
+Mitotic_overview <- data.frame(stringsAsFactors = F)
+Embryo_overview <- read.delim(paste(project_folder, "Data/QC/Overview_embryos_",resolution,".txt", sep =""), header = T, stringsAsFactors = F)
+Embryo_overview <- Embryo_overview[which(Embryo_overview$Run %in%  c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+# Remove embryos with 3 cells at 2-cell stage
+Embryo_overview <- Embryo_overview[which(Embryo_overview$Stage != "3-cell"),]
+
+for(Embryo in Embryo_overview$Embryo){
+  CNV_file <- list.files(cnv_folder, full.names = T)[grep(pattern = paste(Embryo, ".txt", sep = ""), x = list.files(cnv_folder, full.names = T))]
+  print(CNV_file)
+  if(length(CNV_file) > 0){
+      if(file.exists(CNV_file) == TRUE ){
+        CNVs_Embryo <- read.delim(CNV_file, stringsAsFactors = F)
+        CNVs_Embryo <- CNVs_Embryo[!duplicated(CNVs_Embryo$CNV_ID),]
+        CNVs_Embryo <- CNVs_Embryo[which(CNVs_Embryo$seqnames != "X"),]
+        CNVs_Embryo <- CNVs_Embryo[which(CNVs_Embryo$width > 10e6),]
+    
+        Meiotic_losses_chr <- CNVs_Embryo[which(CNVs_Embryo$Embryo_freq == 1 & CNVs_Embryo$Embryo_counts > 1 & CNVs_Embryo$Gains == 0 & CNVs_Embryo$SV_size >= 0.95),]
+        Meiotic_gains_chr <- CNVs_Embryo[which(CNVs_Embryo$Embryo_freq == 1 & CNVs_Embryo$Embryo_counts > 1 & CNVs_Embryo$Losses == 0 & CNVs_Embryo$SV_size >= 0.95),]
+        Meiotic_losses_seg <- CNVs_Embryo[which(CNVs_Embryo$Embryo_freq == 1 & CNVs_Embryo$Embryo_counts > 1 & CNVs_Embryo$Gains == 0 & CNVs_Embryo$SV_size < 0.95),]
+        Meiotic_gains_seg <- CNVs_Embryo[which(CNVs_Embryo$Embryo_freq == 1 & CNVs_Embryo$Embryo_counts > 1 & CNVs_Embryo$Losses == 0 & CNVs_Embryo$SV_size < 0.95),]
+
+        #Meiotic_Embryo <- nrow(CNVs_Embryo[which(CNVs_Embryo$Division == 0),])
+        Overview_meiotic_embryo <- data.frame(Embryo = Embryo, 
+                                              #Meiotic_events = nrow(CNVs_Embryo[which(CNVs_Embryo$Division == 0),]), 
+                                              Meiotic_loss_chr = nrow(Meiotic_losses_chr),
+                                              Meiotic_gain_chr = nrow(Meiotic_gains_chr),
+                                              Meiotic_loss_seg = nrow(Meiotic_losses_seg),
+                                              Meiotic_gain_seg = nrow(Meiotic_gains_seg))
+        Overview_meiotic_embryo$Meiotic_events <- rowSums(Overview_meiotic_embryo[,-1])
+        Meiotic_overview <- rbind(Meiotic_overview, Overview_meiotic_embryo)
+        
+        if(length(c(Meiotic_losses_chr$CNV_ID, Meiotic_gains_chr$CNV_ID, Meiotic_losses_seg$CNV_ID, Meiotic_gains_seg$CNV_ID)) > 0){
+                  Mitotic_events <- CNVs_Embryo[-which(CNVs_Embryo$CNV_ID %in% c(Meiotic_losses_chr$CNV_ID, Meiotic_gains_chr$CNV_ID, Meiotic_losses_seg$CNV_ID,
+                                                                                 Meiotic_gains_seg$CNV_ID)),]
+        } else {
+          Mitotic_events <- CNVs_Embryo
+        }
+        Mitotic_chr <- Mitotic_events[which(Mitotic_events$Embryo_counts > 0 & CNVs_Embryo$SV_size >= 0.95),]
+        Mitotic_seg <- Mitotic_events[which(Mitotic_events$Embryo_counts > 0 & CNVs_Embryo$SV_size < 0.95),]
+        #Meiotic_Embryo <- nrow(CNVs_Embryo[which(CNVs_Embryo$Division == 0),])
+        Overview_mitotic_embryo <- data.frame(Embryo = Embryo, 
+                                              Stage = Embryo_overview$Stage[Embryo_overview$Embryo == Embryo],
+                                              Group = Embryo_overview$Group[Embryo_overview$Embryo == Embryo],
+                                              Mitotic_chr = nrow(Mitotic_chr),
+                                              Mitotic_seg = nrow(Mitotic_seg))
+        Overview_mitotic_embryo$Mitotic_events <- rowSums(Overview_mitotic_embryo[,-c(1:3)])
+        Mitotic_overview <- rbind(Mitotic_overview, Overview_mitotic_embryo)
+      }
+  } else {
+    Overview_meiotic_embryo <- data.frame(Embryo = Embryo, Meiotic_events = 0, Meiotic_loss_chr = 0, Meiotic_gain_chr = 0, Meiotic_loss_seg = 0, Meiotic_gain_seg = 0)
+    Meiotic_overview <- rbind(Meiotic_overview, Overview_meiotic_embryo)
+    Overview_mitotic_embryo <- data.frame(Embryo = Embryo,   Stage = Embryo_overview$Stage[Embryo_overview$Embryo == Embryo],
+                                              Group = Embryo_overview$Group[Embryo_overview$Embryo == Embryo], Mitotic_chr = 0, Mitotic_seg = 0, Mitotic_events = 0)
+    Mitotic_overview <- rbind(Mitotic_overview, Overview_mitotic_embryo)
+  }
+}
+
+Meiotic_overview2 <- merge(Meiotic_overview, Embryo_overview)
+
+# Count gains/losses/both
+Chr_losses <- data.frame(table(Meiotic_overview2$Stage[Meiotic_overview2$Meiotic_loss_chr > 0 & 
+                                                         Meiotic_overview2$Meiotic_gain_chr == 0 &
+                                                         Meiotic_overview2$Meiotic_gain_seg == 0 &
+                                                         Meiotic_overview2$Meiotic_loss_seg == 0]), Type = "Chromosomal loss")
+
+Seg_losses <- data.frame(table(Meiotic_overview2$Stage[Meiotic_overview2$Meiotic_loss_chr == 0 & 
+                                                         Meiotic_overview2$Meiotic_gain_chr == 0 &
+                                                         Meiotic_overview2$Meiotic_gain_seg == 0 &
+                                                         Meiotic_overview2$Meiotic_loss_seg > 0]), Type = "Segmental loss")
+
+Chr_loss_gain <- data.frame(table(Meiotic_overview2$Stage[Meiotic_overview2$Meiotic_loss_chr > 0 & 
+                                                         Meiotic_overview2$Meiotic_gain_chr > 0]), Type = "Chromosomal gain+loss")
+Seg_loss_gain <- data.frame(table(Meiotic_overview2$Stage[Meiotic_overview2$Meiotic_loss_chr == 0 & 
+                                                         Meiotic_overview2$Meiotic_gain_chr == 0 &
+                                                         Meiotic_overview2$Meiotic_gain_seg > 0 &
+                                                         Meiotic_overview2$Meiotic_loss_seg > 0]), Type = "Segmental gain+loss")
+Meiotic_counts <- rbind(Chr_losses, Seg_losses, Chr_loss_gain, Seg_loss_gain)
+names(Meiotic_counts) <- c("Stage", "Meiotic_counts", "Type")
+Number_embryos <- data.frame(table(Embryo_overview$Stage[Embryo_overview$Stage != "3-cell"]))
+names(Number_embryos) <- c("Stage", "Embryos")
+Meiotic_counts <- merge(Meiotic_counts, Number_embryos, by = "Stage", all.x = T)
+Meiotic_counts$Meiotic_Freq <- round(Meiotic_counts$Meiotic_counts/Meiotic_counts$Embryos * 100, 0)
+Meiotic_colors <- c("Chromosomal loss" = "#E41A1C", "Segmental loss" = "#FF7F00" , "Chromosomal gain+loss" = "#663399","Segmental gain+loss" = "#3171a5")
+Meiotic_counts$Type <- factor(Meiotic_counts$Type, levels = c("Segmental gain+loss","Segmental loss", "Chromosomal gain+loss", "Chromosomal loss"))
+levels(Meiotic_counts$Stage) <- c("2-cell", "~8-cell")
+ggplot(Meiotic_counts, aes(x = Stage, y = Meiotic_Freq, fill = Type)) + geom_bar(stat = "identity", col = "black", lwd = 0.3) + scale_fill_manual(values = Meiotic_colors)+
+  labs(y = "Embryos with meiotic errors\n(% of total)", x= "Embryo stage", fill = "Type of error") +
+  theme_bw(base_size = 8) + 
+  scale_y_continuous(expand = c(0,0),labels = function(x) paste0(x, "%")) + 
+  coord_cartesian(ylim = c(0,23)) +
+  theme(strip.text.x = element_text(size = 7, face = "bold"), 
+        panel.border = element_rect(colour = "black"),
+        legend.key.size = unit(0.6, "line"),
+        legend.margin = margin(0,0,0,0),
+        legend.title = element_text(size = 7),
+        legend.text = element_text(size = 6),
+        axis.text = element_text(size = 6),
+        axis.title =  element_text(size = 7),
+        panel.grid.major.x = element_blank(),
+        text=element_text(family="Arial"))
+ggsave(filename = paste(output_folder,"S2C_Meiotic_counts.pdf", sep = ""), width = 60, height = 45, units = "mm", dpi = 300, device = cairo_pdf)
+
+
+# Print % of embryos with meiotic errors
+print("# Percentage of embryos (total) with one or more meiotic events:")
+nrow(Meiotic_overview2[Meiotic_overview2$Meiotic_events > 0,]) / nrow(Meiotic_overview2) * 100
+print("# Control 2-cell embryos with meiotic errors:")
+nrow(Meiotic_overview2[which(Meiotic_overview2$Group == 0 & Meiotic_overview2$Stage == "2-cell" & Meiotic_overview2$Meiotic_events > 0),]) / nrow(Meiotic_overview2[which(Meiotic_overview2$Group == 0 & Meiotic_overview2$Stage == "2-cell"),]) * 100
+
+print("# Percentage of embryos with one or more mitotic errors")
+print("2-cell")
+Total_embryos <- data.frame(table( Mitotic_overview$Group, Mitotic_overview$Stage))
+names(Total_embryos) <- c("Group", "Stage", "Embryos")
+
+Mitotic_embryos <- data.frame(table(Mitotic_overview$Group[Mitotic_overview$Mitotic_events > 0], Mitotic_overview$Stage[Mitotic_overview$Mitotic_events > 0]))
+names(Mitotic_embryos) <- c("Group", "Stage", "Mitotic_errors")
+
+Mitotic_overview <- merge(Mitotic_embryos, Total_embryos, by = c("Group", "Stage"))
+Mitotic_overview$Freq <- Mitotic_overview$Mitotic_errors / Mitotic_overview$Embryos * 100
+
+print(Mitotic_overview)
+
+Mitotic_overview[Mitotic_overview$Stage == "2-cell" & Mitotic_overview$Group != 0,]
+
+print("Number of treated embryos with mitotic error:")
+sum(Mitotic_overview$Mitotic_errors[Mitotic_overview$Stage == "2-cell" & Mitotic_overview$Group != 0] / sum(Mitotic_overview$Embryos[Mitotic_overview$Stage == "2-cell" & Mitotic_overview$Group != 0]))
+
+```
+# Parental origin meiotic effects
+
+```{r, warning = F, echo=F}
+## Parental origin meiotic effects
+Overview_cells <- read.delim(paste(project_folder, "/Data/QC/Overview_cells_", resolution,".txt", sep = ""), stringsAsFactors = F)
+Overview_cells <- Overview_cells[which(Overview_cells$Run %in% c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+Excluded_cells <- Overview_cells$Library[which(Overview_cells$Exclude != "No" | Overview_cells$total.read.count < 150000)]
+Overview_cells <- Overview_cells[which(Overview_cells$Exclude == "No"),]
+Overview_cells <- Overview_cells[-which(Overview_cells$Stage == "3-cell"),]
+
+# Read CNVs per embryo
+CNV_folder_cells <- paste(project_folder, "Data/CNVs_cells/", resolution, "/", sep = "")
+CNV_folder_embryos <- paste(project_folder, "Data/CNV/", resolution, "/", sep = "")
+
+MAT_SNP_folder <-  paste(project_folder, "Data/SNVs/SNPs_Phased/", sep = "")
+
+Count_SNPs_Bins <- function(input_data, regions){
+  # MAT frequencies of the entire input data are calculated if "regions" is a string:
+  if(is.character(regions) == TRUE){
+    MAT_frequencies <- data.frame(Library = library, MAT_Counts = length(which(input_data[,4] == "MAT")),
+                                  PAT_MAT_Counts = length(which(input_data[,4] == "PAT/MAT")),
+                                  MAT_Freq = length(which(input_data[,4] == "MAT"))/nrow(input_data),
+                                  PAT_MAT_Freq = length(which(input_data[,4] == "PAT/MAT"))/nrow(input_data))
+  } else {
+    #print("regions")
+    MAT_positions <- GRanges(seqnames = input_data[which(input_data[,4] == "MAT"),1], 
+                             IRanges(start = input_data[which(input_data[,4] == "MAT"),2], end = input_data[which(input_data[,4] == "MAT"),3]))
+    PAT_MAT_positions <- GRanges(seqnames = input_data[which(input_data[,4] == "PAT/MAT"),1], 
+                                 IRanges(start = input_data[which(input_data[,4] == "PAT/MAT"),2], end = input_data[which(input_data[,4] == "PAT/MAT"),3]))
+    
+    MAT_Counts<- countOverlaps(regions, MAT_positions)
+    PAT_MAT_Counts <- countOverlaps(regions, PAT_MAT_positions)
+    
+    MAT_frequencies <- data.frame(regions, MAT_Counts, PAT_MAT_Counts)
+    MAT_frequencies$MAT_Freq <- MAT_frequencies$MAT_Counts / (MAT_frequencies$MAT_Counts+MAT_frequencies$PAT_MAT_Counts)
+  }
+  return(MAT_frequencies)
+}
+
+# Plot the number of events per embryo
+Meiotic_overview <- data.frame(stringsAsFactors = F)
+
+Embryo_overview <- read.delim(paste(project_folder, "Data/QC/Overview_embryos_",resolution,".txt", sep =""), header = T, stringsAsFactors = F)
+Embryo_overview <- Embryo_overview[which(Embryo_overview$Run %in% c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+# Remove embryos with 3 cells at 2-cell stage
+Embryo_overview <- Embryo_overview[which(Embryo_overview$Stage != "3-cell"),]
+
+# Determine which meiotic events are maternal or paternally inherited
+for(Embryo in Embryo_overview$Embryo){
+  CNV_file <- list.files(CNV_folder_embryos, full.names = T)[grep(pattern = paste(Embryo, ".txt", sep = ""), x = list.files(CNV_folder_embryos, full.names = T))]
+  print(CNV_file)
+  if(length(CNV_file) > 0){
+    if(file.exists(CNV_file) == TRUE ){
+      CNVs_Embryo <- read.delim(CNV_file, stringsAsFactors = F)
+      CNVs_Embryo <- CNVs_Embryo[!duplicated(CNVs_Embryo$CNV_ID),]
+      CNVs_Embryo <- CNVs_Embryo[which(CNVs_Embryo$seqnames != "X"),]
+      CNVs_Embryo <- CNVs_Embryo[which(CNVs_Embryo$width > 10e6),]
+      
+      # Determine which CNVs are meiotic 
+      Meiotic_losses <- CNVs_Embryo[which(CNVs_Embryo$Embryo_freq == 1 & CNVs_Embryo$Embryo_counts > 1 & CNVs_Embryo$Gains == 0),]
+      Meiotic_gains <- CNVs_Embryo[which(CNVs_Embryo$Embryo_freq == 1 & CNVs_Embryo$Embryo_counts > 1 & CNVs_Embryo$Losses == 0),]
+      Meiotic_events <- rbind(Meiotic_losses, Meiotic_gains)
+      if(nrow(Meiotic_events) > 0 ){
+        Meitotic_CNVs_g <- GRanges(seqnames = Meiotic_events$seqnames, IRanges(start = Meiotic_events$start, end = Meiotic_events$end), Type = ifelse(Meiotic_events$Gains > Meiotic_events$Losses, "Gain", "Loss"))
+        
+        Meiotic_overview_embryo <- data.frame(Embryo = Embryo, CNV_ID = Meiotic_events$CNV_ID, PAT = 0, MAT=0)
+        
+        for(Cell in names(Meiotic_events)[9:(8+unique(Meiotic_events$Cells_in_embryo))]){
+          print(Cell)
+          SNPs_file <- paste(MAT_SNP_folder, Embryo_overview$Run[Embryo_overview$Embryo == Embryo] ,"/",Cell , ".bed", sep = "")
+          CNV_file_cell <- paste(CNV_folder_cells, Overview_cells$Run, "/CNVs_", Cell , ".txt", sep = "")
+          if(file.exists(SNPs_file) == TRUE){
+              SNPs_cell <- read.delim(SNPs_file, stringsAsFactors = F)
+              MAT_Freq_cell <- Count_SNPs_Bins(input_data = SNPs_cell, regions = Meitotic_CNVs_g)
+              
+              # Losses
+              MAT_Freq_cell$Parent <- ifelse(MAT_Freq_cell$MAT_Freq < 0.25 & MAT_Freq_cell$Type == "Loss", "Maternal", "Mixed")
+              MAT_Freq_cell$Parent <- ifelse(MAT_Freq_cell$MAT_Freq > 0.5 & MAT_Freq_cell$Type == "Loss", "Paternal", MAT_Freq_cell$Parent)
+              # Gains
+              MAT_Freq_cell$Parent <- ifelse(MAT_Freq_cell$MAT_Freq < 0.3 & MAT_Freq_cell$Type == "Gain", "Paternal", MAT_Freq_cell$Parent)
+              MAT_Freq_cell$Parent <- ifelse(MAT_Freq_cell$MAT_Freq > 0.4 & MAT_Freq_cell$Type == "Gain", "Maternal", MAT_Freq_cell$Parent)
+              
+              MAT_Freq_cell$CNV_ID <- paste(MAT_Freq_cell$seqnames, MAT_Freq_cell$start, MAT_Freq_cell$end, sep = "_")
+              for(CNV_ID in MAT_Freq_cell$CNV_ID){
+                Meiotic_overview_embryo$PAT[Meiotic_overview_embryo$CNV_ID == CNV_ID] <- ifelse(MAT_Freq_cell$Parent[MAT_Freq_cell$CNV_ID == CNV_ID] == "Paternal",
+                                                                                                Meiotic_overview_embryo$PAT[Meiotic_overview_embryo$CNV_ID == CNV_ID] +1,
+                                                                                                Meiotic_overview_embryo$PAT[Meiotic_overview_embryo$CNV_ID == CNV_ID])
+                Meiotic_overview_embryo$MAT[Meiotic_overview_embryo$CNV_ID == CNV_ID] <- ifelse(MAT_Freq_cell$Parent[MAT_Freq_cell$CNV_ID == CNV_ID] == "Maternal",
+                                                                                                Meiotic_overview_embryo$MAT[Meiotic_overview_embryo$CNV_ID == CNV_ID] +1,
+                                                                                                Meiotic_overview_embryo$MAT[Meiotic_overview_embryo$CNV_ID == CNV_ID])
+            }
+          }
+        }
+        Meiotic_overview <- rbind(Meiotic_overview, Meiotic_overview_embryo)
+      }
+    }
+  }
+}
+# Meiotic events per embryo:
+Meiotic_overview2 <- Meiotic_overview
+Meiotic_overview2$Parent <- ifelse(Meiotic_overview2$PAT > Meiotic_overview2$MAT, "Paternal", "Maternal")
+Meiotic_overview2$Parent <- ifelse(Meiotic_overview2$PAT == Meiotic_overview2$MAT, "ND", Meiotic_overview2$Parent)
+
+Meiotic_counts <- data.frame(table(Meiotic_overview2$Parent))
+Meiotic_counts$Var1 <- factor(Meiotic_counts$Var1, levels = c("Maternal", "Paternal", "ND"))
+Meiotic_counts <- Meiotic_counts[order(Meiotic_counts$Var1),]
+Meiotic_counts$Fraction <- Meiotic_counts$Freq / sum(Meiotic_counts$Freq)
+
+Meiotic_counts$ymax <- cumsum(Meiotic_counts$Fraction)
+Meiotic_counts$ymin <-  c(0, head(Meiotic_counts$ymax, n = -1)) 
+Meiotic_counts <- Meiotic_counts[order(Meiotic_counts$Var1),]
+
+Meiotic_plot <- ggplot(Meiotic_counts, aes(fill = Var1, ymax = ymax, ymin = ymin, xmax = 4.25, xmin = 2.5)) + 
+  geom_rect(col = "white", lwd = 1) + 
+  geom_text(inherit.aes = F,
+            x=0,
+            y=0, aes(label = "Allele affected\nby\nmeiotic error"), size = 2)  +
+  geom_text(aes(y = (ymin+ymax)/2, x = 3.375,  label = Freq), size = 2) +
+  geom_text(aes(y = (ymin+ymax)/2, x = 5.5,  label = Var1), size = 2) +
+  coord_polar(theta="y") +
+  scale_fill_manual(values = c("Paternal" = rgb(255,128,0, maxColorValue = 255), "Maternal" = rgb(148,0,211, maxColorValue = 255), "ND" = "gray")) + 
+  
+  xlim(c(0,5.5)) +
+  theme_void(base_size = 6) +
+  theme(legend.position = "none")
+
+if(export_figures == TRUE){
+  pdf(file = paste(output_folder, "S2D_Parent_meiotic_events.pdf", sep = ""), width = 1.8, height = 1.8, family = "ArialMT", pointsize = 6)
+  print(Meiotic_plot)
+  dev.off()
+}
+
+
+```
+
+# Recurrency
+
+```{r, warning = F, echo=F}
+cnv_folder <- paste(project_folder, "/Data/CNV/", resolution, "/", sep = "")
+
+
+Overview_cells <- read.delim(paste(project_folder, "/Data/QC/Overview_cells_", resolution,".txt", sep = ""), stringsAsFactors = F)
+Overview_cells <- Overview_cells[which(Overview_cells$Run %in% c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+Excluded_cells <- Overview_cells$Cell[which(Overview_cells$Exclude != "No")]
+Overview_cells <- Overview_cells[which(Overview_cells$Exclude == "No"),]
+Overview_cells <- Overview_cells[-which(Overview_cells$Stage == "3-cell"),]
+#Overview_cells <- Overview_cells[which(Overview_cells$total.read.count > 150000),]
+# Plot the number of events per embryo
+Recurrency_overview <- data.frame(stringsAsFactors = F)
+
+Embryo_overview <- read.delim(paste(project_folder, "Data/QC/Overview_embryos_",resolution,".txt", sep =""), header = T, stringsAsFactors = F)
+Embryo_overview <- Embryo_overview[which(Embryo_overview$Run %in% c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+# Remove embryos with 3 cells at 2-cell stage
+Embryo_overview <- Embryo_overview[which(Embryo_overview$Stage != "3-cell"),]
+
+for(Embryo in Embryo_overview$Embryo){
+  CNV_file <- list.files(cnv_folder, full.names = T)[grep(pattern = paste(Embryo, ".txt", sep = ""), x = list.files(cnv_folder, full.names = T))]
+  print(CNV_file)
+  if(length(CNV_file) > 0){
+      if(file.exists(CNV_file) == TRUE ){
+        CNVs_Embryo <- read.delim(CNV_file, stringsAsFactors = F)
+        CNVs_Embryo <- CNVs_Embryo[!duplicated(CNVs_Embryo$CNV_ID),]
+        CNVs_Embryo <- CNVs_Embryo[which(CNVs_Embryo$seqnames != "X"),]
+        CNVs_Embryo <- CNVs_Embryo[which(CNVs_Embryo$width > 20e6),]
+        # Remove libraries that did not pass QC filters
+        if(length(which(names(CNVs_Embryo) %in% Excluded_cells)) > 0){
+          CNVs_Embryo <- CNVs_Embryo[,-which(names(CNVs_Embryo) %in% Excluded_cells)]
+        }
+        
+        CNVs_Embryo <- CNVs_Embryo[which(rowSums(abs(CNVs_Embryo[,which(names(CNVs_Embryo) %in% Overview_cells$Cell), drop = F])) > 0),]
+        
+        if(length(which(names(CNVs_Embryo) %in% Overview_cells$Cell)) > 1){
+                  Recurrency_embryo <- data.frame(Embryo = Embryo, 
+                                        Stage = Embryo_overview$Stage[Embryo_overview$Embryo == Embryo],
+                                        Group = Embryo_overview$Group[Embryo_overview$Embryo == Embryo],
+                                        Recurrent = nrow(CNVs_Embryo[CNVs_Embryo$Reciprocal != "Reciprocal" & CNVs_Embryo$Embryo_counts > 1,]), 
+                                        Reciprocal = nrow(CNVs_Embryo[CNVs_Embryo$Reciprocal == "Reciprocal",]),
+                                        Non_reciprocal = nrow(CNVs_Embryo[CNVs_Embryo$Reciprocal == "Non-reciprocal"& CNVs_Embryo$Embryo_counts == 1,]))
+        Recurrency_overview <- rbind(Recurrency_overview, Recurrency_embryo)
+        }
+        
+
+      }
+    
+  # } else {
+  #   Overview_meiotic_embryo <- data.frame(Embryo = Embryo, Meiotic_events = 0, Meiotic_loss_chr = 0, Meiotic_gain_chr = 0, Meiotic_loss_seg = 0, Meiotic_gain_seg = 0)
+  #   Meiotic_overview <- rbind(Meiotic_overview, Overview_meiotic_embryo)
+  }
+}
+
+Recurrency_overview
+
+# 2-cell
+Recurrent2 <- aggregate(Recurrency_overview$Recurrent[Recurrency_overview$Stage == "2-cell"] ~ Recurrency_overview$Group[Recurrency_overview$Stage == "2-cell"], FUN = "sum")
+names(Recurrent2) <- c("Group", "Counts")
+Recurrent2$Type <- "Recurrent"
+
+Reciprocal2 <- aggregate(Recurrency_overview$Reciprocal[Recurrency_overview$Stage == "2-cell"] ~ Recurrency_overview$Group[Recurrency_overview$Stage == "2-cell"], FUN = "sum")
+names(Reciprocal2) <- c("Group", "Counts")
+Reciprocal2$Type <- "Reciprocal"
+
+Non_reciprocal2 <- aggregate(Recurrency_overview$Non_reciprocal[Recurrency_overview$Stage == "2-cell"] ~ Recurrency_overview$Group[Recurrency_overview$Stage == "2-cell"], FUN = "sum")
+names(Non_reciprocal2) <- c("Group", "Counts")
+Non_reciprocal2$Type <- "Non-reciprocal"
+
+Counts_2cell <- rbind(Recurrent2, Reciprocal2, Non_reciprocal2 )
+Counts_group2 <- aggregate(Counts_2cell$Counts ~ Counts_2cell$Group, FUN = "sum")
+names(Counts_group2) <- c("Group", "Counts_group")
+Counts_2cell <- merge(Counts_2cell, Counts_group2, all.x = T)
+Counts_2cell$Freq <- Counts_2cell$Counts / Counts_2cell$Counts_group *100
+Counts_2cell$Label <- round(Counts_2cell$Freq, 0)
+
+Counts_2cell$Stage <- "2-cell"
+
+
+# 8- cell
+Recurrent8 <- aggregate(Recurrency_overview$Recurrent[Recurrency_overview$Stage == "8-cell"] ~ Recurrency_overview$Group[Recurrency_overview$Stage == "8-cell"], FUN = "sum")
+names(Recurrent8) <- c("Group", "Counts")
+Recurrent8$Type <- "Recurrent"
+
+Reciprocal8 <- aggregate(Recurrency_overview$Reciprocal[Recurrency_overview$Stage == "8-cell"] ~ Recurrency_overview$Group[Recurrency_overview$Stage == "8-cell"], FUN = "sum")
+names(Reciprocal8) <- c("Group", "Counts")
+Reciprocal8$Type <- "Reciprocal"
+
+Non_reciprocal8 <- aggregate(Recurrency_overview$Non_reciprocal[Recurrency_overview$Stage == "8-cell"] ~ Recurrency_overview$Group[Recurrency_overview$Stage == "8-cell"], FUN = "sum")
+names(Non_reciprocal8) <- c("Group", "Counts")
+Non_reciprocal8$Type <- "Non-reciprocal"
+
+Counts_8cell <- rbind(Recurrent8, Reciprocal8, Non_reciprocal8 )
+Counts_group8 <- aggregate(Counts_8cell$Counts ~ Counts_8cell$Group, FUN = "sum")
+names(Counts_group8) <- c("Group", "Counts_group")
+Counts_8cell <- merge(Counts_8cell, Counts_group8, all.x = T)
+Counts_8cell$Freq <- Counts_8cell$Counts / Counts_8cell$Counts_group *100
+Counts_8cell$Label <- round(Counts_8cell$Freq, 0)
+
+Counts_8cell$Stage <- "~8-cell"
+
+Recurrency_counts <- rbind(Counts_2cell,Counts_8cell )
+Recurrency_counts$Stage <- factor(Recurrency_counts$Stage, levels = c("2-cell", "~8-cell"))
+Recurrency_counts$Type <- factor(Recurrency_counts$Type, levels = c("Non-reciprocal","Recurrent","Reciprocal"))
+
+Total_events2 <- aggregate(Recurrency_counts$Counts[Recurrency_counts$Stage == "2-cell"] ~ Recurrency_counts$Group[Recurrency_counts$Stage == "2-cell"], FUN = "sum")
+names(Total_events2) <- c("Group", "Counts")
+Total_events2$Stage <- "2-cell"
+Total_events8 <- aggregate(Recurrency_counts$Counts[Recurrency_counts$Stage == "~8-cell"] ~ Recurrency_counts$Group[Recurrency_counts$Stage == "~8-cell"], FUN = "sum")
+names(Total_events8) <- c("Group", "Counts")
+Total_events8$Stage <- "~8-cell"
+
+Total_events <- rbind(Total_events2, Total_events8)
+Total_events$Group <- factor(Total_events$Group)
+Total_events$Stage <- factor(Total_events$Stage, levels = c("2-cell", "~8-cell"))
+
+
+recurrency_plot <- ggplot(Recurrency_counts, aes(x = factor(Group), y= Freq, fill = Type)) + 
+  geom_bar(stat = "identity", col = "black", lwd = 0.25, width = 0.85) + facet_grid(~Stage) +
+      geom_text(data = Total_events, aes(x = Group, y = 105, 
+                                       label = Counts, fill = NULL), size = 1.8, fontface = "italic", family="Arial") +
+            geom_text(data = Recurrency_counts, aes(label = paste(Label, "%", sep = "")), position = position_stack(vjust=0.5), size = 1.7, family="Arial") +
+    labs(y = "Genomic abnormalities >20Mb\n(% of total)", x= "Treatment (Gy)", fill = "Recurrency") +
+  theme_bw(base_size = 8) + 
+    scale_fill_manual(values = c("Reciprocal" = "#E69F00", "Recurrent" = "#56B4E9", "Non-reciprocal" = "gray")) +
+  scale_y_continuous(expand = c(0,0),labels = function(x) paste0(x, "%"), limits = c(0,110)) + 
+  theme(strip.text.x = element_text(size = 7, face = "bold", margin = margin(0,0,0,0, "cm")), 
+        panel.border = element_rect(colour = "black"),
+        legend.key.size = unit(0.6, "line"),
+        legend.margin = margin(0,0,0,0),
+        legend.title = element_text(size = 7),
+        legend.text = element_text(size = 6),
+        axis.text = element_text(size = 6),
+        axis.title =  element_text(size = 7),
+        panel.grid.major.x = element_blank(),
+        text=element_text(family="Arial"))
+recurrency_plot
+if(export_figures == TRUE){
+  ggsave(filename =  paste(output_folder, "2A_Reciprocity_CNVs.pdf", sep = ""), width = 65, height = 45, units = "mm", dpi = 300, device = cairo_pdf)
+}
+
+```
+
+# Parental origin SVs
+
+```{r, warning = F, echo=F}
+Overview_cells <- read.delim(paste(project_folder, "/Data/QC/Overview_cells_", resolution,".txt", sep = ""), stringsAsFactors = F)
+Overview_cells <- Overview_cells[which(Overview_cells$Run %in% c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+Overview_cells <- Overview_cells[which(Overview_cells$Exclude == "No"),]
+Overview_cells <- Overview_cells[-which(Overview_cells$Stage == "3-cell"),]
+
+CN_folder <-  paste(project_folder, "Data/CN_States/", sep = "")
+
+CNV_Phasing_overview <- data.frame()
+for(Cell in unique(Overview_cells$Cell)){
+  print(Cell)
+  Cell_overview <- Overview_cells[which(Overview_cells$Cell == Cell),]
+  
+  CN_file <- paste(CN_folder, Cell_overview$Run, "/CN_States_", Cell , ".txt", sep = "")
+  
+  if(file.exists(CN_file) == TRUE){
+    CN_States_Cell <- read.delim(CN_file, stringsAsFactors = F)
+    CNVs <- CN_States_Cell[which(CN_States_Cell$Copy_number != Cell_overview$base_cn_state),]
+    CNVs <- CNVs[which(CNVs$width > 10e6),]
+    CNVs <- CNVs[which(CNVs$seqnames != "X"),]
+    CNVs <- CNVs[which(CNVs$MAT_Counts > 50 | CNVs$PAT_MAT_Counts > 50),] # this should remove small events and nullisomies
+    if(nrow(CNVs) > 0){
+      CNVs$Type <- ifelse(CNVs$Copy_number < Cell_overview$base_cn_state, "Loss", "Gain")
+      
+      # Gains
+      CNVs$Parent <- ifelse(CNVs$Copy_number > Cell_overview$base_cn_state & CNVs$MAT_Freq > 0.4, "Maternal", "Mixed")
+      CNVs$Parent <- ifelse(CNVs$Copy_number > Cell_overview$base_cn_state & CNVs$MAT_Freq < 0.3, "Paternal",CNVs$Parent)
+      # Losses
+      CNVs$Parent <- ifelse(CNVs$Copy_number < Cell_overview$base_cn_state & CNVs$MAT_Freq > 0.5, "Paternal", CNVs$Parent)
+      CNVs$Parent <- ifelse(CNVs$Copy_number < Cell_overview$base_cn_state & CNVs$MAT_Freq < 0.3, "Maternal",CNVs$Parent)
+      
+      CNVs$CNV_ID <- paste(CNVs$seqnames, CNVs$start, CNVs$end, sep = "_")
+      CNV_phasing <- data.frame(Cell = Cell, Group =Cell_overview$Group, Stage = Cell_overview$Stage, Type = CNVs$Type, CNV_ID = CNVs$CNV_ID, Parent = CNVs$Parent, MAT_Freq = CNVs$MAT_Freq)
+      CNV_Phasing_overview <- rbind(CNV_Phasing_overview, CNV_phasing)
+    }
+  }
+}
+CNV_Phasing_overview2 <- CNV_Phasing_overview
+CNV_Phasing_overview2$Parent <- factor(CNV_Phasing_overview2$Parent, levels = c("Mixed", "Maternal", "Paternal"))
+CNV_Phasing_overview2$Stage <- as.character(CNV_Phasing_overview2$Stage)
+CNV_Phasing_overview2$Stage[CNV_Phasing_overview2$Stage == "8-cell"] <- "~8-cell"
+CNV_Phasing_overview2$Stage <- factor(CNV_Phasing_overview2$Stage, levels = c("2-cell", "~8-cell"))
+
+
+Total_abnormalities <- data.frame(table(CNV_Phasing_overview2$Group, CNV_Phasing_overview2$Stage))
+names(Total_abnormalities) <- c("Group", "Stage", "Counts")
+
+Phasing_plot <- ggplot(CNV_Phasing_overview2, aes(x = factor(Group), fill = Parent)) + 
+  geom_bar(stat = "count", position = position_fill(), lwd = 0.25, width = 0.85, col = "black") + facet_grid(~Stage)+
+        geom_text(data = Total_abnormalities, aes(x = Group, y = 1.05, 
+                                       label = Counts, fill = NULL), size = 1.8, fontface = "italic", family="Arial") +
+  labs(x = "Treatment (Gy)", y = "Abnormalities (% of total)", fill = "Affected allele") +
+    scale_y_continuous(expand = c(0,0),labels = function(x) paste0(x*100, "%"), limits = c(0,1.1)) + 
+  scale_fill_manual(values = c("Paternal" = rgb(255,128,0, maxColorValue = 255), "Maternal" = rgb(148,0,211, maxColorValue = 255), "Mixed" = "gray")) +
+        theme_bw(base_size = 8) + 
+    theme(strip.text.x = element_text(size = 7, face = "bold", margin = margin(0,0,0,0, "cm")), 
+        panel.border = element_rect(colour = "black"),
+        legend.key.size = unit(0.6, "line"),
+        legend.margin = margin(0,0,0,0),
+        legend.title = element_text(size = 7),
+        legend.text = element_text(size = 6),
+        axis.text = element_text(size = 6),
+        axis.title =  element_text(size = 7),
+        panel.grid.major.x = element_blank(),
+        text=element_text(family="Arial"))
+Phasing_plot
+if(export_figures == TRUE){
+  ggsave(filename =  paste(output_folder,"2D_Phasing_CNVs.pdf", sep = ""), width = 60, height = 45, units = "mm", dpi = 300, device = cairo_pdf)
+}
+
+# Absolute number of events per alleles
+Phasing_counts <- data.frame(table(CNV_Phasing_overview$Parent, CNV_Phasing_overview$Cell))
+names(Phasing_counts) = c("Parent", "Cell", "Counts")
+Phasing_counts <- merge(Phasing_counts, Overview_cells[,c("Cell", "Group", "Stage")], by = "Cell", all.x = T)
+Phasing_counts$Group <- factor(Phasing_counts$Group)
+Phasing_counts$Stage[Phasing_counts$Stage == "8-cell"] <- "~8-cell"
+Phasing_counts$Stage <- factor(Phasing_counts$Stage, levels = c("2-cell", "~8-cell"))
+phasing_mitotic_plot <- ggplot(Phasing_counts[Phasing_counts$Parent != "Mixed",], aes(x = Group, y = Counts, fill = Parent)) + 
+  stat_boxplot(geom = "errorbar", lwd = 0.25, width = 0.4,  position = position_dodge(width = 0.8)) +
+  geom_boxplot(outlier.size = 0.15, position = position_dodge(width = 0.8), lwd = 0.25) + facet_grid(~Stage) +
+  
+  scale_y_continuous(expand = c(0,0), limits = c(0,23)) + 
+  scale_fill_manual(values = c("Paternal" = rgb(255,128,0, maxColorValue = 255), "Maternal" = rgb(148,0,211, maxColorValue = 255), "Mixed" = "gray")) +
+  labs(y = "Mitotic abnormalities\nper cell (#)", x = "Treatment (Gy)", fill = "Affected\nallele") + 
+  theme_bw(base_size = 8) + 
+  theme(strip.text.x = element_text(size = 7, face = "bold", margin = margin(0,0,0,0, "cm")), 
+        panel.border = element_rect(colour = "black"),
+        legend.key.size = unit(0.6, "line"),
+        legend.margin = margin(0,0,0,0),
+        legend.title = element_text(size = 7),
+        legend.text = element_text(size = 6),
+        axis.text = element_text(size = 6),
+        axis.title =  element_text(size = 7),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        text=element_text(family="Arial")
+        )
+
+phasing_mitotic_plot
+if(export_figures == TRUE){
+  ggsave(filename = paste(output_folder, "S3B_Abnormalities_per_allele.pdf", sep = ""), height= 40, width=65, units = "mm", device = cairo_pdf)
+}
+
+
+```
+
+# Genotypes per embryo
+
+```{r, warning = F, echo=F}
+
+Embryo_overview <- read.delim(paste(project_folder, "Data/QC/Overview_embryos_",resolution,".txt", sep =""), header = T, stringsAsFactors = F)
+Embryo_overview <- Embryo_overview[which(Embryo_overview$Run %in% c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+# Remove embryos with 3 cells at 2-cell stage
+Embryo_overview <- Embryo_overview[which(Embryo_overview$Stage != "3-cell"),]
+
+Embryo_overview8 <- Embryo_overview[Embryo_overview$Stage == "8-cell",]
+
+Genotype_counts <- data.frame(table(Embryo_overview8$Genotypes, Embryo_overview8$Group))
+names(Genotype_counts) <- c("Genotypes", "Group", "Counts")
+Total_embryos <- data.frame(table(Embryo_overview8$Group))
+names(Total_embryos) <- c("Group", "Embryos")
+
+Genotype_overview <- merge(Genotype_counts, Total_embryos, by = "Group", all.x = T)
+Genotype_overview$Freq <- Genotype_overview$Counts / Genotype_overview$Embryos
+Genotype_overview$Group <- factor(paste(Genotype_overview$Group, "Gy", sep = " "), levels = c("0 Gy", "2.5 Gy", "10 Gy"))
+Genotype_plot <- ggplot(Genotype_overview, aes(x = 1, y = Freq, fill = Group)) + geom_bar(stat = "identity", position = position_dodge(), col = "black", lwd = 0.25) + 
+  facet_wrap(~Genotypes, strip.position = "bottom", nrow = 1) +
+  labs(x = "Genotypes per ~8-cell embryo", y = "Embryos\n(% of total per treatment)", fill = "Treatment") +
+  scale_y_continuous(expand = c(0,0), labels = function(x) paste0(x*100, "%")) + 
+  scale_x_continuous(expand = c(0,0.1)) + 
+
+  coord_cartesian(ylim = c(0,0.52)) +
+  scale_fill_brewer(palette = "YlOrRd") +
+  theme_classic(base_size = 8) + 
+    theme(strip.text.x = element_text(size = 6, margin = margin(0,0,0,0, "cm")), 
+          strip.background = element_blank(),
+          panel.spacing = unit(0.01, "lines"),
+        legend.key.size = unit(0.5, "line"),
+        legend.margin = margin(0,0,0,0),
+        legend.title = element_text(size = 7),
+        legend.text = element_text(size = 6),
+        axis.text = element_text(size = 6),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title =  element_text(size = 7),
+        axis.line.x = element_blank(),
+        panel.grid.major.x = element_blank(),
+        text=element_text(family="Arial"))
+
+Genotype_plot
+if(export_figures == TRUE){
+  ggsave(filename = paste(output_folder,"2C_Genotypes_8cell.pdf", sep = ""), width = 60, height = 40, units = "mm", dpi = 300, device = cairo_pdf)
+}
+
+
+
+```
+
+
+# Cellular fragmentation
+
+```{r, warning = F, echo=F}
+
+# Example = E166
+
+# Relative number of events per cell
+Overview_cells <- read.delim(paste(project_folder, "/Data/QC/Overview_cells_", resolution,".txt", sep = ""), stringsAsFactors = F)
+Overview_cells <- Overview_cells[which(Overview_cells$Run %in% c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+Overview_cells <- Overview_cells[which(Overview_cells$Exclude == "No"),]
+Overview_cells <- Overview_cells[-which(Overview_cells$Stage == "3-cell"),]
+
+#CNV_overview <- read.delim(paste(cnv_folder, "CNV_counts.txt"))
+#Overview_cells <- read.delim("~/hpc/cog_bioinf/cuppen/project_data/Ewart_Single_Cell/Bovine/QC/Overview_cells.txt", stringsAsFactors = F)
+Overview_cells$Group <- factor(Overview_cells$Group, levels = c(0,2.5,10))
+Overview_cells$Conclusion[Overview_cells$Conclusion %in% c("CNV", "Aneuploid")] <- "Simple"
+Overview_cells$Conclusion[Overview_cells$Conclusion %in% c("Haploid", "Uniparental")] <- "Haploid/Uniparental"
+Overview_cells$Conclusion[Overview_cells$Conclusion %in% c("Haploid (Complex)", "Uniparental (Complex)")] <- "Haploid/Uniparental (Complex)"
+
+Overview_cells_8 <- Overview_cells[which(Overview_cells$Stage == "8-cell"),]
+
+Fragmented_cells <- Overview_cells_8[which(Overview_cells_8$Conclusion == "Fragmented"),]
+Fragment_counts <- data.frame(table(Fragmented_cells$Group[!duplicated(Fragmented_cells$Embryo)], Fragmented_cells$Parent[!duplicated(Fragmented_cells$Embryo)]))
+names(Fragment_counts) <- c("Group", "Parent", "Fragmented_embryos")
+Fragment_counts$Parent <- factor(Fragment_counts$Parent, levels = c("Paternal", "Mixed", "Maternal"))
+
+
+Embryo_counts <- data.frame(table(Overview_cells_8$Group[!duplicated(Overview_cells_8$Embryo)]))
+names(Embryo_counts) <- c("Group", "Embryos")
+
+Fragment_overview <- merge(Fragment_counts, Embryo_counts, by = "Group")
+Fragment_overview$Freq <- round(Fragment_overview$Fragmented_embryos / Fragment_overview$Embryos * 100, 0)
+
+Fragment_plot <- ggplot(Fragment_overview, aes(x = Group, y = Freq, fill = Parent)) + 
+  geom_bar(stat = "identity", col = "black", lwd = 0.3) +
+  labs(y = "~8-cell embryos with\ncellular fragmentation", x = "Treatment (Gy)", fill = "Parental\nHaplotype") + 
+  theme_bw(base_size = 8) + 
+  scale_y_continuous(expand = c(0,0), labels = function(x) paste0(x, "%")) + coord_cartesian(ylim = c(0,35)) +
+  scale_fill_manual(values = c("Paternal" = rgb(255,128,0, maxColorValue = 255), "Maternal" = rgb(148,0,211, maxColorValue = 255), "Mixed" = "gray")) +
+  theme(strip.text.x = element_text(size = 7, face = "bold"), 
+        panel.border = element_rect(colour = "black"),
+        legend.key.size = unit(0.6, "line"),
+        legend.margin = margin(0,0,0,0),
+        legend.title = element_text(size = 7),
+        legend.text = element_text(size = 6),
+        axis.text = element_text(size = 6),
+        axis.title =  element_text(size = 7),
+        panel.grid.major.x = element_blank(),
+        text=element_text(family="Arial"))
+Fragment_plot
+if(export_figures == TRUE){
+  ggsave(filename = paste(output_folder,"S4B_Embryos_with_fragments.pdf", sep = ""), width = 50, height = 40, units = "mm", dpi = 300, device = cairo_pdf)
+}
+
+print("# % of embryos produced with 10Gy treated sperm with cellular fragmentation")
+
+print(Fragment_overview)
+
+
+```
+
+# Parental origin haploid cells
+
+```{r, warning = F, echo=F}
+Overview_cells <- read.delim(paste(project_folder, "/Data/QC/Overview_cells_", resolution,".txt", sep = ""), stringsAsFactors = F)
+Overview_cells <- Overview_cells[which(Overview_cells$Run %in% c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+Overview_cells <- Overview_cells[which(Overview_cells$Exclude == "No"),]
+Overview_cells <- Overview_cells[-which(Overview_cells$Stage == "3-cell"),]
+
+Haploid_8_Cell <- data.frame(table(Overview_cells$Parent[which(Overview_cells$Conclusion %in% c("Haploid", "Haploid/Uniparental", "Haploid (Complex)","Haploid/Uniparental (Complex)","Uniparental","Uniparental (Complex)") & Overview_cells$Stage == "8-cell")], Overview_cells$Group[which(Overview_cells$Conclusion %in% c("Haploid", "Haploid/Uniparental", "Haploid (Complex)","Haploid/Uniparental (Complex)","Uniparental","Uniparental (Complex)") & Overview_cells$Stage == "8-cell")]))
+names(Haploid_8_Cell) <- c("Parent", "Group", "Counts")
+Haploid_8_Cell$Stage <- "~8-cell"
+Total_8Cells <- data.frame(table(Overview_cells$Group[Overview_cells$Stage == "8-cell"]))
+names(Total_8Cells) <- c("Group", "Cells")
+Haploid_8_Cell <- merge(Haploid_8_Cell, Total_8Cells, all.x = T)
+
+Haploid_2_Cell <- data.frame(table(Overview_cells$Parent[which(Overview_cells$Conclusion %in% c("Haploid", "Haploid/Uniparental", "Haploid (Complex)","Haploid/Uniparental (Complex)","Uniparental","Uniparental (Complex)") & Overview_cells$Stage == "2-cell")], Overview_cells$Group[which(Overview_cells$Conclusion %in% c("Haploid", "Haploid/Uniparental", "Haploid (Complex)","Haploid/Uniparental (Complex)","Uniparental","Uniparental (Complex)") & Overview_cells$Stage == "2-cell")]))
+names(Haploid_2_Cell) <- c("Parent", "Group", "Counts")
+Haploid_2_Cell$Stage <- "2-cell"
+Total_2Cells <- data.frame(table(Overview_cells$Group[Overview_cells$Stage == "2-cell"]))
+names(Total_2Cells) <- c("Group", "Cells")
+Haploid_2_Cell <- merge(Haploid_2_Cell, Total_2Cells, all.x = T)
+
+Haploid_overview <- rbind(Haploid_2_Cell, Haploid_8_Cell)
+Haploid_overview$Freq <- Haploid_overview$Counts / Haploid_overview$Cells * 100
+Haploid_overview$Stage <- factor(Haploid_overview$Stage, levels = c("2-cell", "~8-cell"))
+
+Total_cells <- data.frame(table(Overview_cells$Group, Overview_cells$Stage))
+names(Total_cells) <- c("Group", "Stage", "Counts")
+Total_cells$Stage <- as.character(Total_cells$Stage)
+Total_cells$Stage[Total_cells$Stage == "8-cell"] <- "~8-cell"
+Total_cells$Stage <- factor(Total_cells$Stage, levels = c("2-cell", "~8-cell"))
+
+parent_haploid_plot <- ggplot(Haploid_overview, aes(x = Group, y = Freq, fill = Parent)) + 
+  geom_bar(stat = "identity", col = "black", lwd = 0.25, width = 0.85) + facet_grid(~Stage) + 
+   geom_text(data = Total_cells, aes(x = Group, y = 64, 
+                                       label = Counts, fill = NULL), size = 1.8, fontface = "italic", family="Arial") +
+  labs(y = "Haploid/Uniparental cells\n(% of total)", x = "Treatment (Gy)", fill = "Parental\nHaplotype") + 
+  theme_bw(base_size = 8) + 
+  scale_y_continuous(expand = c(0,0), labels = function(x) paste0(x, "%")) + coord_cartesian(ylim = c(0,68)) +
+  scale_fill_manual(values = c("Paternal" = rgb(255,128,0, maxColorValue = 255), "Maternal" = rgb(148,0,211, maxColorValue = 255), "Mixed" = "gray")) +
+  theme(strip.text.x = element_text(size = 7, face = "bold", margin = margin(0,0,0,0, "cm")), 
+        panel.border = element_rect(colour = "black"),
+        legend.key.size = unit(0.6, "line"),
+        legend.margin = margin(0,0,0,0),
+        legend.title = element_text(size = 7),
+        legend.text = element_text(size = 6),
+        axis.text = element_text(size = 6),
+        axis.title =  element_text(size = 7),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        text=element_text(family="Arial"))
+parent_haploid_plot
+if(export_figures == TRUE){
+  ggsave(filename = paste(output_folder,"3C_Parent_Haploids.pdf", sep = ""), width = 65, height = 45, units = "mm", dpi = 300, device = cairo_pdf)
+}
+
+
+
+```
+# Haploid cells per embryo
+
+```{r, warning = F, echo=F}
+Overview_cells <- read.delim(paste(project_folder, "/Data/QC/Overview_cells_", resolution,".txt", sep = ""), stringsAsFactors = F)
+Overview_cells <- Overview_cells[which(Overview_cells$Run %in% c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+Overview_cells <- Overview_cells[which(Overview_cells$Exclude == "No"),]
+Overview_cells <- Overview_cells[-which(Overview_cells$Stage == "3-cell"),]
+
+Cells_per_embryo <- data.frame(table(Overview_cells$Embryo))
+names(Cells_per_embryo) <- c("Embryo", "Cells")
+Haploids_per_embryo <- data.frame(table(Overview_cells$Embryo[which(Overview_cells$Conclusion %in% c("Haploid", "Haploid/Uniparental", "Haploid (Complex)","Haploid/Uniparental (Complex)","Uniparental","Uniparental (Complex)"))]))
+names(Haploids_per_embryo) <- c("Embryo", "Haploid_cells")
+
+# Only include the embryos with at least one haploid cell
+Haploids_relative <- merge(Cells_per_embryo, Haploids_per_embryo)
+Haploids_relative$Haploid_relative <- Haploids_relative$Haploid_cells / Haploids_relative$Cells
+
+haploid_embryo_plot <- ggplot(Haploids_relative, aes(x = Haploid_relative)) + geom_histogram(binwidth = 0.2, col = "darkblue", center = 0.1, fill = "#4169E1") + 
+  labs(x = "Fraction of haploid/uniparental\ncells per embryo", y = "Embryos (#)") + 
+  scale_x_continuous(limits = c(0,1), breaks = seq(0,1, by = 0.2), labels = function(x) paste0(x*100, "%")) +
+   scale_y_continuous(limits = c(0,12), expand = c(0,0)) +
+  theme_classic(base_size = 8) + 
+      theme(axis.text = element_text(size = 6),
+        axis.title =  element_text(size = 7),
+        panel.grid.major = element_blank(),
+        text=element_text(family="Arial"),
+        panel.grid.minor = element_blank())
+haploid_embryo_plot
+if(export_figures == TRUE){
+  ggsave(filename = paste(output_folder,"3D_Fraction_Haploids.pdf", sep = ""), width = 50, height = 45, units = "mm", dpi = 300, device = cairo_pdf)
+}
+
+
+
+
+```
+
+# Parental SNP distribution and cutoffs
+
+```{r, warning = F, echo=F}
+
+Overview_cells <- read.delim(paste(project_folder, "/Data/QC/Overview_cells_", resolution,".txt", sep = ""), stringsAsFactors = F)
+Overview_cells <- Overview_cells[which(Overview_cells$Run %in% c( "Run1","Run2" ,"Run3A","Run3B","Run4A","Run4B")),]
+Overview_cells <- Overview_cells[which(Overview_cells$Exclude == "No"),]
+Overview_cells <- Overview_cells[-which(Overview_cells$Stage == "3-cell"),]
+
+Ploidy_overview <- read.delim(paste(project_folder, "/Data/QC/Overview_Ploidy.txt", sep = ""), stringsAsFactors = F)
+
+Ploidy_overview <- Ploidy_overview[which(Ploidy_overview$Cell %in% Overview_cells$Cell),]
+
+SNP_plot <- ggplot(Ploidy_overview, aes(x = MAT_Freq, fill = Parent, col = Parent)) + 
+  geom_density(lwd = 0.3) + 
+  geom_vline(xintercept = c(0.15, 0.5), linetype =2, lwd = 0.25, col = "darkred") +
+  scale_fill_manual(values = c("Paternal" = rgb(255,128,0, maxColorValue = 255), "Maternal" = rgb(148,0,211, maxColorValue = 255), "Mixed" = "gray")) +
+    scale_color_manual(values = c("Paternal" = rgb(255,128,0, maxColorValue = 255), "Maternal" = rgb(148,0,211, maxColorValue = 255), "Mixed" = "gray")) +
+  labs(x = "Fraction of maternal SNPs\nper cell (% of total)")+
+  scale_y_continuous(expand = c(0,0))  +
+  coord_cartesian(xlim = c(0,0.7)) +
+  theme_classic() + 
+  theme(legend.key.size = unit(0.6, "line"),
+        legend.margin = margin(0,0,0,0),
+        legend.title = element_text(size = 7),
+        legend.text = element_text(size = 6),
+        axis.text = element_text(size = 6),
+        axis.line = element_line(size = 0.4),
+        axis.title =  element_text(size = 7),
+        panel.grid.major.x = element_blank(),
+        text=element_text(family="Arial"))
+
+SNP_plot
+if(export_figures == TRUE){
+  ggsave(filename = paste(output_folder,"S3A_SNP_distribution_cells.pdf", sep = ""), width = 60, height = 40, units = "mm", dpi = 300, device = cairo_pdf)
+}
+
+```
+
