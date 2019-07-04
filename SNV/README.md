@@ -2,7 +2,6 @@
 SNP information is used to determine the ploidy of cells and to determine the parent-of-origin of genetic events.
 These scripts are used to call and filter SNPs in single cell sequencing data and in bulk WGS data.
 
-
 ## Dependencies
 1. Opengrid engine
 2. bcftools
@@ -12,12 +11,6 @@ These scripts are used to call and filter SNPs in single cell sequencing data an
 6. R (3.5.1)
    - BSgenome.Btaurus.UCSC.bosTau8
    - GenomicRanges
-
-
-## A. 
-# Readme SNPs
-SNP information is used to determine the ploidy of cells and to determine the parent-of-origin of genetic events.
-These scripts are used to call and filter SNPs in single cell sequencing data and in bulk WGS data.
 
 ## A. Calling and filtering SNPs
 #### A1. Merge BAMs by run
