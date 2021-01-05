@@ -44,8 +44,7 @@ for(chr_file in list.files(temp_folder)){
   job_ID <- paste(jobs_folder, "Call_SNPs_chr", chr, ".sh", sep = "")
   
   output_file <- paste(temp_folder, "SNPs_chr", chr, ".vcf.gz", sep = "")
-  shell_script <- paste("
-#!/bin/bash
+  shell_script <- paste("#!/bin/bash
 
 COMMAND=\"bcftools mpileup -Ou -f ",reference," -q 10 -Q 20 -d 10000 -R ",temp_folder, chr_file," ",input_BAM," | bcftools call -mO z -P 0 -o ",output_file,"\"
 echo \"$COMMAND\"
