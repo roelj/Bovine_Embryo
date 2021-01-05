@@ -47,25 +47,16 @@ for(chr_file in list.files(temp_folder)){
   shell_script <- paste("
 #!/bin/bash
 
-#$ -S /bin/bash
-#$ -l h_vmem=30G
-#$ -l h_rt=04:00:00
-#$ -cwd
-#$ -o ",logs_folder, format(Sys.Date(), "%Y%m%d"),"_Call_SNPs_chr", chr,"_log.txt
-#$ -e ",logs_folder, format(Sys.Date(), "%Y%m%d"),"_Call_SNPs_chr", chr,"_log.txt
-
-# Load R from guix
-echo \"bcftools mpileup -Ou -f ",reference," -q 10 -Q 20 -d 10000 -R ",temp_folder, chr_file," ",input_BAM," | bcftools call -mO z -P 0 -o ",output_file,"\"
-guixr load-profile ~/.guix-profile/ -- <<EOF
-  bcftools mpileup -Ou -f ",reference," -q 10 -Q 20 -d 10000 -R ",temp_folder, chr_file," ",input_BAM," | bcftools call -mO z -P 0 -o ",output_file,"
-EOF
+COMMAND=\"bcftools mpileup -Ou -f ",reference," -q 10 -Q 20 -d 10000 -R ",temp_folder, chr_file," ",input_BAM," | bcftools call -mO z -P 0 -o ",output_file,"\"
+echo \"$COMMAND\"
+eval \"$COMMAND\"
 echo \"Finished\"
 ", sep = "")
   
   print(paste("# Writing shell script: ",job_ID, sep = ""))
   write.table(shell_script, file = job_ID, sep = "\t", quote = F, row.names = F, col.names = F)
   
-  command <- paste("qsub ", job_ID, sep ="")
+  command <- paste("qsub -V -l h_vmem=30G -l h_rt=04:00:00 -cwd -o ",logs_folder, format(Sys.Date(), "%Y%m%d"),"_Call_SNPs_chr", chr,"_log.txt -e ",logs_folder, format(Sys.Date(), "%Y%m%d"),"_Call_SNPs_chr", chr,"_log.txt ", job_ID, sep ="")
   print(command)
   system(command)
 }
