@@ -11,6 +11,10 @@ COMMAND="bcftools concat $1*.vcf.gz -O z -o $2BovineSperm_SNPs_Het_Embryo.vcf.gz
 echo "$COMMAND"
 eval "$COMMAND"
 
+COMMAND="bcftools sort $2BovineSperm_SNPs_Het_Embryo.vcf.gz -O z"
+echo "$COMMAND"
+eval "$COMMAND"
+
 COMMAND="bcftools index $2BovineSperm_SNPs_Het_Embryo.vcf.gz"
 echo "$COMMAND"
 eval "$COMMAND"
