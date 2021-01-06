@@ -23,6 +23,7 @@ echo "# Select high quality SNV calls"
 
 # First remove SNPs next to indels
 bcftools norm -d all $2BovineSperm_SNPs_Het_Embryo.vcf.gz -O z -o $2Deduplicated_positions.vcf.gz
+bcftools sort -T $(pwd) -O z $2Deduplicated_positions.vcf.gz
 bcftools index $2Deduplicated_positions.vcf.gz
 
 # select the positions that have to be removed
