@@ -109,7 +109,7 @@ Rscript ",Call_SNV_Script," $GENOTYPE $BAM_FOLDER $OUTPUT_FOLDER $SAMPLESHEET $R
         print(paste("# Writing shell script: ",job_ID, sep = ""))
         write.table(shell_script, file = job_ID, sep = "\t", quote = F, row.names = F, col.names = F)
 
-        command <- paste("qsub -V -l h_vmem=30G -l h_rt=03:00:00 -cwd -o ",logs_folder, format(Sys.Date(), "%Y%m%d"),"_",job_name,"_", run, "_part", (i+1),"_log.txt -e ",logs_folder, format(Sys.Date(), "%Y%m%d"),"_",job_name,"_", run, "_part", (i+1), "_log.txt", job_ID, sep ="")
+        command <- paste("qsub -V -l h_vmem=30G -l h_rt=03:00:00 -cwd -o ",logs_folder, format(Sys.Date(), "%Y%m%d"),"_",job_name,"_", run, "_part", (i+1),"_log.txt -e ",logs_folder, format(Sys.Date(), "%Y%m%d"),"_",job_name,"_", run, "_part", (i+1), "_log.txt ", job_ID, sep ="")
         print(command)
         system(command)
     } else {
