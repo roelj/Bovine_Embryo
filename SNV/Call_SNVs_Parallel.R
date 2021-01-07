@@ -79,13 +79,6 @@ if(file.exists(Call_SNV_Script)){
          job_ID <- paste(jobs_folder, job_name, "_", run, "_part", (i+1) , ".sh", sep = "")
          shell_script <- paste("#!/bin/bash
 
-#$ -S /bin/bash
-#$ -l h_vmem=30G
-#$ -l h_rt=03:00:00
-#$ -cwd
-#$ -o ",logs_folder, format(Sys.Date(), "%Y%m%d"),"_",job_name,"_", run, "_part", (i+1),"_log.txt
-#$ -e ",logs_folder, format(Sys.Date(), "%Y%m%d"),"_",job_name,"_", run, "_part", (i+1), "_log.txt
-
 GENOTYPE=",Genotype,"
 
 # Folder containing all the bam files (subfolder should start with the Run_ID eg BAM_FOLDER/RUN/{}.bam
@@ -110,17 +103,13 @@ REGIONS=",regions_file,"
 
 SAMPLES=\"",samples,"\"
 
-guixr load-profile ~/.guix-profile/ -- <<EOF
-
-	Rscript ",Call_SNV_Script," $GENOTYPE $BAM_FOLDER $OUTPUT_FOLDER $SAMPLESHEET $RUN $MIN_QUAL $REFERENCE_PATH $REGIONS $SAMPLES
-
-EOF
+Rscript ",Call_SNV_Script," $GENOTYPE $BAM_FOLDER $OUTPUT_FOLDER $SAMPLESHEET $RUN $MIN_QUAL $REFERENCE_PATH $REGIONS $SAMPLES
 ", sep = "")
         
         print(paste("# Writing shell script: ",job_ID, sep = ""))
         write.table(shell_script, file = job_ID, sep = "\t", quote = F, row.names = F, col.names = F)
-        
-        command <- paste("qsub ", job_ID, sep ="")
+
+        command <- paste("qsub -V -l h_vmem=30G -l h_rt=03:00:00 -cwd -o ",logs_folder, format(Sys.Date(), "%Y%m%d"),"_",job_name,"_", run, "_part", (i+1),"_log.txt -e ",logs_folder, format(Sys.Date(), "%Y%m%d"),"_",job_name,"_", run, "_part", (i+1), "_log.txt", job_ID, sep ="")
         print(command)
         system(command)
     } else {
@@ -139,7 +128,3 @@ EOF
   } else {
     print(paste("! SNV calling script: ", Call_SNV_Script, " not found!"), sep = "")
   }
-
-
-  
-
